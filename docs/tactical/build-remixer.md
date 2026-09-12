@@ -12,9 +12,12 @@ and deployment performed on an infrastructure-equipped machine.
 
 M0 is partial: the core import/result flow, persistence, CLI and desktop shell
 exist. Public SDXL fixture acquisition, current Comfy profile selection and
-real engine work remain open. Anonymous Civitai acquisition returned HTTP 403
-from the development machine; original-image upload and recorded-response
-tests work. No public reproduction fixture or image-match result was invented.
+real engine work remain open. The original preview's anonymous Civitai request
+returned HTTP 403. The provider now reads embedded page data using the user's
+subsequent live findings, with REST limited to preview-URL enrichment. This
+revision has offline synthetic-fixture coverage; a successful live import on
+this machine remains unverified. See [provider evidence](../evidence/civitai-page-import.md).
+No public reproduction fixture or image-match result was invented.
 The authored demo is only a UI/service fixture. Full M1 reproduction acceptance
 still gates a supported reproduction release, even if signing setup starts now.
 

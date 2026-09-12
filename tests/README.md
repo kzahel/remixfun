@@ -1,7 +1,12 @@
 # Tests
 
-`test_app.py` covers source normalization, provider failures, file imports,
+`test_app.py` covers source normalization, file imports,
 exact seed transport, immutable manifests, persistence and job recovery.
+`test_civitai.py` uses owned synthetic Next.js pages and mock HTTP responses for
+exact image/query selection, arbitrary metadata, hidden/deleted cases, optional
+REST enrichment, safe CDN redirects, retry limits and corrupt previews. It
+makes no live requests; fixture settings are invented, not those of the example
+image ID. See [provider evidence](../docs/evidence/civitai-page-import.md).
 `scripts/smoke_service.py` exercises a real service process and CLI with restart
 and library-lock checks; it also runs against the frozen service executable.
 `web/tests/` exercises the browser flow against the actual service and demo.

@@ -29,7 +29,12 @@ update coordination still require the later runtime/lifecycle work.
 The preview has no remote bind option, credential store, native privileged web
 commands, updater, or external engine attachment. Host and Origin checks reject
 foreign browser access; images are served by opaque content hashes. Provider
-requests use fixed API/CDN hosts, with no redirects to arbitrary hosts. Transient
+requests use the validated Civitai page host and the image CDN, with a
+browser-style User-Agent. Page HTML is parsed as data; scripts never execute
+and rotating Next.js build IDs are not needed. REST only enriches CDN URLs.
+Responses have size limits, timeouts and bounded transient retries. Redirects
+stay on the request's allowed HTTPS host, without credentials or query strings;
+the final page must still identify the requested image. Transient
 URLs and known credential fields are omitted from retained provider evidence.
 Do not interpret local-only checks as the planned remote authentication scheme.
 

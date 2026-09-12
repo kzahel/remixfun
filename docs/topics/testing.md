@@ -4,6 +4,10 @@ Status: service/domain tests, browser flow tests and process smoke checks exist.
 Local Windows evidence is in [local preview](../evidence/local-preview.md).
 Hosted CI, installed-artifact acceptance and GPU reproduction remain unverified.
 
+The [Civitai provider evidence](../evidence/civitai-page-import.md) separates
+user-supplied live findings from our offline parser, transport and persistence
+tests. Synthetic HTML must not be described as a captured public image fixture.
+
 Use pure CPU tests for metadata normalization, exact dependency resolution,
 recipe diffs, seed/batch search, and lineage. Replay provider responses and use a
 local HTTP fixture server for download resume, corruption, restart, and auth

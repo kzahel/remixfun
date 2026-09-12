@@ -1,9 +1,7 @@
-import asyncio
 import io
 import json
 from pathlib import Path
 
-import httpx
 import pytest
 from fastapi.testclient import TestClient as FastAPITestClient
 from functools import partial
@@ -12,7 +10,7 @@ from PIL import Image, PngImagePlugin
 from remixfun.api import create_app
 from remixfun.cli import main
 from remixfun.domain import Problem, image_id, normalize
-from remixfun.provider import Civitai, redact
+from remixfun.provider import redact
 from remixfun.service import Service
 
 TestClient = partial(FastAPITestClient, base_url="http://127.0.0.1")
@@ -135,52 +133,6 @@ def test_shutdown_marks_demo_interrupted(tmp_path):
         record = client.post("/api/demo").json()
         job = client.post(f"/api/imports/{record['id']}/reproduce").json()
     assert Service(tmp_path).store.get(job["id"], "job")["status"] == "interrupted"
-
-
-def test_provider_preserves_requested_identity_and_requests_metadata(tmp_path):
-    def handler(request):
-        assert request.url.params["imageId"] == "123"
-        assert request.url.params["withMeta"] == "true"
-        return httpx.Response(200, json={"items": [{"id": 123, "meta": {"seed": 18446744073709551614, "prompt": "a lake", "unknown": "keep"}}]})
-    provider = Civitai(httpx.MockTransport(handler))
-    with TestClient(create_app(tmp_path, provider=provider)) as client:
-        response = client.post("/api/imports", json={"url": "https://civitai.com/images/123?foo=bar"})
-        assert response.status_code == 201
-        record = response.json()
-        assert record["source"]["url"] == "https://civitai.com/images/123"
-        assert record["raw"]["meta"]["unknown"] == "keep"
-        assert '18446744073709551614' in record["raw_json"]
-        assert record["recipe"]["fields"]["seed"] == '18446744073709551614'
-        assert record["media"] is None
-
-
-@pytest.mark.parametrize("status,body,expected", [(403, {}, 502), (429, {}, 503), (200, {"items": [{"id": 999}]}, 404), (500, {}, 502)])
-def test_provider_failures_are_actionable(tmp_path, status, body, expected):
-    provider = Civitai(httpx.MockTransport(lambda req: httpx.Response(status, json=body)))
-    with TestClient(create_app(tmp_path, provider=provider)) as client:
-        response = client.post("/api/imports", json={"url": "https://civitai.com/images/123"})
-        assert response.status_code == expected
-        assert isinstance(response.json()["detail"], str)
-        assert client.get("/api/imports").json() == []
-
-
-def test_provider_does_not_fetch_arbitrary_preview_host():
-    calls = []
-    def handler(request):
-        calls.append(str(request.url))
-        return httpx.Response(200, json={"items": [{"id": 123, "url": "http://127.0.0.1/private"}]})
-    result = asyncio.run(Civitai(httpx.MockTransport(handler)).acquire("https://civitai.com/images/123"))
-    assert len(calls) == 1
-    assert result[2] is None
-
-
-@pytest.mark.parametrize("body", [None, [], {"items": None}])
-def test_malformed_provider_response_is_actionable(tmp_path, body):
-    provider = Civitai(httpx.MockTransport(lambda req: httpx.Response(200, content=json.dumps(body), headers={"Content-Type": "application/json"})))
-    with TestClient(create_app(tmp_path, provider=provider)) as client:
-        response = client.post("/api/imports", json={"url": "https://civitai.com/images/123"})
-        assert response.status_code == 502
-        assert client.get("/api/imports").json() == []
 
 
 def test_redaction():

@@ -66,6 +66,12 @@ class Service:
 
     async def import_url(self, url):
         identifier, raw, content, warning = await self.provider.acquire(url)
+        if content:
+            try:
+                inspect_image(content)
+            except Problem:
+                content = None
+                warning = " ".join(filter(None, [warning, "Recipe saved; the source preview was not a valid supported image."]))
         return self.save(raw, content, {"kind": "civitai", "image_id": identifier,
                          "url": f"https://civitai.com/images/{identifier}", "acquired_at": now(),
                          "reference_quality": "provider_image_not_verified_original"}, f"Civitai image {identifier}", warning=warning)

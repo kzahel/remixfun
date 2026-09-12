@@ -7,9 +7,21 @@ Status: local import/library preview implemented; generation remains planned.
 Import a public Civitai image URL or upload a PNG/JPEG/WebP (25 MB maximum).
 The service saves source bytes, SHA-256, source provenance and raw metadata,
 and normalizes common A1111 fields without adding generation defaults. URL
-acquisition requests full metadata and verifies the returned image ID. Civitai
-access denial is actionable; authenticated acquisition and tRPC fallback are
-not implemented. Embedded Comfy graphs are retained, not flattened or executed.
+acquisition reads `__NEXT_DATA__` from the image page. It selects `image.get`
+and `image.getGenerationData` by exact query key and requested input ID, then
+checks the returned image ID. Carousel metadata cannot supply a missing recipe.
+An absent matching image record is not-found even on HTTP 200; an unreadable
+page is a separate acquisition failure. No login or browser dependency is used.
+
+REST is optional preview-URL enrichment and never supplies recipe metadata.
+The full generation record retains arbitrary metadata, resources, tools,
+process and display keys, subject to credential redaction. Hidden or missing
+generation settings produce a partial import with available resources and base
+model evidence. Missing settings remain unknown. Preview download or decoding
+failure preserves the recipe with a warning. Access denial supports retry or
+original-image upload without assuming an API key is required. Embedded Comfy
+graphs are retained, not flattened or executed. Current verification uses
+[synthetic provider fixtures](../evidence/civitai-page-import.md).
 
 The library survives restart and exports a JSON source/recipe manifest. Model,
 version, file and reported hash evidence remain separate and unresolved; no

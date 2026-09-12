@@ -68,8 +68,11 @@ def normalize(raw: dict) -> dict:
                 fields[field] = int(value)
                 provenance[field] = "meta.Size"
     resources = []
-    for key in ("civitaiResources", "resources"):
-        source = meta.get(key)
+    generation = raw.get("generation_data") if isinstance(raw.get("generation_data"), dict) else {}
+    sources = [("meta.civitaiResources", meta.get("civitaiResources")),
+               ("meta.resources", meta.get("resources")),
+               ("generation_data.resources", generation.get("resources"))]
+    for evidence, source in sources:
         if not isinstance(source, list):
             continue
         for item in source:
@@ -77,11 +80,12 @@ def normalize(raw: dict) -> dict:
                 continue
             resources.append({
                 "name": str(item.get("name") or item.get("modelName") or "Unidentified resource"),
-                "type": str(item.get("type") or "unknown"),
+                "type": str(item.get("type") or item.get("modelType") or "unknown"),
                 "model_id": item.get("modelId"),
                 "version_id": item.get("modelVersionId") or item.get("versionId"),
                 "file_id": item.get("fileId"), "hash": item.get("hash"),
-                "weight": item.get("weight"), "evidence": f"meta.{key}",
+                "weight": item.get("weight", item.get("strength")), "evidence": evidence,
+                "base_model": item.get("baseModel"),
                 "status": "unresolved",
             })
     required = ("prompt", "negative_prompt", "seed", "steps", "cfg", "sampler", "scheduler", "width", "height")

@@ -17,8 +17,12 @@ uv run remixfun serve
 ```
 
 Open `http://127.0.0.1:8788`. Try **Open demo**, a public Civitai image URL,
-or an original PNG with A1111 metadata. Civitai can deny anonymous API access;
-the UI explains this and supports original-image upload. Demo output reuses an
+or an original PNG with A1111 metadata. Civitai import reads generation metadata
+from the image page's embedded data, without login or a browser dependency.
+REST only enriches the preview URL. Hidden metadata produces a partial import;
+denied requests support retry or original-image upload. See the
+[provider evidence](docs/evidence/civitai-page-import.md) for verification limits.
+Demo output reuses an
 authored illustration and is never classified as reproduced or generated.
 
 The default data directory comes from `platformdirs` (`Remixfun`, no app author).
