@@ -112,3 +112,38 @@ test("settings dialog supports keyboard close and restores focus", async ({
     page.getByRole("button", { name: "Settings", exact: true }),
   ).toBeFocused();
 });
+
+test("model download progress and resume controls restore from the service", async ({ page }) => {
+  let status = "download_needed";
+  const hash = "a".repeat(64);
+  await page.route("**/api/imports/*/dependencies", route => route.fulfill({ json: {
+    revision: hash, total_download_bytes: 6940000000, unknown_sizes: 0,
+    generation_blockers: ["Source scheduler remains unknown."],
+    dependencies: [{ id: "0", name: "Owned checkpoint", version_name: "Fixture version", status,
+      file: { file_id: "1", name: "owned.safetensors", sha256: hash, size_estimate: 6940000000 }, candidates: [],
+      ...(status === "download_needed" ? {} : { download: { id: "owned", status, downloaded_bytes: 123000000,
+        total_bytes: 6940000000, message: "Owned download fixture" } }),
+    }],
+  } }));
+  await page.route("**/api/imports/*/downloads", route => {
+    expect(route.request().postDataJSON().revision).toBe(hash);
+    status = "downloading";
+    return route.fulfill({ json: { dependencies: { "0": { status, download_id: "owned" } } } });
+  });
+  await page.route("**/api/downloads/owned/*", route => {
+    status = route.request().url().endsWith("/pause") ? "paused" : "downloading";
+    return route.fulfill({ json: { id: "owned", status } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Import image file").setInputFiles(path.resolve("../tests/fixtures/metadata.png"));
+  await page.getByRole("button", { name: "Download missing models · 6.94 GB" }).click();
+  await expect(page.getByRole("progressbar", { name: "Owned checkpoint download progress" })).toBeVisible();
+  await page.getByRole("button", { name: "Pause download", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Resume download", exact: true })).toBeVisible();
+  await page.reload();
+  await page.getByRole("button", { name: /metadata.png/ }).first().click();
+  await page.getByRole("button", { name: "Resume download", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Pause download", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Reproduction unavailable" })).toBeDisabled();
+  await expect(page.getByText("Source scheduler remains unknown.")).toBeVisible();
+});

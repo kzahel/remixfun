@@ -19,6 +19,7 @@ import {
   X,
 } from "lucide-react";
 import "./style.css";
+import { ModelDownloads, ModelSettings } from "./ModelDownloads";
 
 type Media = { url: string; sha256: string; bytes: number };
 type Recipe = {
@@ -31,6 +32,8 @@ type Recipe = {
     version_id: string | number | null;
     hash: string | null;
     status: string;
+    version_name?: string | null;
+    files?: { id?: number; name?: string; sizeKB?: number; hashes?: Record<string, string> }[];
   }[];
 };
 type ImportRecord = {
@@ -45,6 +48,7 @@ type ImportRecord = {
   raw_json?: string;
   recipe: Recipe;
   warning: string | null;
+  reproduction?: { status: string; blockers: string[] };
 };
 type Job = {
   id: string;
@@ -75,6 +79,8 @@ function App() {
   const [gpu, setGpu] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [seed, setSeed] = useState("42");
+  const [modelHash, setModelHash] = useState("");
+  const [availableModels, setAvailableModels] = useState<{ sha256: string; name: string; role: string; base_model: string }[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [health, setHealth] = useState<"connecting" | "online" | "offline">(
@@ -119,6 +125,7 @@ function App() {
 
   async function refresh() {
     setItems(await api<ImportRecord[]>("/imports"));
+    setAvailableModels(await api("/models"));
   }
   useEffect(() => {
     api<{ engine: string }>("/health")
@@ -220,7 +227,7 @@ function App() {
     try {
       const record = await api<ImportRecord>("/recipes", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, seed }),
+        body: JSON.stringify({ prompt, seed, model_sha256: modelHash || null }),
       });
       await refresh();
       await open(record);
@@ -434,6 +441,13 @@ function App() {
                   <p>1024 × 1024 · 25 steps · guidance 7 · Euler / normal · empty negative prompt</p>
                   <label htmlFor="create-seed">Seed</label>
                   <input id="create-seed" value={seed} onChange={(e) => setSeed(e.target.value)} inputMode="numeric" pattern="[0-9]{1,20}" />
+                  <label htmlFor="create-model">Checkpoint for this new recipe</label>
+                  <select id="create-model" value={modelHash} onFocus={() => api<typeof availableModels>("/models").then(setAvailableModels).catch(() => {})}
+                    onChange={e => setModelHash(e.target.value)}>
+                    <option value="">SDXL Base 1.0 · preset checkpoint</option>
+                    {availableModels.filter(m => m.role === "checkpoint" && m.base_model === "SDXL 1.0").map(m =>
+                      <option key={m.sha256} value={m.sha256}>{m.name} · verified</option>)}
+                  </select>
                 </details>
                 <button className="primary" disabled={busy || !prompt.trim()}>Create recipe <ArrowRight size={17} /></button>
               </form>
@@ -650,7 +664,7 @@ function App() {
                         </div>
                       ))}
                     </div>
-                    <div className="section-heading">
+                    {!selected.demo && !authored ? <ModelDownloads importId={selected.id} /> : <><div className="section-heading">
                       <h3>Model dependencies</h3>
                       <span>{selected.recipe.resources.length || "—"}</span>
                     </div>
@@ -662,6 +676,7 @@ function App() {
                           </span>
                           <div>
                             <strong>{resource.name}</strong>
+                            {resource.version_name && <small>{resource.version_name}</small>}
                             <small>
                               {resource.type}
                               {authored ? " · SHA-256 pinned" : resource.version_id
@@ -680,6 +695,7 @@ function App() {
                         do not establish matching bytes.
                       </p>
                     )}
+                    </>}
                     <details className="advanced">
                       <summary>
                         Source details & advanced
@@ -695,6 +711,12 @@ function App() {
                             </React.Fragment>
                           ))}
                       </dl>
+                      {selected.recipe.resources.some(resource => resource.files?.length) && <>
+                        <h4>Provider model files · local bytes unverified</h4>
+                        <pre>{JSON.stringify(selected.recipe.resources.map(resource => ({
+                          name: resource.name, version: resource.version_id, files: resource.files,
+                        })), null, 2)}</pre>
+                      </>}
                       <h4>Original evidence</h4>
                     <pre>{selected.raw_json ?? JSON.stringify(selected.raw, null, 2)}</pre>
                       {selected.media && (
@@ -706,17 +728,6 @@ function App() {
                     </details>
                     {selected.warning && (
                       <p className="notice">{selected.warning}</p>
-                    )}
-                    {!selected.demo && !authored && (
-                      <div className="notice">
-                        <strong>Recipe saved. Reproduction needs setup.</strong>
-                        <p>
-                          This imported source needs exact model resolution and
-                          a compatible generation profile.
-                          {selected.recipe.unknown.length > 0 &&
-                            ` ${selected.recipe.unknown.length} core recipe fields are also unknown.`}
-                        </p>
-                      </div>
                     )}
                     <button
                       className="primary generate"
@@ -857,11 +868,7 @@ function App() {
                     <strong>{gpu ? "Comfy · SDXL" : "Not connected"}</strong>
                   </div>
                 </div>
-                <p className="muted">
-                  Runtime, model storage, credentials, and update-channel
-                  settings will become available with their corresponding
-                  features.
-                </p>
+                <ModelSettings />
               </>
             ) : (
               <>

@@ -1202,3 +1202,13 @@ input::placeholder {
 .create-box label { font-size: 13px; font-weight: 600; }
 .create-box textarea { min-height: 92px; resize: vertical; padding: 14px; border: 1px solid #d8dcd6; border-radius: 9px; font: inherit; font-size: 14px; }
 .create-box .primary { align-self: flex-start; }
+/* Model acquisition shares the source workspace and remains usable while jobs run. */
+.model-downloads { margin-top: 1.5rem; }
+.model-download { padding: 1rem 0; border-bottom: 1px solid #dfdfd8; }
+.model-download > strong, .model-download > small { display: block; overflow-wrap: anywhere; }
+.model-download .tag { display: inline-block; margin: .5rem 0; }
+.model-download p { font-size: .85rem; line-height: 1.5; }
+.model-download progress { display: block; width: 100%; margin: .6rem 0; accent-color: #4c7054; }
+.model-downloads button, .model-settings button { margin: .4rem .4rem .4rem 0; }
+.model-settings label, .model-download label { display: grid; gap: .5rem; margin: 1rem 0; font-size: .9rem; }
+.model-settings input, .model-settings textarea, .model-download select { width: 100%; min-width: 0; padding: .7rem; border: 1px solid #ccc; border-radius: .5rem; font: inherit; }

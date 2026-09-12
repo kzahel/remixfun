@@ -47,7 +47,7 @@ def page(entries=None, prefix=True):
 def acquire(handler, **options):
     async def no_sleep(_):
         pass
-    return asyncio.run(Civitai(httpx.MockTransport(handler), sleep=no_sleep, **options).acquire(URL))
+    return asyncio.run(Civitai(httpx.MockTransport(handler), resolve_versions=False, sleep=no_sleep, **options).acquire(URL))
 
 
 def test_selects_exact_query_and_preserves_generator_specific_evidence():
@@ -142,7 +142,7 @@ def test_page_first_rest_only_enriches_url_and_cdn_redirect_works(tmp_path):
             return httpx.Response(301, headers={"location": redirected})
         assert str(request.url) == redirected
         return httpx.Response(200, content=image, headers={"content-type": "image/png"})
-    provider = Civitai(httpx.MockTransport(handler), retries=0)
+    provider = Civitai(httpx.MockTransport(handler), resolve_versions=False, retries=0)
     with TestClient(create_app(tmp_path, provider=provider), base_url="http://127.0.0.1") as client:
         response = client.post("/api/imports", json={"url": URL})
         assert response.status_code == 201
@@ -182,7 +182,7 @@ def test_corrupt_preview_does_not_lose_imported_recipe(tmp_path):
         if request.url.host == "civitai.com":
             return httpx.Response(200, text=page())
         return httpx.Response(200, content=b"invalid image", headers={"content-type": "image/jpeg"})
-    provider = Civitai(httpx.MockTransport(handler), use_rest=False)
+    provider = Civitai(httpx.MockTransport(handler), resolve_versions=False, use_rest=False)
     with TestClient(create_app(tmp_path, provider=provider), base_url="http://127.0.0.1") as client:
         response = client.post("/api/imports", json={"url": URL})
         assert response.status_code == 201

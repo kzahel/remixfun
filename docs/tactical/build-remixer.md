@@ -1,6 +1,6 @@
 # Remixfun product and implementation plan
 
-**Status: current build plan, 2026-09-12.** The local app has shared service/CLI, browser import/library, explicit demo jobs and a Windows developer shell. An optional source-service Comfy profile now generates new SDXL Base images on GPU. Imported-model resolution, source reproduction, remixing and animation remain open. See [local preview evidence](../evidence/local-preview.md) and [GPU evidence](../evidence/local-sdxl-generation.md). Competitive trials remain outside the implementation prerequisites.
+**Status: current build plan, 2026-09-12.** The local app has shared service/CLI, browser import/library, explicit demo jobs and a Windows developer shell. Civitai model resolution, resumable verified acquisition and authored generation with a downloaded SDXL checkpoint are implemented. Source reproduction, remixing and animation remain open. See [download evidence](../evidence/model-downloads.md), [local preview evidence](../evidence/local-preview.md) and [GPU evidence](../evidence/local-sdxl-generation.md). Competitive trials remain outside the implementation prerequisites.
 
 ### Local preview checkpoint
 
@@ -12,12 +12,15 @@ and deployment performed on an infrastructure-equipped machine.
 
 M0 is partial: the core import/result flow, persistence, CLI and desktop shell
 exist. A pinned Comfy 0.35.0 / CUDA profile now generates an authored SDXL test
-recipe through the app. Public SDXL fixture acquisition and imported-source
-reproduction remain open. The original preview's anonymous Civitai request
+recipe through the app. Public SDXL source/model acquisition is now verified;
+imported-source reproduction remains open. The original preview's anonymous Civitai request
 returned HTTP 403. The provider now reads embedded page data using the user's
 subsequent live findings, with REST limited to preview-URL enrichment. This
-revision has offline synthetic-fixture coverage; a successful live import on
-this machine remains unverified. See [provider evidence](../evidence/civitai-page-import.md).
+revision now has a successful live HTTP import of image 141984808, including its
+source JPEG, selected-metadata replay and model-version file evidence. The model
+is SD XL v1.0 VAE fix, which differs from the configured checkpoint; scheduler
+and batch evidence are missing and source generation remains unsupported.
+See [provider evidence](../evidence/civitai-page-import.md).
 No public reproduction fixture or image-match result was invented.
 The authored demo is only a UI/service fixture. Full M1 reproduction acceptance
 still gates a supported reproduction release, even if signing setup starts now.
@@ -152,6 +155,11 @@ Migration sequence:
 Updating the app, updating an engine profile, and acquiring a model are separate lifecycles. Desktop Release Kit governs signed application delivery; it does not itself provide Python/Torch/model compatibility.
 
 ## 7. Downloads, persistence, and curated motion
+
+The [model acquisition plan](model-downloads.md) expands the download work
+below from a fresh review of Dreamtime's implementation. Its initial slice is
+implemented; the [model contract](../topics/models.md) records supported behavior
+and remaining work, with a verified live checkpoint transfer and engine handoff.
 
 Retain Dreamtime's provider parsing and version-aware availability concepts. Strengthen them with model/file/hash identity, expected-digest verification, compatible transfer resume, atomic promotion, and restart reconciliation. Installed exact bytes should be reusable across recipes and engine instances. User data, model cache, and runtime environments live outside the installed application bundle.
 

@@ -19,7 +19,7 @@ def main():
     subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onedir", "--name", "remixfun-service",
                     "--specpath", str(ROOT / "build"),
                     "--add-data", f"{build_info}{os.pathsep}.",
-                    "--collect-all", "remixfun", "--collect-all", "uvicorn", "--add-data", f"{ROOT / 'web/dist'}{os.pathsep}web",
+                    "--collect-all", "remixfun", "--collect-all", "uvicorn", "--collect-all", "keyring", "--add-data", f"{ROOT / 'web/dist'}{os.pathsep}web",
                     str(ROOT / "scripts/service_entry.py")], cwd=ROOT, check=True)
     extension = ".exe" if sys.platform == "win32" else ""
     folder = ROOT / "desktop/binaries"

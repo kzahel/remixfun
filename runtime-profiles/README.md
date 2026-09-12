@@ -2,7 +2,8 @@
 
 Windows/NVIDIA source-service profile, verified 2026-09-12. This runtime is
 separate from the application environment and from reference checkouts. It
-supports newly authored SDXL Base 1.0 recipes, Euler/normal, batch size one,
+supports newly authored SDXL Base 1.0 recipes or an explicitly selected verified
+SDXL 1.0 checkpoint, Euler/normal, batch size one,
 checkpoint VAE, and no LoRAs or additional conditioning stages. Imported Civitai
 recipes are not silently assigned this model or profile.
 
@@ -22,7 +23,8 @@ uv run remixfun serve --port 8793 --data-dir artifacts/gpu-library --comfy-root 
 The dependency list records the versions in the tested environment, not a
 cross-platform lockfile or a signed distribution contract. No environment or
 weights enter Git. The model fetch is roughly 6.9 GB and checks size and SHA-256
-before promoting a partial download. It does not implement transfer resume yet.
+before promoting a partial download. That bootstrap script does not resume;
+the shared service's [model downloader](../docs/topics/models.md) does.
 
 Open `http://127.0.0.1:8793`, enter a prompt under **Create an image on your GPU**,
 create the recipe, then choose **Generate image**. Generation settings start
@@ -34,8 +36,12 @@ uv run remixfun --service http://127.0.0.1:8793 reproduce <recipe-id> --wait --j
 node scripts/verify_gpu.mjs
 ```
 
+For a downloaded checkpoint, select it in the advanced new-recipe controls or
+pass `create --model-sha256 <full-sha256>`. The authored recipe saves its explicit
+binding. Acquisition alone does not enable imported-source reproduction.
+
 The service checks Comfy commit `40c4fcdf513a4523e39d54a9d391908af8df8171`
-and model SHA-256 before startup, owns the Comfy child process, selects an
+before startup and the selected model SHA-256 before generation, owns the Comfy child process, selects an
 available loopback port and requires CUDA. Custom nodes, API nodes, browser
 launch and Comfy compiler are disabled. The frozen desktop preview does not
 configure this runtime yet; use the source service/browser for this profile.

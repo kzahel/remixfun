@@ -1,7 +1,7 @@
 """Read Civitai metadata from the requested image's dehydrated page queries.
 
 Based on the user-supplied September 2026 findings. Page scripts never execute.
-REST is optional CDN-URL enrichment and never supplies generation metadata.
+REST enriches preview URLs and exact model-version evidence, never settings.
 """
 
 import asyncio
@@ -18,6 +18,7 @@ from .domain import Problem, image_id
 MAX_IMAGE = 25 * 1024 * 1024
 MAX_HTML = 10 * 1024 * 1024
 MAX_JSON = 2 * 1024 * 1024
+IMAGE_HOSTS = {"image.civitai.com", "blobs-b2.civitai.com"}
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
@@ -144,9 +145,10 @@ def parse_page(page: str, requested: str):
 
 
 class Civitai:
-    def __init__(self, transport=None, *, use_rest=True, retries=2, timeout=25, sleep=asyncio.sleep):
+    def __init__(self, transport=None, *, use_rest=True, resolve_versions=True, retries=2, timeout=25, sleep=asyncio.sleep):
         self.transport = transport
         self.use_rest = use_rest
+        self.resolve_versions = resolve_versions
         self.retries = max(0, min(int(retries), 4))
         self.timeout = timeout
         self.sleep = sleep
@@ -182,6 +184,32 @@ class Civitai:
                 if exc.response.status_code not in {429, 500, 502, 503, 504} or attempt == self.retries:
                     raise
             await self.sleep(min(0.25 * 2**attempt, 2))
+
+    async def model_versions(self, client, host, raw):
+        """Retain file candidates for explicitly referenced versions, not gallery recipes."""
+        from .domain import normalize
+
+        identifiers = sorted({str(r["version_id"]) for r in normalize(raw)["resources"]
+                              if re.fullmatch(r"[1-9][0-9]{0,17}", str(r["version_id"]))})
+        evidence = []
+        for identifier in identifiers[:16]:
+            entry = {"version_id": identifier, "status": "unavailable"}
+            try:
+                body, _, _ = await self.request(client, f"https://{host}/api/v1/model-versions/{identifier}",
+                                                limit=MAX_JSON, hosts={host})
+                version = json.loads(body)
+                if not isinstance(version, dict) or not same_id(version.get("id"), identifier):
+                    raise ValueError("Mismatched version")
+                files = [
+                    {key: file[key] for key in ("id", "name", "type", "sizeKB", "hashes", "metadata", "primary") if key in file}
+                    for file in version.get("files", []) if isinstance(file, dict)
+                ]
+                entry.update(status="identified", model_id=version.get("modelId"), files=files,
+                             name=version.get("name"), base_model=version.get("baseModel"))
+            except (httpx.HTTPError, Problem, ValueError, TypeError):
+                pass
+            evidence.append(entry)
+        return evidence
 
     async def acquire(self, url: str):
         requested = image_id(url)
@@ -221,12 +249,16 @@ class Civitai:
                 except (httpx.HTTPError, Problem, ValueError, TypeError):
                     pass
             raw["url"] = preview
+            if self.resolve_versions:
+                raw["model_versions"] = await self.model_versions(client, host, raw)
+                if any(v["status"] == "unavailable" for v in raw["model_versions"]):
+                    warnings.append("Some model-version details could not be retrieved. Their source identities are saved; retry the import later.")
             image = None
             if preview:
                 raw["acquisition"].setdefault("preview_source", "page_cdn_reference")
                 try:
                     image, content_type, final_image_url = await self.request(
-                        client, preview, limit=MAX_IMAGE, hosts={"image.civitai.com"})
+                        client, preview, limit=MAX_IMAGE, hosts=IMAGE_HOSTS)
                     if content_type.split(";", 1)[0].strip().lower() not in {"image/png", "image/jpeg", "image/webp"}:
                         image = None
                     else:

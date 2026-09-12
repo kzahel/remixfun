@@ -16,12 +16,57 @@ const SOURCE_SHA: &str = match option_env!("REMIXFUN_SOURCE_SHA") {
 
 struct ServiceProcess(Mutex<Option<Child>>);
 
+fn owner_token() -> &'static str {
+    static TOKEN: std::sync::OnceLock<String> = std::sync::OnceLock::new();
+    TOKEN.get_or_init(|| uuid::Uuid::new_v4().to_string())
+}
+
+static SHUTDOWN_REQUESTED: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+
+fn request_owned_shutdown() -> bool {
+    if SHUTDOWN_REQUESTED.load(std::sync::atomic::Ordering::SeqCst) {
+        return true;
+    }
+    let accepted = reqwest::blocking::Client::builder()
+        .timeout(Duration::from_secs(5))
+        .no_proxy()
+        .build()
+        .ok()
+        .and_then(|client| {
+            client
+                .post(format!("{URL}/api/shutdown"))
+                .header("X-Remixfun-Owner", owner_token())
+                .send()
+                .ok()
+        })
+        .map(|response| response.status().is_success())
+        .unwrap_or(false);
+    if accepted {
+        SHUTDOWN_REQUESTED.store(true, std::sync::atomic::Ordering::SeqCst);
+    }
+    accepted
+}
+
+fn stop_owned(child: &mut Child) {
+    if request_owned_shutdown() {
+        let deadline = Instant::now() + Duration::from_secs(30);
+        while Instant::now() < deadline {
+            if child.try_wait().ok().flatten().is_some() {
+                return;
+            }
+            std::thread::sleep(Duration::from_millis(100));
+        }
+    }
+    let _ = child.kill();
+    let _ = child.wait();
+}
+
 impl Drop for ServiceProcess {
     fn drop(&mut self) {
         if let Ok(child) = self.0.get_mut() {
             if let Some(mut child) = child.take() {
-                let _ = child.kill();
-                let _ = child.wait();
+                stop_owned(&mut child);
             }
         }
     }
@@ -84,6 +129,7 @@ fn start_service(
     }
     command
         .args(["serve", "--instance", &instance])
+        .env("REMIXFUN_OWNER_TOKEN", owner_token())
         .env("REMIXFUN_SOURCE_SHA", SOURCE_SHA);
     command
         .stdin(Stdio::null())
@@ -138,15 +184,12 @@ fn main() {
                 let state = window.state::<ServiceProcess>();
                 let owned = state.0.lock().map(|child| child.is_some()).unwrap_or(false);
                 if owned {
-                    let client = reqwest::blocking::Client::builder().timeout(Duration::from_secs(2)).no_proxy().build();
-                    let active = client.ok().and_then(|c| c.get(format!("{URL}/api/jobs")).send().ok())
-                        .and_then(|r| r.json::<Vec<serde_json::Value>>().ok())
-                        .map(|jobs| jobs.iter().any(|j| j["status"] == "queued" || j["status"] == "running"))
-                        .unwrap_or(true);
-                    if active {
+                    // Admission closes atomically at the service before this window
+                    // exits; downloads are flushed and remain resumable on relaunch.
+                    if !request_owned_shutdown() {
                         api.prevent_close();
                         if let Some(webview) = window.get_webview_window("main") {
-                            let _ = webview.eval("alert('Work is still active or the service status is unavailable. Wait for the demo to finish before closing Remixfun.');");
+                            let _ = webview.eval("alert('Generation is active or the service cannot prepare to close. Finish or inspect generation before closing Remixfun.');");
                         }
                     }
                 }
@@ -180,8 +223,7 @@ fn main() {
             if let Some(state) = app.try_state::<ServiceProcess>() {
                 if let Ok(mut child) = state.0.lock() {
                     if let Some(mut child) = child.take() {
-                        let _ = child.kill();
-                        let _ = child.wait();
+                        stop_owned(&mut child);
                     }
                 }
             }

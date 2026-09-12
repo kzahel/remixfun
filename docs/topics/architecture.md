@@ -23,12 +23,14 @@ The Windows Tauri shell displays the same loopback UI. It attaches only when
 application/version/API/source identities match, otherwise fails on the occupied
 port. A newly spawned service must also match the shell's process nonce. Desktop
 close keeps an independently started service alive. It refuses ordinary window
-close while its owned service reports an active demo, and stops an idle owned
-service on exit. Crash cleanup, generation cancellation, and robust active-job
+close while its owned service reports active generation or an unknown outcome.
+An owner-authenticated shutdown request stops admission and saves active download
+progress before exit; restart resumes queued transfers. Crash cleanup, generation cancellation, and robust active-job
 update coordination still require the later runtime/lifecycle work.
 
-With `--comfy-root`, the service verifies the pinned Comfy revision and local
-checkpoint hash, then starts its own runtime on an available loopback port.
+With `--comfy-root`, the service verifies the pinned Comfy revision, then starts
+its own runtime on an available loopback port. It verifies the selected checkpoint
+before generation. Managed cache aliases are supplied through extra model paths.
 CUDA is required for this profile. No custom or API nodes load. Graphs are
 constructed from bounded authored-recipe fields; arbitrary imported graphs are
 never executed. See the [runtime profile](../../runtime-profiles/README.md).
@@ -42,17 +44,26 @@ is still manual. CPU tests cover these transitions; real GPU close/restart
 acceptance remains pending. The initial frozen desktop does not configure this
 optional source-service runtime.
 
-The preview has no remote bind option, credential store, native privileged web
+The preview has no remote bind option, native privileged web
 commands, updater, or external engine attachment. Host and Origin checks reject
 foreign browser access; images are served by opaque content hashes. Provider
 requests use the validated Civitai page host and the image CDN, with a
 browser-style User-Agent. Page HTML is parsed as data; scripts never execute
-and rotating Next.js build IDs are not needed. REST only enriches CDN URLs.
+and rotating Next.js build IDs are not needed. REST enriches CDN URLs and bounded
+exact model-version/file evidence; it never overrides generation settings.
 Responses have size limits, timeouts and bounded transient retries. Redirects
-stay on the request's allowed HTTPS host, without credentials or query strings;
+stay on the request's allowed HTTPS hosts, without credentials or query strings.
+Image downloads allow `image.civitai.com` and its observed public blob destination
+`blobs-b2.civitai.com`; page and model requests retain their page-host restriction;
 the final page must still identify the requested image. Transient
 URLs and known credential fields are omitted from retained provider evidence.
 Do not interpret local-only checks as the planned remote authentication scheme.
+
+Model acquisition has a separate persistent queue, locked model inventory and
+restricted download transport. Civitai keys use an approved OS credential store;
+they are sent only to Civitai, never redirected storage. Background resolution
+keeps file choices separate from source metadata. See the implemented
+[model contract](models.md) for transfer, cache and shutdown behavior.
 
 ## Planned runtime and distribution boundaries
 

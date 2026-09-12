@@ -3,7 +3,8 @@
 Remixfun has a local import/library application, shared service and CLI, and a
 Windows Tauri developer shell. An optional managed Comfy profile generates new
 SDXL images on the GPU through the source service. Imported-source reproduction,
-general model acquisition, signed installers and publication remain planned.
+signed installers and publication remain planned. Civitai model acquisition
+with verified downloads and resume is implemented; see [models](docs/topics/models.md).
 See the [local preview evidence](docs/evidence/local-preview.md) and
 [GPU evidence](docs/evidence/local-sdxl-generation.md).
 
@@ -21,7 +22,8 @@ uv run remixfun serve
 Open `http://127.0.0.1:8788`. Try **Open demo**, a public Civitai image URL,
 or an original PNG with A1111 metadata. Civitai import reads generation metadata
 from the image page's embedded data, without login or a browser dependency.
-REST only enriches the preview URL. Hidden metadata produces a partial import;
+REST enriches preview URLs; background model resolution retrieves exact version
+and file candidates, never generation settings. Hidden metadata produces a partial import;
 denied requests support retry or original-image upload. See the
 [provider evidence](docs/evidence/civitai-page-import.md) for verification limits.
 Demo output reuses an
@@ -30,13 +32,13 @@ authored illustration and is never classified as reproduced or generated.
 The default data directory comes from `platformdirs` (`Remixfun`, no app author).
 Override it with `--data-dir "path with spaces"` or `REMIXFUN_DATA_DIR`.
 Only one service can open a library. The service binds to loopback; remote
-listening and credentials are not exposed in this preview.
+listening is not exposed in this preview. Optional Civitai credentials use the OS store.
 
 For actual GPU generation, follow the [SDXL runtime setup](runtime-profiles/README.md)
 and run the source service with `--comfy-root`. The browser then offers new
 SDXL recipes and **Generate image**. The source import path does not substitute
-SDXL Base for an unresolved imported model. Existing frozen desktop folders
-predate this integration and do not configure the optional runtime.
+SDXL Base for an unresolved imported model. The frozen desktop supports model
+acquisition but does not configure the optional GPU runtime.
 
 For frontend hot reload, keep the service running and run `npm --prefix web run
 dev` in another terminal. Vite proxies `/api` to the same service.
@@ -46,8 +48,17 @@ uv run remixfun demo --json
 uv run remixfun list --json
 uv run remixfun import https://civitai.com/images/12345 --json
 uv run remixfun import original.png --json
+uv run remixfun models resolve <import-id> --wait --json
+uv run remixfun models download <import-id> --wait --json
+uv run remixfun downloads --json
 uv run remixfun reproduce <demo-import-id> --wait --json
 ```
+
+The import view offers **Download missing models**. Model folders and optional
+Civitai credentials are in Settings. Files are verified against provider SHA-256
+before availability; downloads can pause/resume across restart. See
+[live acquisition](docs/evidence/model-downloads.md). Model availability does not
+imply that an imported recipe has a supported reproduction profile.
 
 For the unsigned Windows desktop folder, install Rust with MSVC build tools
 and WebView2, then run `uv run python scripts/build_local.py`. Open

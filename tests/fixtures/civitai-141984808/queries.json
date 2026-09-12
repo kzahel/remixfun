@@ -1,0 +1,96 @@
+[
+  {
+    "queryKey": [
+      [
+        "image",
+        "get"
+      ],
+      {
+        "input": {
+          "id": 141984808,
+          "browsingLevel": 1
+        },
+        "type": "query"
+      }
+    ],
+    "state": {
+      "status": "success",
+      "data": {
+        "id": 141984808,
+        "url": "8148675f-af0b-4514-babf-52411ff962e4",
+        "hideMeta": false,
+        "type": "image",
+        "onSite": true,
+        "availability": "Public"
+      }
+    }
+  },
+  {
+    "queryKey": [
+      [
+        "image",
+        "getGenerationData"
+      ],
+      {
+        "input": {
+          "id": 141984808,
+          "browsingLevel": 1
+        },
+        "type": "query"
+      }
+    ],
+    "state": {
+      "status": "success",
+      "data": {
+        "type": "image",
+        "onSite": true,
+        "process": "txt2img",
+        "meta": {
+          "prompt": "high quality, detailed, a beetle with a shell like stained glass, twilight glow, grainy film texture, birds eye view, dreamy atmosphere, highly detailed, sharp focus",
+          "negativePrompt": "fewer digits, mutation, missing fingers, text, out of focus, low quality, morbid, airbrushed, worst quality",
+          "cfgScale": 9.5,
+          "steps": 32,
+          "sampler": "Euler a",
+          "seed": 119907136,
+          "civitaiResources": [
+            {
+              "type": "checkpoint",
+              "modelVersionId": 128078
+            }
+          ],
+          "extra": {},
+          "width": 1024,
+          "height": 1024,
+          "Created Date": "2026-09-06T1022:05.4445138Z",
+          "clipSkip": 2
+        },
+        "displayKeys": [
+          "sampler",
+          "cfgScale",
+          "steps",
+          "clipSkip",
+          "seed"
+        ],
+        "resources": [
+          {
+            "imageId": 141984808,
+            "modelVersionId": 128078,
+            "strength": null,
+            "modelId": 101055,
+            "modelName": "SD XL",
+            "modelType": "Checkpoint",
+            "versionId": 128078,
+            "versionName": "v1.0 VAE fix",
+            "baseModel": "SDXL 1.0"
+          }
+        ],
+        "tools": [],
+        "techniques": [],
+        "external": null,
+        "canRemix": true,
+        "remixOfId": null,
+        "remixOfIds": []
+      }
+    }
+  }
+]

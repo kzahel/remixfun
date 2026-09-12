@@ -7,8 +7,14 @@ remain unverified. [Local SDXL generation](../evidence/local-sdxl-generation.md)
 records a real GPU output created through the app, separate from mock tests.
 
 The [Civitai provider evidence](../evidence/civitai-page-import.md) separates
-user-supplied live findings from our offline parser, transport and persistence
-tests. Synthetic HTML must not be described as a captured public image fixture.
+historical user-supplied findings, a live HTTP import, and offline parser,
+transport and persistence tests. The selected live metadata excerpts are
+explicitly distinguished from synthetic HTML and owned preview-image fixtures.
+
+[Model acquisition evidence](../evidence/model-downloads.md) records the exact
+checkpoint transfer, restart/resume, reuse and authored GPU generation. CPU tests
+exercise local HTTP range responses, corruption, identity conflicts, credentials,
+disk reservations and cache recovery; UI tests cover restored transfer progress.
 
 Use pure CPU tests for metadata normalization, exact dependency resolution,
 recipe diffs, seed/batch search, and lineage. Replay provider responses and use a

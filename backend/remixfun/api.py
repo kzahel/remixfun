@@ -1,8 +1,9 @@
 import re
+import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Header
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -19,6 +20,21 @@ class ImportRequest(BaseModel):
     url: str = Field(min_length=1, max_length=2048)
 
 
+class DownloadRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    revision: str = Field(pattern=r"^[a-f0-9]{64}$")
+    choices: dict[str, str] = Field(default_factory=dict, max_length=64)
+
+
+class ModelSettings(BaseModel):
+    model_root: str = Field(min_length=1, max_length=4096)
+    model_paths: list[str] = Field(default_factory=list, max_length=16)
+
+
+class CredentialRequest(BaseModel):
+    key: str = Field(max_length=4096)
+
+
 class RecipeRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     prompt: str = Field(min_length=1, max_length=10000)
@@ -28,6 +44,7 @@ class RecipeRequest(BaseModel):
     cfgScale: float = Field(default=7.0, ge=0, le=20)
     width: int = Field(default=1024, ge=256, le=1536, strict=True)
     height: int = Field(default=1024, ge=256, le=1536, strict=True)
+    model_sha256: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
 
     @field_validator("width", "height")
     @classmethod
@@ -44,13 +61,15 @@ class RecipeRequest(BaseModel):
         return str(int(value))
 
 
-def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.5, instance="headless", engine=None):
-    service = Service(root, provider, demo_delay, engine)
+def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.5, instance="headless", engine=None,
+               model_root=None, model_paths=(), download_transport=None, owner_token=None, shutdown=None):
+    service = Service(root, provider, demo_delay, engine, model_root, model_paths, download_transport)
 
     @asynccontextmanager
     async def lifespan(app):
         service.recover()
         try:
+            await service.start()
             if engine:
                 await engine.start()
             yield
@@ -72,6 +91,8 @@ def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.
         allowed = {f"http://{request.headers.get('host')}", "http://127.0.0.1:5173", "http://localhost:5173"}
         if origin and origin not in allowed:
             return JSONResponse({"detail": "This browser origin is not allowed."}, status_code=403)
+        if getattr(app.state, "stopping", False) and request.method not in {"GET", "HEAD"}:
+            return JSONResponse({"detail": "The service is shutting down."}, status_code=503)
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "no-referrer"
@@ -83,6 +104,67 @@ def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.
         return {"app": "remixfun", "version": __version__, "api_version": 1,
                 "source_sha": source_sha(),
                 "instance": instance, "engine": "comfy" if engine else "demo_only", "network": "loopback_only"}
+
+    @app.post("/api/shutdown")
+    async def shutdown_owned(x_remixfun_owner: str = Header(default="")):
+        if not owner_token or not secrets.compare_digest(x_remixfun_owner, owner_token) or shutdown is None:
+            raise Problem("Only the owning desktop can shut down this service.", 403)
+        if any(j["status"] in {"queued", "running", "unknown"} for j in service.store.list("job")):
+            raise Problem("Generation is active or awaiting inspection. Finish it before closing.", 409)
+        app.state.stopping = True
+        shutdown()
+        return {"status": "stopping"}
+
+    @app.get("/api/imports/{identifier}/dependencies")
+    def dependencies(identifier: str):
+        return service.dependencies(identifier)
+
+    @app.post("/api/imports/{identifier}/dependencies/resolve", status_code=202)
+    async def resolve_models(identifier: str):
+        return service.resolve_models(identifier)
+
+    @app.post("/api/imports/{identifier}/downloads", status_code=202)
+    async def download_models(identifier: str, body: DownloadRequest):
+        return service.download_models(identifier, body.revision, body.choices)
+
+    @app.get("/api/downloads")
+    def downloads():
+        return service.downloads.list()
+
+    @app.get("/api/downloads/{identifier}")
+    def download(identifier: str):
+        return service.downloads.get(identifier)
+
+    @app.post("/api/downloads/{identifier}/{action}")
+    async def control_download(identifier: str, action: str):
+        return await service.downloads.control(identifier, action)
+
+    @app.get("/api/operations/{identifier}")
+    def operation(identifier: str):
+        return service.store.get(identifier, "operation")
+
+    @app.get("/api/models/settings")
+    def model_settings():
+        return service.model_settings()
+
+    @app.get("/api/models")
+    def models():
+        return [{"sha256": b["sha256"], "name": b["file"]["name"], "role": b["file"]["role"],
+                 "base_model": b["file"].get("base_model"), "size": b["size"]}
+                for b in service.inventory.list("blobs") if service.inventory.available(b["sha256"])]
+
+    @app.put("/api/models/settings")
+    def configure_models(body: ModelSettings):
+        return service.configure_models(body.model_root, body.model_paths)
+
+    @app.put("/api/models/credential")
+    def credential(body: CredentialRequest):
+        service.downloads.transport.credentials.set(body.key)
+        return {"configured": bool(body.key)}
+
+    @app.post("/api/models/scan", status_code=202)
+    async def scan_models():
+        return service.scan_models()
 
     @app.post("/api/recipes", status_code=201)
     def create_recipe(body: RecipeRequest):

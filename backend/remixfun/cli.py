@@ -37,9 +37,24 @@ def main(argv=None):
     serve.add_argument("--web-dir", type=Path)
     serve.add_argument("--instance", default="headless")
     serve.add_argument("--comfy-root", type=Path, help="Manage the pinned local SDXL runtime in this directory")
+    serve.add_argument("--model-dir", type=Path, help="Persistent model cache, separate from Comfy")
+    serve.add_argument("--model-path", type=Path, action="append", default=[], help="Existing read-only model library to scan")
+    models = sub.add_parser("models")
+    model_commands = models.add_subparsers(dest="model_command", required=True)
+    for name in ("resolve", "download"):
+        command = model_commands.add_parser(name)
+        command.add_argument("id")
+        command.add_argument("--wait", action="store_true")
+        command.add_argument("--json", action="store_true")
+    model_commands.add_parser("scan").add_argument("--json", action="store_true")
+    downloads = sub.add_parser("downloads")
+    downloads.add_argument("action", nargs="?", choices=["pause", "resume", "cancel", "retry"])
+    downloads.add_argument("id", nargs="?")
+    downloads.add_argument("--json", action="store_true")
     recipe = sub.add_parser("create")
     recipe.add_argument("prompt")
     recipe.add_argument("--seed", default="42")
+    recipe.add_argument("--model-sha256", help="Verified SDXL checkpoint for a new authored recipe")
     recipe.add_argument("--json", action="store_true")
     for name in ("health", "list", "demo", "jobs"):
         sub.add_parser(name).add_argument("--json", action="store_true")
@@ -66,13 +81,44 @@ def main(argv=None):
                 with FileLock(args.data_dir / "service.lock", timeout=0):
                     from .engine import Comfy
                     engine = Comfy(args.comfy_root, args.data_dir / "logs") if args.comfy_root else None
-                    app = create_app(args.data_dir, args.web_dir or default_web, instance=args.instance, engine=engine)
-                    uvicorn.run(app, host=args.host, port=args.port, access_log=False)
+                    def stop():
+                        server.should_exit = True
+                    app = create_app(args.data_dir, args.web_dir or default_web, instance=args.instance, engine=engine,
+                                     model_root=args.model_dir, model_paths=args.model_path,
+                                     owner_token=os.environ.get("REMIXFUN_OWNER_TOKEN"), shutdown=stop)
+                    server = uvicorn.Server(uvicorn.Config(app, host=args.host, port=args.port, access_log=False))
+                    server.run()
             except Timeout as exc:
                 raise RuntimeError("This library is already open in another Remixfun service. Attach to that service instead.") from exc
             return 0
-        if args.command == "create":
-            result = request(args.service, "POST", "/api/recipes", json={"prompt": args.prompt, "seed": args.seed})
+        if args.command == "models":
+            if args.model_command == "scan":
+                result = request(args.service, "POST", "/api/models/scan")
+            elif args.model_command == "resolve":
+                result = request(args.service, "POST", f"/api/imports/{args.id}/dependencies/resolve")
+                if args.wait:
+                    while result["status"] in {"queued", "running"}:
+                        time.sleep(1)
+                        result = request(args.service, "GET", f"/api/operations/{result['id']}")
+                    result = request(args.service, "GET", f"/api/imports/{args.id}/dependencies")
+            else:
+                plan = request(args.service, "GET", f"/api/imports/{args.id}/dependencies")
+                result = request(args.service, "POST", f"/api/imports/{args.id}/downloads", json={"revision": plan["revision"]})
+                if args.wait:
+                    while True:
+                        result = request(args.service, "GET", f"/api/imports/{args.id}/dependencies")
+                        if not any(d["status"] in {"queued", "downloading", "retry_wait", "verifying"} for d in result["dependencies"]):
+                            break
+                        time.sleep(1)
+                    if any(d["status"] != "available" for d in result["dependencies"]):
+                        print(json.dumps(result, indent=2))
+                        return 1
+        elif args.command == "downloads":
+            if args.action and not args.id:
+                raise RuntimeError("Specify a download ID.")
+            result = request(args.service, "POST", f"/api/downloads/{args.id}/{args.action}") if args.action else request(args.service, "GET", "/api/downloads")
+        elif args.command == "create":
+            result = request(args.service, "POST", "/api/recipes", json={"prompt": args.prompt, "seed": args.seed, "model_sha256": args.model_sha256})
         elif args.command == "import":
             if args.source.startswith("https://"):
                 result = request(args.service, "POST", "/api/imports", json={"url": args.source})
