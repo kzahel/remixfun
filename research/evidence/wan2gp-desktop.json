@@ -1,0 +1,138 @@
+{
+  "slug": "wan2gp-desktop",
+  "repo": "GKartist75/Wan2GP-Desktop-Tauri",
+  "tier": "packaging",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/wan2gp-desktop",
+  "errors": [],
+  "head": "e453fafaf9dac560c4eca9b2372b152c1345579f",
+  "branch": "master",
+  "latest_commit": "2026-09-11T21:42:11+02:00 Merge branch 'dev' into master — v0.6.2 release",
+  "commit_count": 243,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-08-31T10:35:29+02:00",
+  "contributors_all": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "GKartist75",
+        "commits": 214
+      },
+      {
+        "name": "Gerard",
+        "commits": 4
+      }
+    ],
+    "nonmerge_commits": 218
+  },
+  "contributors_90d": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "GKartist75",
+        "commits": 214
+      },
+      {
+        "name": "Gerard",
+        "commits": 4
+      }
+    ],
+    "nonmerge_commits": 218
+  },
+  "tags": [
+    "v0.6.2",
+    "v0.6.1",
+    "v0.6.0",
+    "backup/dev-2026-09-11",
+    "v0.5.4",
+    "v0.5.3",
+    "v0.5.2",
+    "v0.5.1",
+    "v0.5.0",
+    "v0.4.6",
+    "v0.4.4",
+    "v0.4.5",
+    "v0.4.2",
+    "v0.4.3",
+    "v0.4.0"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "GKartist75/Wan2GP-Desktop-Tauri",
+    "html_url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri",
+    "description": "Wan2GP Desktop Launcher (Tauri port)",
+    "created_at": "2026-09-03T06:08:04Z",
+    "updated_at": "2026-09-11T19:42:20Z",
+    "pushed_at": "2026-09-11T19:42:15Z",
+    "stargazers_count": 12,
+    "forks_count": 0,
+    "subscribers_count": 0,
+    "open_issues_count": 2,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "master",
+    "language": "JavaScript",
+    "license": null,
+    "homepage": null,
+    "size": 1934,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v0.6.2",
+      "updated": "2026-09-11T19:42:26Z",
+      "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/tag/v0.6.2",
+      "notes_html": "<h2>v0.6.2</h2>\n<ul>\n<li>Long Windows paths: installer warns when the OS opt-in is off, one-click Enable in Manage → Troubleshooting (asks permission, needs admin + reboot), and setup offers to enable before downloading anything</li>\n<li>Gallery keeps your last results again: the launcher seeds the gallery-retention default when writing settings (a missing key used to wipe the gallery on every generation)</li>\n<li>Installer no longer asks twice: backup choice sticks to your radio pick, your picks survive panel refreshes, and foreign folders get one clear question instead of a silent loop</li>\n</ul>\n<p>Full history: CHANGELOG.md</p>",
+      "assets": [
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.2/Wan2GP.Desktop.Launcher.Tauri_0.6.2_x64-setup.exe",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.2/Wan2GP.Desktop.Launcher.Tauri_0.6.2_x64-setup.exe.sig",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.2/Wan2GP.Desktop.Launcher.Tauri_0.6.2_x64_en-US.msi",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.2/latest.json"
+      ],
+      "assets_source": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/expanded_assets/v0.6.2"
+    },
+    {
+      "title": "v0.6.1",
+      "updated": "2026-09-11T14:20:12Z",
+      "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/tag/v0.6.1",
+      "notes_html": "<h2>v0.6.1</h2>\n<ul>\n<li>Native-view drag &amp; drop fixed: the child webview opts out of Tauri file-drop interception, so drops reach Gradio</li>\n<li>Closing the launcher now actually stops servers: no more orphaned Wan2GP/OpenCode processes surviving app close</li>\n<li>Stop hardening: OpenCode :4096 port-sweep fallback across restarts, custom-port python-listener sweep, unique per-launch terminal scripts + temp cleanup</li>\n</ul>\n<p>Full history: CHANGELOG.md</p>",
+      "assets": [
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.1/Wan2GP.Desktop.Launcher.Tauri_0.6.1_x64-setup.exe",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.1/Wan2GP.Desktop.Launcher.Tauri_0.6.1_x64-setup.exe.sig",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.1/Wan2GP.Desktop.Launcher.Tauri_0.6.1_x64_en-US.msi",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.1/latest.json"
+      ],
+      "assets_source": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/expanded_assets/v0.6.1"
+    },
+    {
+      "title": "v0.6.0",
+      "updated": "2026-09-11T13:20:36Z",
+      "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/tag/v0.6.0",
+      "notes_html": "<p>Native Desktop embed (default): real child Webview with browser-grade Save-As downloads, floating console as its own window, one console stream everywhere, stall-free Stop that kills rebuild orphans, view-transition mutex plus Stop teardown (no stale UI states). AMD install fix (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5408566796\" data-permission-text=\"Title is private\" data-url=\"https://github.com/GKartist75/Wan2GP-Desktop-Tauri/issues/15\" data-hovercard-type=\"issue\" data-hovercard-url=\"/GKartist75/Wan2GP-Desktop-Tauri/issues/15/hovercard\" href=\"https://github.com/GKartist75/Wan2GP-Desktop-Tauri/issues/15\">#15</a>): setup.py is now driven through a hook module, no more source patching.</p>",
+      "assets": [
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.0/Wan2GP.Desktop.Launcher.Tauri_0.6.0_x64-setup.exe",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.0/Wan2GP.Desktop.Launcher.Tauri_0.6.0_x64-setup.exe.sig",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.0/Wan2GP.Desktop.Launcher.Tauri_0.6.0_x64_en-US.msi",
+        "/GKartist75/Wan2GP-Desktop-Tauri/releases/download/v0.6.0/latest.json"
+      ],
+      "assets_source": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/expanded_assets/v0.6.0"
+    },
+    {
+      "title": "backup/dev-2026-09-11: fix(embed): include w2gp.js native bridges omitted from feature commit",
+      "updated": "2026-09-11T06:38:52Z",
+      "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/tag/backup%2Fdev-2026-09-11",
+      "notes_html": "<p>createBrowserView mode branch, native bounds sync, download/mirror/term<br>\nevent bridges, saveStagedDownload — without this the frontend stays on the<br>\niframe path regardless of backend mode.</p>",
+      "assets": [],
+      "assets_source": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/expanded_assets/backup%2Fdev-2026-09-11"
+    },
+    {
+      "title": "archive/dev-clean-2026-09-11",
+      "updated": "2026-09-11T06:41:20Z",
+      "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/tag/archive%2Fdev-clean-2026-09-11",
+      "notes_html": "<p>feat(embed): native child webview (default), browser-grade downloads,…</p>",
+      "assets": [],
+      "assets_source": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/releases/expanded_assets/archive%2Fdev-clean-2026-09-11"
+    }
+  ]
+}

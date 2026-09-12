@@ -1,0 +1,79 @@
+{
+  "slug": "sdfx",
+  "repo": "sdfxai/sdfx",
+  "tier": "frontend",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/sdfx",
+  "errors": [],
+  "head": "f63c7b85ab2e544b3b4636988c214d04491f7dee",
+  "branch": "main",
+  "latest_commit": "2025-05-01T07:12:27+04:00 add IPAdapterAvanced weight widget default",
+  "commit_count": 128,
+  "shallow": false,
+  "oldest_reachable_commit": "2024-04-09T07:02:11+04:00",
+  "contributors_all": {
+    "distinct_author_names": 5,
+    "top": [
+      {
+        "name": "dmx",
+        "commits": 101
+      },
+      {
+        "name": "spartanz51",
+        "commits": 12
+      },
+      {
+        "name": "kevin96666",
+        "commits": 3
+      },
+      {
+        "name": "Thibaud Arnault",
+        "commits": 1
+      },
+      {
+        "name": "kevin codfert",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 118
+  },
+  "contributors_90d": {
+    "distinct_author_names": 0,
+    "top": [],
+    "nonmerge_commits": 0
+  },
+  "tags": [],
+  "dirty": "",
+  "github": {
+    "full_name": "sdfxai/sdfx",
+    "html_url": "https://github.com/sdfxai/sdfx",
+    "description": "The ultimate no-code platform to build and share AI apps with beautiful UI.",
+    "created_at": "2024-04-09T03:00:19Z",
+    "updated_at": "2026-09-11T16:34:41Z",
+    "pushed_at": "2025-05-01T03:13:28Z",
+    "stargazers_count": 445,
+    "forks_count": 32,
+    "subscribers_count": 8,
+    "open_issues_count": 21,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "TypeScript",
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "homepage": "https://sdfx.ai",
+    "size": 9992,
+    "topics": [
+      "ai",
+      "generative-ai",
+      "sdfx"
+    ]
+  },
+  "releases": []
+}

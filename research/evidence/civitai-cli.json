@@ -1,0 +1,212 @@
+{
+  "slug": "civitai-cli",
+  "repo": "civitai/cli",
+  "tier": "library",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/civitai-cli",
+  "errors": [],
+  "head": "f98eb736adc33aa4974b9b56d355e1bf94d9166c",
+  "branch": "main",
+  "latest_commit": "2026-09-12T01:00:16-05:00 docs(handoff): rank 21 done (cli#569 merged, re-verified); rank 20 claimed (#571)",
+  "commit_count": 439,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-06-18T09:21:54-05:00",
+  "contributors_all": {
+    "distinct_author_names": 3,
+    "top": [
+      {
+        "name": "Zachary Lowden",
+        "commits": 431
+      },
+      {
+        "name": "ZacxDev",
+        "commits": 4
+      },
+      {
+        "name": "xsvm",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 437
+  },
+  "contributors_90d": {
+    "distinct_author_names": 3,
+    "top": [
+      {
+        "name": "Zachary Lowden",
+        "commits": 431
+      },
+      {
+        "name": "ZacxDev",
+        "commits": 4
+      },
+      {
+        "name": "xsvm",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 437
+  },
+  "tags": [
+    "v0.1.104",
+    "v0.1.103",
+    "v0.1.102",
+    "v0.1.101",
+    "v0.1.100",
+    "v0.1.99",
+    "v0.1.98",
+    "v0.1.97",
+    "v0.1.96",
+    "v0.1.95",
+    "v0.1.94",
+    "v0.1.93",
+    "v0.1.92",
+    "v0.1.91",
+    "v0.1.90"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "civitai/cli",
+    "html_url": "https://github.com/civitai/cli",
+    "description": "Browse & download Civitai models, images & articles from the command line - and author, validate & submit Apps",
+    "created_at": "2026-06-18T14:21:53Z",
+    "updated_at": "2026-09-12T06:00:21Z",
+    "pushed_at": "2026-09-12T06:43:33Z",
+    "stargazers_count": 10,
+    "forks_count": 1,
+    "subscribers_count": 0,
+    "open_issues_count": 22,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Go",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "homepage": "https://civitai.com",
+    "size": 5922,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v0.1.104",
+      "updated": "2026-09-09T02:56:05Z",
+      "url": "https://github.com/civitai/cli/releases/tag/v0.1.104",
+      "notes_html": "<h2>Changelog</h2>\n<ul>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/3377a3bafe22c7ed1fce3f170dc38e5a136339d4/hovercard\" href=\"https://github.com/civitai/cli/commit/3377a3bafe22c7ed1fce3f170dc38e5a136339d4\"><tt>3377a3b</tt></a> fix(agent-setup): the AGENTS.md block named the wrong scaffolder, and <code>--check</code> claimed reachability (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5394283459\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/534\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/534/hovercard\" href=\"https://github.com/civitai/cli/pull/534\">#534</a>) (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5394283459\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/534\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/534/hovercard\" href=\"https://github.com/civitai/cli/pull/534\">#534</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/cbcb992b1645dbeaea33b599add769f787a8d117/hovercard\" href=\"https://github.com/civitai/cli/commit/cbcb992b1645dbeaea33b599add769f787a8d117\"><tt>cbcb992</tt></a> fix(agent-setup): the AGENTS.md block told a <code>static</code> project to run npm (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5393842532\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/533\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/533/hovercard\" href=\"https://github.com/civitai/cli/pull/533\">#533</a>)</li>\n</ul>\n<h2>Install</h2>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# npm (Node) — downloads + sha256-verifies the matching binary on install\nnpm install -g @civitai/cli        # or: npx @civitai/cli\n# Homebrew (macOS / Linux)\nbrew install civitai/tap/civitai\n# Go (from source)\ngo install github.com/civitai/cli/cmd/civitai@latest\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> npm (Node) — downloads + sha256-verifies the matching binary on install</span>\nnpm install -g @civitai/cli        <span class=\"pl-c\"><span class=\"pl-c\">#</span> or: npx @civitai/cli</span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Homebrew (macOS / Linux)</span>\nbrew install civitai/tap/civitai\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Go (from source)</span>\ngo install github.com/civitai/cli/cmd/civitai@latest</pre></div>\n<p>Or grab a prebuilt binary from the assets below and verify it against <code>checksums.txt</code>.</p>",
+      "assets": [
+        "/civitai/cli/releases/download/v0.1.104/checksums.txt",
+        "/civitai/cli/releases/download/v0.1.104/civitai.rb",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_darwin_amd64",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_darwin_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_darwin_arm64",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_darwin_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_linux_amd64",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_linux_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_linux_arm64",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_linux_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_windows_amd64.exe",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_windows_amd64.zip",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_windows_arm64.exe",
+        "/civitai/cli/releases/download/v0.1.104/civitai_0.1.104_windows_arm64.zip"
+      ],
+      "assets_source": "https://github.com/civitai/cli/releases/expanded_assets/v0.1.104"
+    },
+    {
+      "title": "v0.1.103",
+      "updated": "2026-09-09T00:56:40Z",
+      "url": "https://github.com/civitai/cli/releases/tag/v0.1.103",
+      "notes_html": "<h2>Changelog</h2>\n<ul>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/aebd2fb127469386e383a95efe632353c58309bc/hovercard\" href=\"https://github.com/civitai/cli/commit/aebd2fb127469386e383a95efe632353c58309bc\"><tt>aebd2fb</tt></a> ci: node 22 -&gt; 24 so npm 11 installs the scaffolded app, unfreezing the repo (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5340063629\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/520\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/520/hovercard\" href=\"https://github.com/civitai/cli/pull/520\">#520</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/46c928aa3d96aa290872ca172c19b514da247645/hovercard\" href=\"https://github.com/civitai/cli/commit/46c928aa3d96aa290872ca172c19b514da247645\"><tt>46c928a</tt></a> feat(agent-setup): configure the developer's coding agent for Civitai Apps (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5390482022\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/528\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/528/hovercard\" href=\"https://github.com/civitai/cli/pull/528\">#528</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/7b5284fe1d3cb9f648bcdc180fe2b4804e5bd7e9/hovercard\" href=\"https://github.com/civitai/cli/commit/7b5284fe1d3cb9f648bcdc180fe2b4804e5bd7e9\"><tt>7b5284f</tt></a> feat(listing): <code>set-source-repo</code> publishes the OFF-SITE source-repository link (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5270822124\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/503\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/503/hovercard\" href=\"https://github.com/civitai/cli/pull/503\">#503</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/22cb38db29e746f6124d6d01b411c238a7735bf5/hovercard\" href=\"https://github.com/civitai/cli/commit/22cb38db29e746f6124d6d01b411c238a7735bf5\"><tt>22cb38d</tt></a> feat(scaffold): adopt manifest.bootSkeleton across all three templates (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5329037013\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/516\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/516/hovercard\" href=\"https://github.com/civitai/cli/pull/516\">#516</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/57ebaf71b19ab60680732b5db5a018d2b86275de/hovercard\" href=\"https://github.com/civitai/cli/commit/57ebaf71b19ab60680732b5db5a018d2b86275de\"><tt>57ebaf7</tt></a> feat(scaffold): ship a width-adaptive example in page-money and page-vite (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5339421014\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/519\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/519/hovercard\" href=\"https://github.com/civitai/cli/pull/519\">#519</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/d9b4e2950a7547b20bc5b014082af7aaa51f68fc/hovercard\" href=\"https://github.com/civitai/cli/commit/d9b4e2950a7547b20bc5b014082af7aaa51f68fc\"><tt>d9b4e29</tt></a> fix(appapi): an ownership 403 is not an access problem — stop printing the Apps-author remedy (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5351314373\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/522\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/522/hovercard\" href=\"https://github.com/civitai/cli/pull/522\">#522</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/c52daaf7e701d1907d501769bf4acecd048d346a/hovercard\" href=\"https://github.com/civitai/cli/commit/c52daaf7e701d1907d501769bf4acecd048d346a\"><tt>c52daaf</tt></a> fix(listing): a moderator takedown 403 no longer blames the caller's access (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5272205008\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/509\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/509/hovercard\" href=\"https://github.com/civitai/cli/pull/509\">#509</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/cd2546444cfc63e3172e8bf432bde78c7ce63692/hovercard\" href=\"https://github.com/civitai/cli/commit/cd2546444cfc63e3172e8bf432bde78c7ce63692\"><tt>cd25464</tt></a> fix(scaffold): bump @civitai/* pins to 0.37.0 / 0.45.0 — unblock pins-vs-published (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5330406757\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/517\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/517/hovercard\" href=\"https://github.com/civitai/cli/pull/517\">#517</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/bc830b105867ae4234ddd7dd23f3f7680a2cbe3c/hovercard\" href=\"https://github.com/civitai/cli/commit/bc830b105867ae4234ddd7dd23f3f7680a2cbe3c\"><tt>bc830b1</tt></a> fix(scaffold): bump @civitai/* pins, and repair the disallowed-pool path they break (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5316880937\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/515\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/515/hovercard\" href=\"https://github.com/civitai/cli/pull/515\">#515</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/e118ea10eb4e2c1b32d1cd15d5545348f2786721/hovercard\" href=\"https://github.com/civitai/cli/commit/e118ea10eb4e2c1b32d1cd15d5545348f2786721\"><tt>e118ea1</tt></a> fix(scaffold): repair 27 dead CSS design tokens in page-money, and guard the class (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5316438831\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/514\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/514/hovercard\" href=\"https://github.com/civitai/cli/pull/514\">#514</a>)</li>\n</ul>\n<h2>Install</h2>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# npm (Node) — downloads + sha256-verifies the matching binary on install\nnpm install -g @civitai/cli        # or: npx @civitai/cli\n# Homebrew (macOS / Linux)\nbrew install civitai/tap/civitai\n# Go (from source)\ngo install github.com/civitai/cli/cmd/civitai@latest\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> npm (Node) — downloads + sha256-verifies the matching binary on install</span>\nnpm install -g @civitai/cli        <span class=\"pl-c\"><span class=\"pl-c\">#</span> or: npx @civitai/cli</span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Homebrew (macOS / Linux)</span>\nbrew install civitai/tap/civitai\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Go (from source)</span>\ngo install github.com/civitai/cli/cmd/civitai@latest</pre></div>\n<p>Or grab a prebuilt binary from the assets below and verify it against <code>checksums.txt</code>.</p>",
+      "assets": [
+        "/civitai/cli/releases/download/v0.1.103/checksums.txt",
+        "/civitai/cli/releases/download/v0.1.103/civitai.rb",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_darwin_amd64",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_darwin_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_darwin_arm64",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_darwin_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_linux_amd64",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_linux_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_linux_arm64",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_linux_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_windows_amd64.exe",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_windows_amd64.zip",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_windows_arm64.exe",
+        "/civitai/cli/releases/download/v0.1.103/civitai_0.1.103_windows_arm64.zip"
+      ],
+      "assets_source": "https://github.com/civitai/cli/releases/expanded_assets/v0.1.103"
+    },
+    {
+      "title": "v0.1.102",
+      "updated": "2026-08-27T18:03:55Z",
+      "url": "https://github.com/civitai/cli/releases/tag/v0.1.102",
+      "notes_html": "<h2>Changelog</h2>\n<ul>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/79ed55d554fb3650c3d485a319b3603b77d09a3f/hovercard\" href=\"https://github.com/civitai/cli/commit/79ed55d554fb3650c3d485a319b3603b77d09a3f\"><tt>79ed55d</tt></a> feat(whoami): <code>--json</code> carries the account profile, and still withholds the PII (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5259594084\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/498\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/498/hovercard\" href=\"https://github.com/civitai/cli/pull/498\">#498</a>)</li>\n</ul>\n<h2>Install</h2>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# npm (Node) — downloads + sha256-verifies the matching binary on install\nnpm install -g @civitai/cli        # or: npx @civitai/cli\n# Homebrew (macOS / Linux)\nbrew install civitai/tap/civitai\n# Go (from source)\ngo install github.com/civitai/cli/cmd/civitai@latest\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> npm (Node) — downloads + sha256-verifies the matching binary on install</span>\nnpm install -g @civitai/cli        <span class=\"pl-c\"><span class=\"pl-c\">#</span> or: npx @civitai/cli</span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Homebrew (macOS / Linux)</span>\nbrew install civitai/tap/civitai\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Go (from source)</span>\ngo install github.com/civitai/cli/cmd/civitai@latest</pre></div>\n<p>Or grab a prebuilt binary from the assets below and verify it against <code>checksums.txt</code>.</p>",
+      "assets": [
+        "/civitai/cli/releases/download/v0.1.102/checksums.txt",
+        "/civitai/cli/releases/download/v0.1.102/civitai.rb",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_darwin_amd64",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_darwin_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_darwin_arm64",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_darwin_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_linux_amd64",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_linux_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_linux_arm64",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_linux_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_windows_amd64.exe",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_windows_amd64.zip",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_windows_arm64.exe",
+        "/civitai/cli/releases/download/v0.1.102/civitai_0.1.102_windows_arm64.zip"
+      ],
+      "assets_source": "https://github.com/civitai/cli/releases/expanded_assets/v0.1.102"
+    },
+    {
+      "title": "v0.1.101",
+      "updated": "2026-08-26T03:56:29Z",
+      "url": "https://github.com/civitai/cli/releases/tag/v0.1.101",
+      "notes_html": "<h2>Changelog</h2>\n<ul>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/c3af4cad891091183836f94a920895c1c28e1cd6/hovercard\" href=\"https://github.com/civitai/cli/commit/c3af4cad891091183836f94a920895c1c28e1cd6\"><tt>c3af4ca</tt></a> fix(whoami): <code>canSubmitApps</code> was a false negative stated as fact, and the two surfaces disagreed (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5252436997\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/492\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/492/hovercard\" href=\"https://github.com/civitai/cli/pull/492\">#492</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/547f6b59ad541bbf2998ccd5c4fbc3a05c0870f7/hovercard\" href=\"https://github.com/civitai/cli/commit/547f6b59ad541bbf2998ccd5c4fbc3a05c0870f7\"><tt>547f6b5</tt></a> refactor(whoami): the credential TYPE is not a capability — split the section in two (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5252875998\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/494\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/494/hovercard\" href=\"https://github.com/civitai/cli/pull/494\">#494</a>)</li>\n</ul>\n<h2>Install</h2>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# npm (Node) — downloads + sha256-verifies the matching binary on install\nnpm install -g @civitai/cli        # or: npx @civitai/cli\n# Homebrew (macOS / Linux)\nbrew install civitai/tap/civitai\n# Go (from source)\ngo install github.com/civitai/cli/cmd/civitai@latest\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> npm (Node) — downloads + sha256-verifies the matching binary on install</span>\nnpm install -g @civitai/cli        <span class=\"pl-c\"><span class=\"pl-c\">#</span> or: npx @civitai/cli</span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Homebrew (macOS / Linux)</span>\nbrew install civitai/tap/civitai\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Go (from source)</span>\ngo install github.com/civitai/cli/cmd/civitai@latest</pre></div>\n<p>Or grab a prebuilt binary from the assets below and verify it against <code>checksums.txt</code>.</p>",
+      "assets": [
+        "/civitai/cli/releases/download/v0.1.101/checksums.txt",
+        "/civitai/cli/releases/download/v0.1.101/civitai.rb",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_darwin_amd64",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_darwin_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_darwin_arm64",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_darwin_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_linux_amd64",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_linux_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_linux_arm64",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_linux_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_windows_amd64.exe",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_windows_amd64.zip",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_windows_arm64.exe",
+        "/civitai/cli/releases/download/v0.1.101/civitai_0.1.101_windows_arm64.zip"
+      ],
+      "assets_source": "https://github.com/civitai/cli/releases/expanded_assets/v0.1.101"
+    },
+    {
+      "title": "v0.1.100",
+      "updated": "2026-08-25T19:08:17Z",
+      "url": "https://github.com/civitai/cli/releases/tag/v0.1.100",
+      "notes_html": "<h2>Changelog</h2>\n<ul>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/19874e1845fe006fa54e19075963876d10992c50/hovercard\" href=\"https://github.com/civitai/cli/commit/19874e1845fe006fa54e19075963876d10992c50\"><tt>19874e1</tt></a> ci(revendor): run the canonical-schema re-vendor every 6h, not weekly (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5229203853\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/485\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/485/hovercard\" href=\"https://github.com/civitai/cli/pull/485\">#485</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/75e0c5186435fc3db20442b5d7e37b7b1b4fe53f/hovercard\" href=\"https://github.com/civitai/cli/commit/75e0c5186435fc3db20442b5d7e37b7b1b4fe53f\"><tt>75e0c51</tt></a> feat(app): <code>civitai app doctor</code> — a listing diagnosis whose EXIT CODE gates a release (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5240014322\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/488\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/488/hovercard\" href=\"https://github.com/civitai/cli/pull/488\">#488</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/c97c29cc8fcc1b256832a953f223b9d23c7a6010/hovercard\" href=\"https://github.com/civitai/cli/commit/c97c29cc8fcc1b256832a953f223b9d23c7a6010\"><tt>c97c29c</tt></a> feat(listing): <code>set-text</code> — fix an empty tagline/description/category from the CLI (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5240426045\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/489\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/489/hovercard\" href=\"https://github.com/civitai/cli/pull/489\">#489</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/eb805792aa1470fb2f9f0938baa7e266914f2ebb/hovercard\" href=\"https://github.com/civitai/cli/commit/eb805792aa1470fb2f9f0938baa7e266914f2ebb\"><tt>eb80579</tt></a> feat(validate): gloss the new <code>repository</code> pattern, and re-vendor the schema that carries it (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5238328614\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/487\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/487/hovercard\" href=\"https://github.com/civitai/cli/pull/487\">#487</a>)</li>\n<li><a class=\"commit-link\" data-hovercard-type=\"commit\" data-hovercard-url=\"https://github.com/civitai/cli/commit/6b3f9b31083368274e5ee96bf57987c2e18bce04/hovercard\" href=\"https://github.com/civitai/cli/commit/6b3f9b31083368274e5ee96bf57987c2e18bce04\"><tt>6b3f9b3</tt></a> fix(listing): \"ONLY BY SLUG\" was a claim about the SELECTOR, not the server (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5161001056\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/424\" data-hovercard-type=\"issue\" data-hovercard-url=\"/civitai/cli/issues/424/hovercard\" href=\"https://github.com/civitai/cli/issues/424\">#424</a>) (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5187407419\" data-permission-text=\"Title is private\" data-url=\"https://github.com/civitai/cli/issues/479\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/civitai/cli/pull/479/hovercard\" href=\"https://github.com/civitai/cli/pull/479\">#479</a>)</li>\n</ul>\n<h2>Install</h2>\n<div class=\"highlight highlight-source-shell notranslate position-relative overflow-auto\" data-snippet-clipboard-copy-content=\"# npm (Node) — downloads + sha256-verifies the matching binary on install\nnpm install -g @civitai/cli        # or: npx @civitai/cli\n# Homebrew (macOS / Linux)\nbrew install civitai/tap/civitai\n# Go (from source)\ngo install github.com/civitai/cli/cmd/civitai@latest\"><pre><span class=\"pl-c\"><span class=\"pl-c\">#</span> npm (Node) — downloads + sha256-verifies the matching binary on install</span>\nnpm install -g @civitai/cli        <span class=\"pl-c\"><span class=\"pl-c\">#</span> or: npx @civitai/cli</span>\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Homebrew (macOS / Linux)</span>\nbrew install civitai/tap/civitai\n<span class=\"pl-c\"><span class=\"pl-c\">#</span> Go (from source)</span>\ngo install github.com/civitai/cli/cmd/civitai@latest</pre></div>\n<p>Or grab a prebuilt binary from the assets below and verify it against <code>checksums.txt</code>.</p>",
+      "assets": [
+        "/civitai/cli/releases/download/v0.1.100/checksums.txt",
+        "/civitai/cli/releases/download/v0.1.100/civitai.rb",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_darwin_amd64",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_darwin_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_darwin_arm64",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_darwin_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_linux_amd64",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_linux_amd64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_linux_arm64",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_linux_arm64.tar.gz",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_windows_amd64.exe",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_windows_amd64.zip",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_windows_arm64.exe",
+        "/civitai/cli/releases/download/v0.1.100/civitai_0.1.100_windows_arm64.zip"
+      ],
+      "assets_source": "https://github.com/civitai/cli/releases/expanded_assets/v0.1.100"
+    }
+  ]
+}

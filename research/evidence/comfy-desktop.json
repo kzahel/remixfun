@@ -1,0 +1,209 @@
+{
+  "slug": "comfy-desktop",
+  "repo": "Comfy-Org/Comfy-Desktop",
+  "tier": "packaging",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/comfy-desktop",
+  "errors": [],
+  "head": "8f2f26c021971c61608a6207e013474011594dbb",
+  "branch": "main",
+  "latest_commit": "2026-09-12T01:43:23Z feat(telemetry): capture typed asset scanner errors (#1490)",
+  "commit_count": 858,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-02-13T00:09:30-08:00",
+  "contributors_all": {
+    "distinct_author_names": 17,
+    "top": [
+      {
+        "name": "Jedrzej Kosinski",
+        "commits": 520
+      },
+      {
+        "name": "Deep Mehta",
+        "commits": 115
+      },
+      {
+        "name": "Maanil Verma",
+        "commits": 65
+      },
+      {
+        "name": "Benjamin Lu",
+        "commits": 56
+      },
+      {
+        "name": "cloud-code-bot[bot]",
+        "commits": 56
+      },
+      {
+        "name": "Alexis Rolland",
+        "commits": 5
+      },
+      {
+        "name": "Kosinkadink",
+        "commits": 3
+      },
+      {
+        "name": "claude[bot]",
+        "commits": 3
+      },
+      {
+        "name": "Christian Byrne",
+        "commits": 2
+      },
+      {
+        "name": "mariana953",
+        "commits": 2
+      },
+      {
+        "name": "Henry Lee",
+        "commits": 1
+      },
+      {
+        "name": "James",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 834
+  },
+  "contributors_90d": {
+    "distinct_author_names": 14,
+    "top": [
+      {
+        "name": "Jedrzej Kosinski",
+        "commits": 57
+      },
+      {
+        "name": "cloud-code-bot[bot]",
+        "commits": 40
+      },
+      {
+        "name": "Benjamin Lu",
+        "commits": 30
+      },
+      {
+        "name": "Maanil Verma",
+        "commits": 21
+      },
+      {
+        "name": "Deep Mehta",
+        "commits": 19
+      },
+      {
+        "name": "Alexis Rolland",
+        "commits": 5
+      },
+      {
+        "name": "claude[bot]",
+        "commits": 3
+      },
+      {
+        "name": "Christian Byrne",
+        "commits": 2
+      },
+      {
+        "name": "mariana953",
+        "commits": 2
+      },
+      {
+        "name": "James",
+        "commits": 1
+      },
+      {
+        "name": "Matt Miller",
+        "commits": 1
+      },
+      {
+        "name": "Willie",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 184
+  },
+  "tags": [
+    "v1.1.0-rc.1",
+    "v1.0.47",
+    "v1.0.47-rc.4",
+    "v1.0.47-rc.3",
+    "v1.0.47-rc.2",
+    "bootstrap-v3",
+    "v1.0.47-rc.1",
+    "v1.0.46",
+    "v1.0.45",
+    "v1.0.44",
+    "v1.0.43",
+    "v1.0.42",
+    "v1.0.41",
+    "v1.0.40",
+    "v1.0.40-rc.1"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "Comfy-Org/Comfy-Desktop",
+    "html_url": "https://github.com/Comfy-Org/Comfy-Desktop",
+    "description": "The desktop app for ComfyUI",
+    "created_at": "2026-02-13T08:09:29Z",
+    "updated_at": "2026-09-12T02:10:27Z",
+    "pushed_at": "2026-09-12T05:15:07Z",
+    "stargazers_count": 446,
+    "forks_count": 59,
+    "subscribers_count": 3,
+    "open_issues_count": 192,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "TypeScript",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "homepage": "",
+    "size": 28819,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v1.1.0-rc.1: chore: bump version to 1.1.0-rc.1 (#1516)",
+      "updated": "2026-09-09T23:37:31Z",
+      "url": "https://github.com/Comfy-Org/Comfy-Desktop/releases/tag/v1.1.0-rc.1",
+      "notes_html": "<h2>Summary</h2>\n<ul>\n<li>bump <code>package.json</code> version from <code>1.0.47</code> to <code>1.1.0-rc.1</code></li>\n<li>channel: <code>rc</code> (rc → GitHub pre-release, stable → Latest)</li>\n<li>commits since <code>v1.0.47</code> were auto-grouped below</li>\n</ul>\n<h2>How merging this PR ships the build</h2>\n<ol>\n<li>Merge — <code>Release From Version PR</code> workflow tags <code>v1.1.0-rc.1</code> on the merge commit</li>\n<li>Tag triggers <code>Publish All / build-release</code>, which creates the GitHub Release using <strong>this PR body as the release notes</strong></li>\n<li>ToDesktop picks up the new build and rolls it out</li>\n</ol>\n<blockquote>\n<p><strong>Polish the sections below before merge.</strong> The auto-fill is a starting point — rewrite for users, not for the changelog.</p>\n</blockquote>\n<h2>Features</h2>\n<ul>\n<li>Enable workspace aware ComfyUI instances</li>\n<li>Enable custom ComfyUI builds distribution via Comfy Desktop</li>\n</ul>\n<h2>Fixes</h2>\n<ul>\n<li>reject x64 runtimes on ARM64 (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5343989105\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Comfy-Org/Comfy-Desktop/issues/1486\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Comfy-Org/Comfy-Desktop/pull/1486/hovercard\" href=\"https://github.com/Comfy-Org/Comfy-Desktop/pull/1486\">#1486</a>)</li>\n</ul>\n<h2>Install</h2>\n<ul>\n<li>👉 <a href=\"https://comfy.org/download\" rel=\"nofollow\">comfy.org/download</a></li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/Comfy-Org/Comfy-Desktop/releases/expanded_assets/v1.1.0-rc.1"
+    },
+    {
+      "title": "v1.0.47: chore: bump version to 1.0.47 (#1500)",
+      "updated": "2026-09-08T20:50:08Z",
+      "url": "https://github.com/Comfy-Org/Comfy-Desktop/releases/tag/v1.0.47",
+      "notes_html": "<h2>Summary</h2>\n<ul>\n<li>bump <code>package.json</code> version from <code>1.0.47-rc.4</code> to <code>1.0.47</code></li>\n<li>channel: <code>stable</code> (rc → GitHub pre-release, stable → Latest)</li>\n<li>commits since <code>v1.0.47-rc.4</code> were auto-grouped below</li>\n</ul>\n<h2>How merging this PR ships the build</h2>\n<ol>\n<li>Merge — <code>Release From Version PR</code> workflow tags <code>v1.0.47</code> on the merge commit</li>\n<li>Tag triggers <code>Publish All / build-release</code>, which creates the GitHub Release using <strong>this PR body as the release notes</strong></li>\n<li>ToDesktop picks up the new build and rolls it out</li>\n</ol>\n<blockquote>\n<p><strong>Polish the sections below before merge.</strong> The auto-fill is a starting point — rewrite for users, not for the changelog.</p>\n</blockquote>\n<h2>Features</h2>\n<ul>\n<li>swap the launch modal to Comfy Cloud nodes (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5339878060\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Comfy-Org/Comfy-Desktop/issues/1480\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Comfy-Org/Comfy-Desktop/pull/1480/hovercard\" href=\"https://github.com/Comfy-Org/Comfy-Desktop/pull/1480\">#1480</a>)</li>\n</ul>\n<h2>Fixes</h2>\n<ul>\n<li><em>(no <code>fix:</code> commits since v1.0.47-rc.4 — add highlights here)</em></li>\n</ul>\n<h2>Install</h2>\n<ul>\n<li>👉 <a href=\"https://comfy.org/download\" rel=\"nofollow\">comfy.org/download</a></li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/Comfy-Org/Comfy-Desktop/releases/expanded_assets/v1.0.47"
+    },
+    {
+      "title": "v1.0.47-rc.4",
+      "updated": "2026-09-04T03:05:03Z",
+      "url": "https://github.com/Comfy-Org/Comfy-Desktop/releases/tag/v1.0.47-rc.4",
+      "notes_html": "<h2>Release blocker</h2>\n<p>ToDesktop rejected the Windows build because corresponding <code>targetOverrides.windows</code> resources must use the same destination and source basename. The x64 and ARM64 bootstrap sources ended in <code>win-x64</code> and <code>win-arm64</code>.</p>\n<h2>Behavior</h2>\n<ul>\n<li>Stage both verified Windows bootstrap runtimes under architecture-specific parents whose leaf directory is <code>bootstrap-python</code>.</li>\n<li>Point x64, ARM64, and the Windows fallback override at the staged paths.</li>\n<li>Exclude the staging tree from normal app files so it is uploaded only as an extra resource.</li>\n<li>Bump the RC to <code>1.0.47-rc.4</code> for a clean release tag and ToDesktop build.</li>\n</ul>\n<h2>Validation</h2>\n<ul>\n<li>Parsed <code>package.json</code> and <code>todesktop.json</code> successfully.</li>\n<li><code>git diff --check</code> passes.</li>\n<li>Confirmed corresponding target override entries now share <code>to: bootstrap-python</code> and source basename <code>bootstrap-python</code>.</li>\n</ul>\n<h2>Change breakdown</h2>\n<p>Total changed lines: <strong>36</strong> (31 added, 5 deleted).</p>\n<h3>Product code</h3>\n<ul>\n<li>0 files; +0 / -0; 0% of changed lines.</li>\n</ul>\n<h3>Test code</h3>\n<ul>\n<li>0 files; +0 / -0; 0% of changed lines.</li>\n</ul>\n<h3>Configuration and release automation</h3>\n<ul>\n<li>3 files; +31 / -5; 100% of changed lines.</li>\n<li><code>.github/workflows/build-release.yml</code></li>\n<li><code>package.json</code></li>\n<li><code>todesktop.json</code></li>\n</ul>\n<h3>Documentation, generated files, lockfiles, and vendored code</h3>\n<ul>\n<li>0 files; +0 / -0; 0% of changed lines.</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/Comfy-Org/Comfy-Desktop/releases/expanded_assets/v1.0.47-rc.4"
+    },
+    {
+      "title": "v1.0.47-rc.3: fix(release): raise upload limit and bump to 1.0.47-rc.3 (#1483)",
+      "updated": "2026-09-04T02:39:21Z",
+      "url": "https://github.com/Comfy-Org/Comfy-Desktop/releases/tag/v1.0.47-rc.3",
+      "notes_html": "<ul>\n<li>\n<p>fix(release): raise ToDesktop source upload limit</p>\n</li>\n<li>\n<p>chore: bump version to 1.0.47-rc.3</p>\n</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/Comfy-Org/Comfy-Desktop/releases/expanded_assets/v1.0.47-rc.3"
+    },
+    {
+      "title": "v1.0.47-rc.2: chore: bump version to 1.0.47-rc.2 (#1482)",
+      "updated": "2026-09-04T02:26:34Z",
+      "url": "https://github.com/Comfy-Org/Comfy-Desktop/releases/tag/v1.0.47-rc.2",
+      "notes_html": "<p>Co-authored-by: github-actions[bot] &lt;41898282+github-actions[bot]@users.noreply.github.com&gt;</p>",
+      "assets": [],
+      "assets_source": "https://github.com/Comfy-Org/Comfy-Desktop/releases/expanded_assets/v1.0.47-rc.2"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "genrecord",
+  "repo": "syugoji/genrecord",
+  "tier": "library",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/genrecord",
+  "errors": [],
+  "head": "b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c",
+  "branch": "main",
+  "latest_commit": "2026-08-20T01:57:03+09:00 drop private flag for publication",
+  "commit_count": 2,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-08-20T01:42:22+09:00",
+  "contributors_all": {
+    "distinct_author_names": 1,
+    "top": [
+      {
+        "name": "syugoji",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 2
+  },
+  "contributors_90d": {
+    "distinct_author_names": 1,
+    "top": [
+      {
+        "name": "syugoji",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 2
+  },
+  "tags": [],
+  "dirty": "",
+  "github": {
+    "full_name": "syugoji/genrecord",
+    "html_url": "https://github.com/syugoji/genrecord",
+    "description": null,
+    "created_at": "2026-08-19T16:58:13Z",
+    "updated_at": "2026-08-19T17:03:57Z",
+    "pushed_at": "2026-08-19T16:59:57Z",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "subscribers_count": 0,
+    "open_issues_count": 0,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "JavaScript",
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "homepage": null,
+    "size": 159,
+    "topics": []
+  },
+  "releases": []
+}

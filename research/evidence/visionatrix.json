@@ -1,0 +1,160 @@
+{
+  "slug": "visionatrix",
+  "repo": "Visionatrix/Visionatrix",
+  "tier": "frontend",
+  "collected_at": "2026-09-12T06:58:15.967620+00:00",
+  "path": "D:/code/references/visionatrix",
+  "errors": [],
+  "head": "9f56eb5443371bed89e3f96ffc971ec46f9ac7fd",
+  "branch": "main",
+  "latest_commit": "2025-12-12T19:07:42+02:00 archive repo",
+  "commit_count": 720,
+  "shallow": false,
+  "oldest_reachable_commit": "2024-02-29T11:44:23+03:00",
+  "contributors_all": {
+    "distinct_author_names": 8,
+    "top": [
+      {
+        "name": "Alexander Piskun",
+        "commits": 525
+      },
+      {
+        "name": "pre-commit-ci[bot]",
+        "commits": 66
+      },
+      {
+        "name": "Andrey Borysenko",
+        "commits": 65
+      },
+      {
+        "name": "bigcat88",
+        "commits": 39
+      },
+      {
+        "name": "dependabot[bot]",
+        "commits": 8
+      },
+      {
+        "name": "renovate[bot]",
+        "commits": 7
+      },
+      {
+        "name": "Julien",
+        "commits": 1
+      },
+      {
+        "name": "neophack",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 712
+  },
+  "contributors_90d": {
+    "distinct_author_names": 0,
+    "top": [],
+    "nonmerge_commits": 0
+  },
+  "tags": [
+    "v2.7.0",
+    "v2.6.0",
+    "v2.5.1",
+    "v2.5.0",
+    "v2.4.1",
+    "v2.4.0",
+    "v2.3.0",
+    "v2.2.0",
+    "v2.1.0",
+    "v2.0.1.dev0",
+    "v2.0.0",
+    "v1.11.1",
+    "v1.11.0",
+    "v1.10.0",
+    "v1.9.0"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "Visionatrix/Visionatrix",
+    "html_url": "https://github.com/Visionatrix/Visionatrix",
+    "description": "AI Media processing using ComfyUI",
+    "created_at": "2024-02-29T08:44:23Z",
+    "updated_at": "2026-06-26T17:27:17Z",
+    "pushed_at": "2025-12-12T17:07:48Z",
+    "stargazers_count": 169,
+    "forks_count": 16,
+    "subscribers_count": 2,
+    "open_issues_count": 6,
+    "archived": true,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Python",
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "homepage": "https://visionatrix.github.io/VixFlowsDocs/",
+    "size": 11255,
+    "topics": [
+      "api",
+      "comfyui",
+      "docker",
+      "integration",
+      "stable-diffusion-webui"
+    ]
+  },
+  "releases": [
+    {
+      "title": "v2.7.0",
+      "updated": "2025-07-26T11:59:17Z",
+      "url": "https://github.com/Visionatrix/Visionatrix/releases/tag/v2.7.0",
+      "notes_html": "<h3>Added</h3>\n<ul>\n<li>Ability to remove <code>workers</code> from the UI(mostly needed for docker installs). <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3225139114\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/460\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/460/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/460\">#460</a></li>\n<li>Support of <code>LDAP</code> as a user backend. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3204010745\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/454\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/454/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/454\">#454</a></li>\n<li>Ability to disable <code>User Settings</code>. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3246289610\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/466\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/466/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/466\">#466</a></li>\n</ul>\n<h3>Changed</h3>\n<ul>\n<li>ComfyUI and Comfy-Manager updated to the latest versions. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3265379279\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/469\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/469/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/469\">#469</a></li>\n</ul>",
+      "assets": [
+        "/Visionatrix/Visionatrix/releases/download/v2.7.0/vix_portable_cuda.7z"
+      ],
+      "assets_source": "https://github.com/Visionatrix/Visionatrix/releases/expanded_assets/v2.7.0"
+    },
+    {
+      "title": "v2.6.0",
+      "updated": "2025-07-13T11:52:35Z",
+      "url": "https://github.com/Visionatrix/Visionatrix/releases/tag/v2.6.0",
+      "notes_html": "<h3>Added</h3>\n<ul>\n<li>New flows: <code>Flux Kontext</code> and <code>Restore Old Photo</code>.</li>\n<li>Docker Compose: ability to specify CUDA version. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3175191483\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/441\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/441/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/441\">#441</a> Thanks to <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/julienym/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/julienym\">@julienym</a></li>\n<li>Pre-init ComfyUI engine settings from the database. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3165029941\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/436\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/436/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/436\">#436</a></li>\n<li>New <strong>sync</strong> endpoint to create task and receive a result(<em>for the upcoming MCP</em>). <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3181328953\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/442\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/442/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/442\">#442</a></li>\n<li>Added <code>gemma-3-12b-it</code> and <code>gemma-3-27b-it</code> models. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3185886376\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/448\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/448/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/448\">#448</a></li>\n</ul>\n<h3>Changed</h3>\n<ul>\n<li>Flow <code>SDXL Ghibli</code> was replaced with flow <code>Ghibli (Flux Kontext)</code>.</li>\n<li>Replaced <code>gemini-1.5-flash-002</code> and <code>gemini-1.5-pro-002</code> with <code>gemini-2.5-flash</code> and <code>gemini-2.5-pro</code>. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3164878153\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/435\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/435/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/435\">#435</a></li>\n</ul>\n<h3>Fixed</h3>\n<ul>\n<li>UI: \"Reset params button\" - detection of default value of the <code>Aspect Ratio</code> parameter. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3165841178\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/437\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/437/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/437\">#437</a></li>\n<li>UI: correct displaying results of hidden tasks(like <code>Ask AI</code>). <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3184925314\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/445\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/445/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/445\">#445</a></li>\n<li>Correctly rewire existing optional input param when disconnecting optional input node form graph. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3181643640\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/443\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/443/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/443\">#443</a></li>\n<li>Update process: restart the process after installing the new basic python packages for ComfyUI. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3183133807\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/444\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/444/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/444\">#444</a></li>\n<li>Docker image for AMD: do not run multiple workers to prevent running worker on APU.</li>\n<li>Adding <code>LoRAs</code> to the flows in new clean installations. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3185871782\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/447\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/447/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/447\">#447</a></li>\n<li>Update process between the release versions. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3191239800\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/452\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/452/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/452\">#452</a></li>\n</ul>",
+      "assets": [
+        "/Visionatrix/Visionatrix/releases/download/v2.6.0/vix_portable_cuda.7z"
+      ],
+      "assets_source": "https://github.com/Visionatrix/Visionatrix/releases/expanded_assets/v2.6.0"
+    },
+    {
+      "title": "v2.5.1",
+      "updated": "2025-06-06T08:14:04Z",
+      "url": "https://github.com/Visionatrix/Visionatrix/releases/tag/v2.5.1",
+      "notes_html": "<h3>Added</h3>\n<ul>\n<li>Docker(CUDA): from now Visionatrix will use all available GPUs by default. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3110730028\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/427\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/427/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/427\">#427</a></li>\n</ul>\n<h3>Fixed</h3>\n<ul>\n<li>Windows: fix broken <code>filterpy</code> package which leads to errors in many flows. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3106660654\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/426\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/426/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/426\">#426</a></li>\n<li>SettingsUI(Workers): correctly display <code>Smart Memory</code>, <code>VRAM State</code>,.. details. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3115000711\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/429\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/429/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/429\">#429</a></li>\n<li>SettingsUI(Comfy): <code>Show ComfyUI folders</code> button now works even when you did not set custom path to models. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3118503604\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/430\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/430/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/430\">#430</a></li>\n<li>NPM packages update. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3105243006\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/424\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/424/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/424\">#424</a></li>\n<li>Security issue. Big thanks to <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/protozeit/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/protozeit\">@protozeit</a> for reporting it.</li>\n</ul>",
+      "assets": [
+        "/Visionatrix/Visionatrix/releases/download/v2.5.1/vix_portable_cuda.7z"
+      ],
+      "assets_source": "https://github.com/Visionatrix/Visionatrix/releases/expanded_assets/v2.5.1"
+    },
+    {
+      "title": "v2.5.0",
+      "updated": "2025-05-30T07:08:28Z",
+      "url": "https://github.com/Visionatrix/Visionatrix/releases/tag/v2.5.0",
+      "notes_html": "<h3>Added</h3>\n<ul>\n<li>Option to set <code>reserve-vram</code> parameter for Workers from UI. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3097909075\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/421\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/421/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/421\">#421</a></li>\n<li>Ability to override <code>smart-memory</code>, <code>vae_cpu</code>, <code>reserve-vram</code>, <code>cache-type</code> for specific workers from UI. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3092665011\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/420\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/420/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/420\">#420</a></li>\n</ul>\n<h3>Changed</h3>\n<ul>\n<li>Default model for LLM and VLM now is <code>gemma3:12b-it-qat</code> instead of <code>qwen2.5:14b</code>. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3088409935\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/414\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/414/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/414\">#414</a></li>\n<li><code>ComfyUI_FizzNodes</code> node pack was dropped from the basic node list, as abandoned. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3088570980\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/415\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/415/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/415\">#415</a></li>\n</ul>\n<h3>Fixed</h3>\n<ul>\n<li>Federation and Global Worker Settings are hidden from non-admin users. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3077845051\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/411\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/411/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/411\">#411</a></li>\n<li>Gemini node is now used with GOOGLE_API_KEY environment variable and did not get saved in the workflow. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3089222659\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/418\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/418/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/418\">#418</a></li>\n<li>ComfyUI required packages now prioritized by ComfyUI-Manager to not break ComfyUI`s dependencies. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3089113784\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/417\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/417/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/417\">#417</a></li>\n</ul>",
+      "assets": [
+        "/Visionatrix/Visionatrix/releases/download/v2.5.0/vix_portable_cuda.7z"
+      ],
+      "assets_source": "https://github.com/Visionatrix/Visionatrix/releases/expanded_assets/v2.5.0"
+    },
+    {
+      "title": "v2.4.1",
+      "updated": "2025-05-18T13:07:18Z",
+      "url": "https://github.com/Visionatrix/Visionatrix/releases/tag/v2.4.1",
+      "notes_html": "<h3>Added</h3>\n<ul>\n<li>UI option to enable processing <code>VAE</code> on the CPU, located in the <strong>Settings -&gt; Workers</strong> page. <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3071588654\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/408\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/408/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/408\">#408</a></li>\n</ul>\n<h3>Changed</h3>\n<ul>\n<li><code>Smart Memory</code> is enabled by default (like it was before <code>2.4.0</code> version). <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3071482351\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Visionatrix/Visionatrix/issues/407\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Visionatrix/Visionatrix/pull/407/hovercard\" href=\"https://github.com/Visionatrix/Visionatrix/pull/407\">#407</a></li>\n</ul>",
+      "assets": [
+        "/Visionatrix/Visionatrix/releases/download/v2.4.1/vix_portable_cuda.7z"
+      ],
+      "assets_source": "https://github.com/Visionatrix/Visionatrix/releases/expanded_assets/v2.4.1"
+    }
+  ]
+}

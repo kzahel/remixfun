@@ -1,0 +1,83 @@
+{
+  "slug": "civitai-toolkit",
+  "repo": "BAIKEMARK/ComfyUI-Civitai-Toolkit",
+  "tier": "primary",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/civitai-toolkit",
+  "errors": [],
+  "head": "c1589348ff3ecbb07f326a833936e692fec4fa2d",
+  "branch": "main",
+  "latest_commit": "2026-02-19T19:43:30+08:00 feat: 改进 Windows 路径比较逻辑，以正确处理不同驱动器和大小写不敏感的路径。",
+  "commit_count": 82,
+  "shallow": false,
+  "oldest_reachable_commit": "2025-08-29T23:35:50+08:00",
+  "contributors_all": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "BAIKEMARK",
+        "commits": 58
+      },
+      {
+        "name": "Mark",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 59
+  },
+  "contributors_90d": {
+    "distinct_author_names": 0,
+    "top": [],
+    "nonmerge_commits": 0
+  },
+  "tags": [
+    "v4.1.0",
+    "v4.0.2"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "BAIKEMARK/ComfyUI-Civitai-Toolkit",
+    "html_url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit",
+    "description": "All-in-one Civitai integration center for ComfyUI — browse online models, manage local assets,analyze community trends, and instantly apply full recipes within your workflow.（为 ComfyUI 打造的一站式 Civitai 集成中心：在线浏览模型、本地管理资源、分析社区趋势，并在工作流中即时加载完整配方。）",
+    "created_at": "2025-08-29T15:27:56Z",
+    "updated_at": "2026-09-11T21:38:45Z",
+    "pushed_at": "2026-02-19T11:43:48Z",
+    "stargazers_count": 142,
+    "forks_count": 7,
+    "subscribers_count": 3,
+    "open_issues_count": 4,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Python",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "homepage": "",
+    "size": 4987,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v4.1.0",
+      "updated": "2025-10-10T12:54:27Z",
+      "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/releases/tag/v4.1.0",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>Refactor API endpoints for configuration management in Civitai by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/BAIKEMARK/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/BAIKEMARK\">@BAIKEMARK</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3495375554\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/issues/16\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/16/hovercard\" href=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/16\">#16</a></li>\n<li>Enhance model management by adding support for multiple model types a… by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/BAIKEMARK/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/BAIKEMARK\">@BAIKEMARK</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3501204320\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/issues/18\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/18/hovercard\" href=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/18\">#18</a></li>\n</ul>\n<h2>Changelog:</h2>\n<p><strong>Summary:</strong><br>\nEnhance model management by adding support for multiple model types and improving API interactions. This version significantly broadens the toolkit's capabilities, allowing users to manage a wider array of local models and more reliably parse complex recipe metadata, while also fixing key network bugs.</p>\n<h3>🚀 Added</h3>\n<ul>\n<li><strong>Expanded Model Type Support:</strong>\n<ul>\n<li>The <strong>Local Manager</strong> sidebar and the <strong>Recipe Gallery</strong> node now support a much wider range of model types.</li>\n<li>You can now manage, filter, and select from: <code>checkpoints</code>, <code>loras</code>, <code>vae</code>, <code>embeddings</code>, <code>diffusion_models</code>, <code>text_encoders</code>, and <code>hypernetworks</code>.</li>\n</ul>\n</li>\n</ul>\n<h3>✨ Improvements</h3>\n<ul>\n<li><strong>Advanced Metadata Parsing:</strong>\n<ul>\n<li>The parsing engine has been significantly upgraded to understand newer, complex metadata formats (especially from ComfyUI workflows).</li>\n<li>The system is now far more robust at identifying all components of a recipe, including <strong>Checkpoints, LoRAs, and VAEs</strong> that were previously missed.</li>\n</ul>\n</li>\n<li><strong>Smarter Diagnostics:</strong>\n<ul>\n<li>The <strong>Recipe Gallery</strong>'s diagnostic report now provides a direct, clickable link to the Civitai page for any <strong>Checkpoint</strong> that is specified in a recipe but is not found locally, mirroring the popular feature for missing LoRAs.</li>\n</ul>\n</li>\n</ul>\n<h3>🐞 Fixes</h3>\n<ul>\n<li><strong>China Mirror Endpoint:</strong> Fixed a bug where selecting the \"China Mirror\" network in the settings did not correctly apply the endpoint for all API requests. All browser and API-related features will now correctly use the selected network.</li>\n</ul>\n<p><strong>Full Change</strong>: <a class=\"commit-link\" href=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/compare/v4.0.2...v4.1.0\"><tt>v4.0.2...v4.1.0</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/releases/expanded_assets/v4.1.0"
+    },
+    {
+      "title": "v4.0.2",
+      "updated": "2025-10-07T04:01:43Z",
+      "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/releases/tag/v4.0.2",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>Bump version to 4.0.2 and add API Key management feature for  by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/BAIKEMARK/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/BAIKEMARK\">@BAIKEMARK</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3489742730\" data-permission-text=\"Title is private\" data-url=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/issues/14\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/14/hovercard\" href=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/pull/14\">#14</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a href=\"https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/commits/v4.0.2\">https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/commits/v4.0.2</a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/releases/expanded_assets/v4.0.2"
+    }
+  ]
+}

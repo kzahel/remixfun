@@ -1,0 +1,231 @@
+{
+  "validated_at": "2026-09-12T09:13:02.160934+00:00",
+  "status": "passed",
+  "repository_count": 28,
+  "dossier_count": 28,
+  "markdown_documents": 56,
+  "local_links_checked": 613,
+  "source_paths_checked": 230,
+  "dossier_words_total": 29638,
+  "checks": [
+    "catalog/dossier/evidence coverage",
+    "clone HEAD matches snapshot",
+    "reference working trees clean",
+    "original local baselines clean",
+    "cited local source paths exist",
+    "local Markdown link targets exist",
+    "footnote definitions present",
+    "text encoding and whitespace"
+  ],
+  "not_tested": [
+    "GPU generation",
+    "installer/runtime execution",
+    "reference test suites",
+    "model downloads",
+    "end-to-end competitor usability",
+    "remote link availability",
+    "pixel/visual reproducibility"
+  ],
+  "repositories": [
+    {
+      "slug": "sdnext",
+      "errors": [],
+      "head": "684940e015911efab2911667231946d91fef9f50",
+      "clean": true,
+      "dossier_words": 1192
+    },
+    {
+      "slug": "visionatrix",
+      "errors": [],
+      "head": "9f56eb5443371bed89e3f96ffc971ec46f9ac7fd",
+      "clean": true,
+      "dossier_words": 929
+    },
+    {
+      "slug": "krita-ai-diffusion",
+      "errors": [],
+      "head": "dda58d1c63e361207ccec085efbc34dbd32f1654",
+      "clean": true,
+      "dossier_words": 1091
+    },
+    {
+      "slug": "easy-diffusion",
+      "errors": [],
+      "head": "9cd95259381921c9a8be433cf02c9f5db68ad7a7",
+      "clean": true,
+      "dossier_words": 946
+    },
+    {
+      "slug": "pinokio",
+      "errors": [],
+      "head": "0765ab1c24eee9bf7acf1618b94e1cfdc52886fc",
+      "clean": true,
+      "dossier_words": 925
+    },
+    {
+      "slug": "comfy-frontend",
+      "errors": [],
+      "head": "014bafe62e402acaf6a5729d6c8924ad07e44a5a",
+      "clean": true,
+      "dossier_words": 1097
+    },
+    {
+      "slug": "comfyui",
+      "errors": [],
+      "head": "7193f5627f036701e5efc23beaea20fa37ceaadd",
+      "clean": true,
+      "dossier_words": 1149
+    },
+    {
+      "slug": "comfy-desktop",
+      "errors": [],
+      "head": "8f2f26c021971c61608a6207e013474011594dbb",
+      "clean": true,
+      "dossier_words": 1064
+    },
+    {
+      "slug": "swarmui",
+      "errors": [],
+      "head": "194b879e4c2a239b42ed1841aad3d6967cae7797",
+      "clean": true,
+      "dossier_words": 1261
+    },
+    {
+      "slug": "stability-matrix",
+      "errors": [],
+      "head": "af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002",
+      "clean": true,
+      "dossier_words": 1208
+    },
+    {
+      "slug": "wan2gp",
+      "errors": [],
+      "head": "362c3467a70e1136ceb52eec95907205a8f88543",
+      "clean": true,
+      "dossier_words": 1122
+    },
+    {
+      "slug": "wan2gp-desktop",
+      "errors": [],
+      "head": "e453fafaf9dac560c4eca9b2372b152c1345579f",
+      "clean": true,
+      "dossier_words": 945
+    },
+    {
+      "slug": "invokeai",
+      "errors": [],
+      "head": "ef832d1aa57641dd7d0c262f4d40fe8b7b420489",
+      "clean": true,
+      "dossier_words": 1237
+    },
+    {
+      "slug": "lora-manager",
+      "errors": [],
+      "head": "6d3f82976fd140499bcb000a3c078dbd31d98898",
+      "clean": true,
+      "dossier_words": 1239
+    },
+    {
+      "slug": "unbake",
+      "errors": [],
+      "head": "0776f99532d2edbb3e1f1400f614816932ee8bf7",
+      "clean": true,
+      "dossier_words": 1163
+    },
+    {
+      "slug": "civiimport",
+      "errors": [],
+      "head": "b2c854bb76f8b84f728a74c277e3f562625aebe2",
+      "clean": true,
+      "dossier_words": 1096
+    },
+    {
+      "slug": "civitai-toolkit",
+      "errors": [],
+      "head": "c1589348ff3ecbb07f326a833936e692fec4fa2d",
+      "clean": true,
+      "dossier_words": 981
+    },
+    {
+      "slug": "genrecord",
+      "errors": [],
+      "head": "b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c",
+      "clean": true,
+      "dossier_words": 962
+    },
+    {
+      "slug": "viewcomfy",
+      "errors": [],
+      "head": "fc0ba28a745231e98fd21688cdbb392800a8eb7b",
+      "clean": true,
+      "dossier_words": 906
+    },
+    {
+      "slug": "sdfx",
+      "errors": [],
+      "head": "f63c7b85ab2e544b3b4636988c214d04491f7dee",
+      "clean": true,
+      "dossier_words": 822
+    },
+    {
+      "slug": "stable-diffusion-cpp",
+      "errors": [],
+      "head": "7f410a3793c5bba8eb198e962ce7a3d6095f9d89",
+      "clean": true,
+      "dossier_words": 1012
+    },
+    {
+      "slug": "draw-things",
+      "errors": [],
+      "head": "08e798b5ad59c3db78b2be53f0ed60b071653302",
+      "clean": true,
+      "dossier_words": 1002
+    },
+    {
+      "slug": "automatic1111",
+      "errors": [],
+      "head": "82a973c04367123ae98bd9abdf80d9eda9b910e2",
+      "clean": true,
+      "dossier_words": 955
+    },
+    {
+      "slug": "forge",
+      "errors": [],
+      "head": "dfdcbab685e57677014f05a3309b48cc87383167",
+      "clean": true,
+      "dossier_words": 888
+    },
+    {
+      "slug": "fooocus",
+      "errors": [],
+      "head": "ae05379cc97bc4361ec8b4ec90193dab21be763f",
+      "clean": true,
+      "dossier_words": 923
+    },
+    {
+      "slug": "civitai-cli",
+      "errors": [],
+      "head": "f98eb736adc33aa4974b9b56d355e1bf94d9166c",
+      "clean": true,
+      "dossier_words": 1025
+    },
+    {
+      "slug": "dreamtime",
+      "errors": [],
+      "head": "1129dfcca23afb59c59de48d97d92abbd31cd439",
+      "clean": true,
+      "dossier_words": 1423,
+      "original_clean": true
+    },
+    {
+      "slug": "desktop-release-kit",
+      "errors": [],
+      "head": "c8d96dd87cb244f96b0123c113b4da17bd698c37",
+      "clean": true,
+      "dossier_words": 1075,
+      "original_clean": true
+    }
+  ],
+  "errors": [],
+  "warnings": []
+}

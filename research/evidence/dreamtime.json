@@ -1,0 +1,36 @@
+{
+  "slug": "dreamtime",
+  "repo": "kzahel/dreamtime",
+  "tier": "local baseline",
+  "local": "C:/Users/sox/Documents/code/dreamtime",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/dreamtime",
+  "errors": [
+    "repository API: HTTP Error 404: Not Found",
+    "release feed: HTTP Error 404: Not Found"
+  ],
+  "head": "1129dfcca23afb59c59de48d97d92abbd31cd439",
+  "branch": "main",
+  "latest_commit": "2026-03-30T18:15:51+02:00 Fix storyboard image generation using wrong aspect ratio for HiDream and other square-default models",
+  "commit_count": 62,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-01-14T17:01:54+01:00",
+  "contributors_all": {
+    "distinct_author_names": 1,
+    "top": [
+      {
+        "name": "Kyle Graehl",
+        "commits": 62
+      }
+    ],
+    "nonmerge_commits": 62
+  },
+  "contributors_90d": {
+    "distinct_author_names": 0,
+    "top": [],
+    "nonmerge_commits": 0
+  },
+  "tags": [],
+  "dirty": "",
+  "source_dirty": ""
+}

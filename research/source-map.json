@@ -1,0 +1,1444 @@
+[
+  {
+    "slug": "dreamtime",
+    "name": "Dreamtime — existing implementation",
+    "license": "No tracked root license found; user-owned local baseline, third-party obligations remain",
+    "platforms": "Existing development/deployment assumes Linux; browser client is portable; GPU support depends on Comfy",
+    "distribution": "Source checkout, Python service + Vite web frontend; no desktop release found",
+    "fit": "Primary extraction source: import, model inventory, image and video adapters",
+    "sources": [
+      {
+        "path": "web/package.json",
+        "purpose": "Actual frontend stack",
+        "url": null
+      },
+      {
+        "path": "api/services/imports.py",
+        "purpose": "Resource availability resolution",
+        "url": null
+      },
+      {
+        "path": "api/services/civitai.py",
+        "purpose": "Civitai metadata and identity lookup",
+        "url": null
+      },
+      {
+        "path": "api/services/png_metadata.py",
+        "purpose": "Foreign image metadata parsers",
+        "url": null
+      },
+      {
+        "path": "web/src/pages/ImportDetail.tsx",
+        "purpose": "Download Missing and Remix user flow",
+        "url": null
+      },
+      {
+        "path": "api/services/model_download.py",
+        "purpose": "Model transfer and hash recording",
+        "url": null
+      },
+      {
+        "path": "api/services/comfy/client.py",
+        "purpose": "External Comfy execution boundary",
+        "url": null
+      },
+      {
+        "path": "api/services/comfy/video.py",
+        "purpose": "Video chaining, interpolation, and loop construction",
+        "url": null
+      },
+      {
+        "path": "api/workflows",
+        "purpose": "Versioned image and video graph templates",
+        "url": null
+      },
+      {
+        "path": "api/config.py",
+        "purpose": "Runtime configuration and path assumptions",
+        "url": null
+      },
+      {
+        "path": "api/services/worker.py",
+        "purpose": "Application job dispatch",
+        "url": null
+      },
+      {
+        "path": "api/models",
+        "purpose": "Persistent application entities",
+        "url": null
+      }
+    ]
+  },
+  {
+    "slug": "civiimport",
+    "name": "CiviImport",
+    "license": "MIT",
+    "platforms": "ComfyUI extension; OS and GPU support inherit the host and graph nodes",
+    "distribution": "Git/custom-node installation; no release feed or desktop installer captured",
+    "fit": "Direct Civitai URL → missing models → reconstructed Comfy graph competitor",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "User workflow and installation",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/README.md"
+      },
+      {
+        "path": "civitai_api.py",
+        "purpose": "Metadata acquisition and resource resolution",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/civitai_api.py"
+      },
+      {
+        "path": "local_models.py",
+        "purpose": "Installed model lookup",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/local_models.py"
+      },
+      {
+        "path": "hashing.py",
+        "purpose": "File identity and hash cache",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/hashing.py"
+      },
+      {
+        "path": "downloader.py",
+        "purpose": "Atomic downloads and expected-digest verification",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/downloader.py"
+      },
+      {
+        "path": "graph_builder.py",
+        "purpose": "Graph assembly and inferred generation stages",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/graph_builder.py"
+      },
+      {
+        "path": "routes.py",
+        "purpose": "Comfy HTTP integration",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/routes.py"
+      },
+      {
+        "path": "web/js/civiimport.js",
+        "purpose": "Browser panel",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/web/js/civiimport.js"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "MIT source license",
+        "url": "https://github.com/Kiriouchine/CiviImport/blob/b2c854bb76f8b84f728a74c277e3f562625aebe2/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "unbake",
+    "name": "ComfyUI-Unbake",
+    "license": "GPL-3.0 family; README adds “Not for sale” language requiring clarification",
+    "platforms": "Browser extension + Python Comfy routes; host-dependent Windows/Linux/macOS",
+    "distribution": "Custom-node source installation; no GitHub releases captured",
+    "fit": "Closest conceptual competitor for provenance-aware replay and controlled comparisons",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Capabilities, limitations, and maturity disclosures",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/README.md"
+      },
+      {
+        "path": "web/core",
+        "purpose": "Record, resolution, replay, and sweep core",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/tree/0776f99532d2edbb3e1f1400f614816932ee8bf7/web/core"
+      },
+      {
+        "path": "web/panel/sweepView.js",
+        "purpose": "Exposed sweep UI",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/web/panel/sweepView.js"
+      },
+      {
+        "path": "web/host/comfyHost.js",
+        "purpose": "Comfy host adapter",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/web/host/comfyHost.js"
+      },
+      {
+        "path": "__init__.py",
+        "purpose": "Python extension and routes",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/__init__.py"
+      },
+      {
+        "path": "web/core/generationRecord.js",
+        "purpose": "Normalized generation record",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/web/core/generationRecord.js"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "GPL text",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/LICENSE"
+      },
+      {
+        "path": "web/panel/detailView.js",
+        "purpose": "Import detail and replay interaction",
+        "url": "https://github.com/syugoji/ComfyUI-Unbake/blob/0776f99532d2edbb3e1f1400f614816932ee8bf7/web/panel/detailView.js"
+      }
+    ]
+  },
+  {
+    "slug": "lora-manager",
+    "name": "ComfyUI LoRA Manager",
+    "license": "AGPL-3.0",
+    "platforms": "Comfy extension or standalone Python web app; model execution depends on a separate engine",
+    "distribution": "Comfy custom-node installation, portable standalone option, source releases",
+    "fit": "Strongest model/recipe collection reference in the direct remix shortlist",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Installation, standalone mode, and capabilities",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/README.md"
+      },
+      {
+        "path": "docs/architecture/recipe_routes.md",
+        "purpose": "Layered recipe architecture",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/docs/architecture/recipe_routes.md"
+      },
+      {
+        "path": "py/recipes",
+        "purpose": "Foreign recipe parsers and merging",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/tree/6d3f82976fd140499bcb000a3c078dbd31d98898/py/recipes"
+      },
+      {
+        "path": "py/services/recipes/analysis_service.py",
+        "purpose": "Recipe input analysis",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/py/services/recipes/analysis_service.py"
+      },
+      {
+        "path": "py/services/recipes/persistence_service.py",
+        "purpose": "Recipe storage and fingerprint maintenance",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/py/services/recipes/persistence_service.py"
+      },
+      {
+        "path": "py/services/download_manager.py",
+        "purpose": "Model download service",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/py/services/download_manager.py"
+      },
+      {
+        "path": "standalone.py",
+        "purpose": "Engine-independent management server",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/standalone.py"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "Source license",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/blob/6d3f82976fd140499bcb000a3c078dbd31d98898/LICENSE"
+      },
+      {
+        "path": "static/js",
+        "purpose": "Browser recipe and model interaction",
+        "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/tree/6d3f82976fd140499bcb000a3c078dbd31d98898/static/js"
+      }
+    ]
+  },
+  {
+    "slug": "civitai-toolkit",
+    "name": "ComfyUI Civitai Toolkit",
+    "license": "MIT",
+    "platforms": "Runs inside Comfy; host-dependent OS/GPU support",
+    "distribution": "Custom-node source installation and tagged source releases",
+    "fit": "Integrated Civitai browsing, local inventory, recipe diagnostics",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Features and installation",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/README.md"
+      },
+      {
+        "path": "api.py",
+        "purpose": "HTTP routes and Civitai integration",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/api.py"
+      },
+      {
+        "path": "utils.py",
+        "purpose": "Metadata and model utilities",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/utils.py"
+      },
+      {
+        "path": "nodes.py",
+        "purpose": "Recipe and analysis nodes",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/nodes.py"
+      },
+      {
+        "path": "nodes_display.py",
+        "purpose": "Display-oriented nodes",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/nodes_display.py"
+      },
+      {
+        "path": "js/civitai_browser.js",
+        "purpose": "Online model browser",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/js/civitai_browser.js"
+      },
+      {
+        "path": "js/local_manager.js",
+        "purpose": "Local model manager",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/js/local_manager.js"
+      },
+      {
+        "path": "js/gallery.js",
+        "purpose": "Recipe gallery UI",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/js/gallery.js"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "MIT license",
+        "url": "https://github.com/BAIKEMARK/ComfyUI-Civitai-Toolkit/blob/c1589348ff3ecbb07f326a833936e692fec4fa2d/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "genrecord",
+    "name": "genrecord",
+    "license": "AGPL-3.0 with a documented commercial licensing option",
+    "platforms": "Portable JavaScript library; no GPU, network, UI, or server required",
+    "distribution": "Library source/package; no GitHub releases captured",
+    "fit": "Reference for normalized evidence, sufficiency, provenance, and variation planning",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Scope and input limitations",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/README.md"
+      },
+      {
+        "path": "src/generationRecord.mjs",
+        "purpose": "Canonical record representation",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/generationRecord.mjs"
+      },
+      {
+        "path": "src/fromImage.mjs",
+        "purpose": "Image ingestion",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/fromImage.mjs"
+      },
+      {
+        "path": "src/workflowGraph.mjs",
+        "purpose": "Graph-aware extraction",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/workflowGraph.mjs"
+      },
+      {
+        "path": "src/resolve.mjs",
+        "purpose": "Resource resolution",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/resolve.mjs"
+      },
+      {
+        "path": "src/recordSufficiency.mjs",
+        "purpose": "Completeness assessment",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/recordSufficiency.mjs"
+      },
+      {
+        "path": "src/variation.mjs",
+        "purpose": "Variation planning",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/variation.mjs"
+      },
+      {
+        "path": "src/license.mjs",
+        "purpose": "Caller-supplied licensing evidence",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/src/license.mjs"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "AGPL source license",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/LICENSE"
+      },
+      {
+        "path": "COMMERCIAL.md",
+        "purpose": "Commercial option",
+        "url": "https://github.com/syugoji/genrecord/blob/b885d461deb77e07f7fd109cd4cc3ca5e21ebf5c/COMMERCIAL.md"
+      }
+    ]
+  },
+  {
+    "slug": "swarmui",
+    "name": "SwarmUI",
+    "license": "MIT",
+    "platforms": "Windows/Linux/macOS application server; actual model/GPU support comes from configured backends",
+    "distribution": "Install/run scripts and web UI; beta source releases; external Comfy processes",
+    "fit": "Strongest established Comfy-based general-purpose app benchmark",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Product, installation, and independent continuation",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/README.md"
+      },
+      {
+        "path": "src/SwarmUI.csproj",
+        "purpose": ".NET application boundary",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/SwarmUI.csproj"
+      },
+      {
+        "path": "src/Backends",
+        "purpose": "Backend orchestration",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/tree/194b879e4c2a239b42ed1841aad3d6967cae7797/src/Backends"
+      },
+      {
+        "path": "src/BuiltinExtensions/ComfyUIBackend/WorkflowGenerator.cs",
+        "purpose": "Graph generation",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/BuiltinExtensions/ComfyUIBackend/WorkflowGenerator.cs"
+      },
+      {
+        "path": "src/BuiltinExtensions/ComfyUIBackend/WorkflowGeneratorSteps.cs",
+        "purpose": "Generation stages",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/BuiltinExtensions/ComfyUIBackend/WorkflowGeneratorSteps.cs"
+      },
+      {
+        "path": "src/wwwroot/js/genpage/helpers/metadatahelpers.js",
+        "purpose": "Foreign metadata normalization",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/wwwroot/js/genpage/helpers/metadatahelpers.js"
+      },
+      {
+        "path": "src/wwwroot/js/genpage/gentab/currentimagehandler.js",
+        "purpose": "Image interaction and parameter reuse",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/wwwroot/js/genpage/gentab/currentimagehandler.js"
+      },
+      {
+        "path": "docs/Image Metadata Format.md",
+        "purpose": "Persisted image metadata and optional model hashes",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/docs/Image%20Metadata%20Format.md"
+      },
+      {
+        "path": "src/wwwroot/js/genpage/utiltab.js",
+        "purpose": "Utility/model download interface",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/src/wwwroot/js/genpage/utiltab.js"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "MIT source license",
+        "url": "https://github.com/mcmonkeyprojects/SwarmUI/blob/194b879e4c2a239b42ed1841aad3d6967cae7797/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "stability-matrix",
+    "name": "Stability Matrix",
+    "license": "AGPL-3.0 source; official binaries have a separately linked EULA",
+    "platforms": "Windows x64, Linux x64, macOS Apple Silicon; packages and GPU support vary",
+    "distribution": "Native Avalonia desktop; Windows/Linux archives and macOS DMG; managed AI packages",
+    "fit": "Strongest combined installer, shared-model library, and native Comfy inference competitor",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Package manager, platforms, distribution, and binary license distinction",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/README.md"
+      },
+      {
+        "path": "StabilityMatrix.Core",
+        "purpose": "Shared services, packages, models, and downloads",
+        "url": "https://github.com/LykosAI/StabilityMatrix/tree/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/StabilityMatrix.Core"
+      },
+      {
+        "path": "StabilityMatrix.Avalonia/ViewModels/Base/InferenceTabViewModelBase.cs",
+        "purpose": "Image metadata ingestion",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/StabilityMatrix.Avalonia/ViewModels/Base/InferenceTabViewModelBase.cs"
+      },
+      {
+        "path": "StabilityMatrix.Core/Models/GenerationParameters.cs",
+        "purpose": "Generic/Civitai parameter representation",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/StabilityMatrix.Core/Models/GenerationParameters.cs"
+      },
+      {
+        "path": "StabilityMatrix.Avalonia/ViewModels/Inference/ModelCardViewModel.cs",
+        "purpose": "Installed model matching and state restoration",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/StabilityMatrix.Avalonia/ViewModels/Inference/ModelCardViewModel.cs"
+      },
+      {
+        "path": "docs/inference/overview.md",
+        "purpose": "Native inference, supported modes, and project state",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/docs/inference/overview.md"
+      },
+      {
+        "path": "docs/advanced/comfyui-integration.md",
+        "purpose": "Comfy graph and API boundary",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/docs/advanced/comfyui-integration.md"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "AGPL source license",
+        "url": "https://github.com/LykosAI/StabilityMatrix/blob/af93d6ef57c01cd890d7e0ad0a9ea8c9fcda3002/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "invokeai",
+    "name": "Invoke / InvokeAI",
+    "license": "Apache-2.0; component and model terms remain separate",
+    "platforms": "Windows, Linux, macOS; supported accelerators and model families vary",
+    "distribution": "Python application with browser UI; source/package releases and separate launcher distribution",
+    "fit": "Mature creative application; current Wan video features make it a stronger competitor than older summaries suggest",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Product and installation entry point",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/README.md"
+      },
+      {
+        "path": "pyproject.toml",
+        "purpose": "Backend libraries, platform-specific dependencies, and packaging",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/pyproject.toml"
+      },
+      {
+        "path": "invokeai/frontend/web/package.json",
+        "purpose": "React/TypeScript web stack",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/frontend/web/package.json"
+      },
+      {
+        "path": "invokeai/app/api_app.py",
+        "purpose": "FastAPI application",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/app/api_app.py"
+      },
+      {
+        "path": "invokeai/app/services/session_queue",
+        "purpose": "Persistent generation queue",
+        "url": "https://github.com/invoke-ai/InvokeAI/tree/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/app/services/session_queue"
+      },
+      {
+        "path": "invokeai/app/services/model_install",
+        "purpose": "Model import/install services",
+        "url": "https://github.com/invoke-ai/InvokeAI/tree/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/app/services/model_install"
+      },
+      {
+        "path": "invokeai/frontend/web/src/features/metadata/parsing.tsx",
+        "purpose": "Metadata handlers and recall",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/frontend/web/src/features/metadata/parsing.tsx"
+      },
+      {
+        "path": "invokeai/frontend/web/src/features/gallery/hooks/useRecallAllImageMetadata.ts",
+        "purpose": "Gallery recall interaction",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/frontend/web/src/features/gallery/hooks/useRecallAllImageMetadata.ts"
+      },
+      {
+        "path": "invokeai/app/services/workflow_records/default_workflows",
+        "purpose": "Shipped image/video/interpolation/extension workflows",
+        "url": "https://github.com/invoke-ai/InvokeAI/tree/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/app/services/workflow_records/default_workflows"
+      },
+      {
+        "path": "invokeai/app/invocations/wan_video_denoise.py",
+        "purpose": "Wan video invocation",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/invokeai/app/invocations/wan_video_denoise.py"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "Apache source license",
+        "url": "https://github.com/invoke-ai/InvokeAI/blob/ef832d1aa57641dd7d0c262f4d40fe8b7b420489/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "sdnext",
+    "name": "SD.Next",
+    "license": "Apache-2.0 at inspected root; inherited/third-party files need their own review",
+    "platforms": "Windows/Linux/macOS; CUDA, ROCm/ZLUDA, Intel, DirectML/OpenVINO, MPS paths vary by feature",
+    "distribution": "Web server + Python installer; dated releases; Windows launcher referenced separately",
+    "fit": "Major all-in-one alternative: metadata, Civitai downloads, image/video generation, broad hardware",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Supported workflows/platforms and installation",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/README.md"
+      },
+      {
+        "path": "installer.py",
+        "purpose": "Runtime setup",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/installer.py"
+      },
+      {
+        "path": "modules/processing_diffusers.py",
+        "purpose": "Diffusers execution integration",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/processing_diffusers.py"
+      },
+      {
+        "path": "modules/infotext_utils.py",
+        "purpose": "Parameter transfer and metadata handling",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/infotext_utils.py"
+      },
+      {
+        "path": "modules/image/metadata.py",
+        "purpose": "Image metadata reader",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/image/metadata.py"
+      },
+      {
+        "path": "modules/civitai/metadata_civitai.py",
+        "purpose": "Local identity and provider metadata",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/civitai/metadata_civitai.py"
+      },
+      {
+        "path": "modules/civitai/download_civitai.py",
+        "purpose": "Download queue, resume, and expected hashes",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/civitai/download_civitai.py"
+      },
+      {
+        "path": "modules/video_models",
+        "purpose": "Video loading, execution, caching, and UI",
+        "url": "https://github.com/vladmandic/sdnext/tree/684940e015911efab2911667231946d91fef9f50/modules/video_models"
+      },
+      {
+        "path": "modules/api/api.py",
+        "purpose": "Automation API",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/modules/api/api.py"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "Root source license",
+        "url": "https://github.com/vladmandic/sdnext/blob/684940e015911efab2911667231946d91fef9f50/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "wan2gp",
+    "name": "Wan2GP / WanGP",
+    "license": "Custom WanGP Community License 2.0; restricted commercial embedding/hosting",
+    "platforms": "Windows/Linux primary; early Apple Silicon MPS support exists with documented limitations",
+    "distribution": "Python/Gradio application, setup scripts, headless CLI/API; companion Tauri launcher",
+    "fit": "Strong video workflow benchmark; commercially restricted implementation is not a default embedding choice",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Current features and install routes",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/README.md"
+      },
+      {
+        "path": "wgp.py",
+        "purpose": "Application orchestration and model/runtime dispatch",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/wgp.py"
+      },
+      {
+        "path": "models",
+        "purpose": "Model-family implementations and settings",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/tree/362c3467a70e1136ceb52eec95907205a8f88543/models"
+      },
+      {
+        "path": "shared/api.py",
+        "purpose": "Programmatic generation interface",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/shared/api.py"
+      },
+      {
+        "path": "docs/CLI.md",
+        "purpose": "Headless saved queues, dry runs, and automation",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/docs/CLI.md"
+      },
+      {
+        "path": "shared/utils/download.py",
+        "purpose": "Model download utility",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/shared/utils/download.py"
+      },
+      {
+        "path": "shared/mps/device_patch.py",
+        "purpose": "Early Apple Silicon compatibility layer",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/shared/mps/device_patch.py"
+      },
+      {
+        "path": "docs/CHANGELOG.md",
+        "purpose": "Version history and MPS limitations",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/docs/CHANGELOG.md"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "Binding custom license terms",
+        "url": "https://github.com/deepbeepmeep/Wan2GP/blob/362c3467a70e1136ceb52eec95907205a8f88543/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "krita-ai-diffusion",
+    "name": "Krita AI Diffusion",
+    "license": "GPL-3.0",
+    "platforms": "Krita on Windows/Linux/macOS; managed local or remote Comfy; model-dependent GPU support",
+    "distribution": "Krita plugin ZIP; local server installer or optional cloud connection",
+    "fit": "Strong visual-remix and managed Comfy reference; different primary interaction from recipe replay",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "User goals, features, and installation",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/README.md"
+      },
+      {
+        "path": "ai_diffusion/backend/comfy_client.py",
+        "purpose": "Comfy connection",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/backend/comfy_client.py"
+      },
+      {
+        "path": "ai_diffusion/backend/workflow.py",
+        "purpose": "Generation planning",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/backend/workflow.py"
+      },
+      {
+        "path": "ai_diffusion/backend/server.py",
+        "purpose": "Managed runtime setup",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/backend/server.py"
+      },
+      {
+        "path": "ai_diffusion/backend/resources.py",
+        "purpose": "Required model/node resources",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/backend/resources.py"
+      },
+      {
+        "path": "ai_diffusion/model/jobs.py",
+        "purpose": "Job state",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/model/jobs.py"
+      },
+      {
+        "path": "ai_diffusion/persistence.py",
+        "purpose": "Document-associated persistence",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/persistence.py"
+      },
+      {
+        "path": "ai_diffusion/backend/requirements",
+        "purpose": "OS/GPU dependency profiles",
+        "url": "https://github.com/Acly/krita-ai-diffusion/tree/dda58d1c63e361207ccec085efbc34dbd32f1654/ai_diffusion/backend/requirements"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "GPL source license",
+        "url": "https://github.com/Acly/krita-ai-diffusion/blob/dda58d1c63e361207ccec085efbc34dbd32f1654/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "comfyui",
+    "name": "ComfyUI — inference engine and graph server",
+    "license": "GPL-3.0",
+    "platforms": "Windows/Linux/macOS Apple Silicon; CPU and multiple GPU backends; node/model support varies",
+    "distribution": "Python server, Windows portable archives, separate Desktop/frontend/cloud products",
+    "fit": "Recommended initial execution engine; existing Dreamtime investment and broad workflow primitives",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Current engine/platform/install scope",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/README.md"
+      },
+      {
+        "path": "main.py",
+        "purpose": "Server startup",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/main.py"
+      },
+      {
+        "path": "server.py",
+        "purpose": "HTTP/WebSocket API",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/server.py"
+      },
+      {
+        "path": "execution.py",
+        "purpose": "Graph validation/execution/cache",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/execution.py"
+      },
+      {
+        "path": "comfy/model_management.py",
+        "purpose": "Device/memory management",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/comfy/model_management.py"
+      },
+      {
+        "path": "folder_paths.py",
+        "purpose": "Model/file categories",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/folder_paths.py"
+      },
+      {
+        "path": "extra_model_paths.yaml.example",
+        "purpose": "Shared model path configuration",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/extra_model_paths.yaml.example"
+      },
+      {
+        "path": "requirements.txt",
+        "purpose": "Runtime and frontend package dependencies",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/requirements.txt"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "GPL source license",
+        "url": "https://github.com/Comfy-Org/ComfyUI/blob/7193f5627f036701e5efc23beaea20fa37ceaadd/LICENSE"
+      },
+      {
+        "path": "https://docs.comfy.org/installation/system_requirements",
+        "purpose": "Official current OS and hardware guidance"
+      }
+    ]
+  },
+  {
+    "slug": "comfy-frontend",
+    "name": "ComfyUI official frontend / App Mode",
+    "license": "GPL-3.0-only in package manifest",
+    "platforms": "Browser frontend; runs with Comfy on supported host OSes; desktop/cloud builds differ",
+    "distribution": "Versioned frontend packages/releases consumed by Comfy; no independent GPU runtime",
+    "fit": "Direct baseline for simplified workflow forms; App Mode removes the node-editor requirement",
+    "sources": [
+      {
+        "path": "package.json",
+        "purpose": "Frontend build/distribution stack and license",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/014bafe62e402acaf6a5729d6c8924ad07e44a5a/package.json"
+      },
+      {
+        "path": "src/stores/appModeStore.ts",
+        "purpose": "App input/output state and graph references",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/014bafe62e402acaf6a5729d6c8924ad07e44a5a/src/stores/appModeStore.ts"
+      },
+      {
+        "path": "src/composables/useAppMode.ts",
+        "purpose": "Mode lifecycle",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/014bafe62e402acaf6a5729d6c8924ad07e44a5a/src/composables/useAppMode.ts"
+      },
+      {
+        "path": "src/components/builder",
+        "purpose": "Workflow-to-app builder UI",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/tree/014bafe62e402acaf6a5729d6c8924ad07e44a5a/src/components/builder"
+      },
+      {
+        "path": "src/platform/workflow/management",
+        "purpose": "Workflow persistence and management",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/tree/014bafe62e402acaf6a5729d6c8924ad07e44a5a/src/platform/workflow/management"
+      },
+      {
+        "path": "src/scripts",
+        "purpose": "Graph/API integration",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/tree/014bafe62e402acaf6a5729d6c8924ad07e44a5a/src/scripts"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "GPL source text",
+        "url": "https://github.com/Comfy-Org/ComfyUI_frontend/blob/014bafe62e402acaf6a5729d6c8924ad07e44a5a/LICENSE"
+      },
+      {
+        "path": "https://docs.comfy.org/interface/app-mode",
+        "purpose": "Official App Mode guide and cloud-only sharing distinction"
+      }
+    ]
+  },
+  {
+    "slug": "stable-diffusion-cpp",
+    "name": "stable-diffusion.cpp",
+    "license": "MIT",
+    "platforms": "Windows/Linux/macOS plus additional targets; CPU/CUDA/Vulkan/Metal/OpenCL/SYCL",
+    "distribution": "Native CLI/library/server; rolling platform/backend-specific archives and web UI",
+    "fit": "Most relevant alternative native runtime; attractive packaging, different reproduction semantics",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Model/backend/platform scope",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/README.md"
+      },
+      {
+        "path": "CMakeLists.txt",
+        "purpose": "Native build boundary",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/CMakeLists.txt"
+      },
+      {
+        "path": "src/stable-diffusion.cpp",
+        "purpose": "Core inference implementation",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/src/stable-diffusion.cpp"
+      },
+      {
+        "path": "examples/cli",
+        "purpose": "Command-line application and metadata handling",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/tree/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/examples/cli"
+      },
+      {
+        "path": "examples/server/README.md",
+        "purpose": "HTTP server and web UI",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/examples/server/README.md"
+      },
+      {
+        "path": "examples/server/runtime.cpp",
+        "purpose": "Server runtime",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/examples/server/runtime.cpp"
+      },
+      {
+        "path": "examples/server/async_jobs.cpp",
+        "purpose": "Asynchronous jobs",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/examples/server/async_jobs.cpp"
+      },
+      {
+        "path": "docs/wan.md",
+        "purpose": "Wan model-specific usage",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/docs/wan.md"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "MIT source license",
+        "url": "https://github.com/leejet/stable-diffusion.cpp/blob/7f410a3793c5bba8eb198e962ce7a3d6095f9d89/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "draw-things",
+    "name": "Draw Things community core",
+    "license": "GPL-3.0 public core; full consumer app is not all in this repository",
+    "platforms": "Apple-native consumer app; public macOS CLI/server and CUDA Linux server path; no Windows app established",
+    "distribution": "Consumer Apple app separately; macOS CLI/gRPC binaries and Linux server/container path",
+    "fit": "Apple performance/product benchmark and possible remote runtime; not a ready cross-platform UI base",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Public/private boundary, CLI, and server distribution",
+        "url": "https://github.com/drawthingsai/draw-things-community/blob/08e798b5ad59c3db78b2be53f0ed60b071653302/README.md"
+      },
+      {
+        "path": "Package.swift",
+        "purpose": "Swift packages and products",
+        "url": "https://github.com/drawthingsai/draw-things-community/blob/08e798b5ad59c3db78b2be53f0ed60b071653302/Package.swift"
+      },
+      {
+        "path": "Libraries",
+        "purpose": "Public model, sampler, and supporting libraries",
+        "url": "https://github.com/drawthingsai/draw-things-community/tree/08e798b5ad59c3db78b2be53f0ed60b071653302/Libraries"
+      },
+      {
+        "path": "Apps",
+        "purpose": "Public command-line/server targets",
+        "url": "https://github.com/drawthingsai/draw-things-community/tree/08e798b5ad59c3db78b2be53f0ed60b071653302/Apps"
+      },
+      {
+        "path": "LICENSE.md",
+        "purpose": "Public source license",
+        "url": "https://github.com/drawthingsai/draw-things-community/blob/08e798b5ad59c3db78b2be53f0ed60b071653302/LICENSE.md"
+      },
+      {
+        "path": "CLA",
+        "purpose": "Contribution agreement",
+        "url": "https://github.com/drawthingsai/draw-things-community/tree/08e798b5ad59c3db78b2be53f0ed60b071653302/CLA"
+      }
+    ]
+  },
+  {
+    "slug": "civitai-cli",
+    "name": "Official Civitai CLI",
+    "license": "Apache-2.0",
+    "platforms": "Static binaries for Windows/Linux/macOS, x64 and ARM64",
+    "distribution": "Go binary; archives, npm/Homebrew/Nix/source install routes",
+    "fit": "Provider integration/download reference; also a cloud generation/App toolchain, not a local inference engine",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "CLI capabilities, auth boundaries, and distribution",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/README.md"
+      },
+      {
+        "path": "go.mod",
+        "purpose": "Go module/dependencies",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/go.mod"
+      },
+      {
+        "path": "pkg/civitai/images.go",
+        "purpose": "Image API client",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/pkg/civitai/images.go"
+      },
+      {
+        "path": "pkg/civitai/model_versions.go",
+        "purpose": "Version identity API",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/pkg/civitai/model_versions.go"
+      },
+      {
+        "path": "pkg/civitai/hashes.go",
+        "purpose": "Hash lookups",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/pkg/civitai/hashes.go"
+      },
+      {
+        "path": "pkg/civitai/download.go",
+        "purpose": "Download client and integrity behavior",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/pkg/civitai/download.go"
+      },
+      {
+        "path": "pkg/civitai/retry.go",
+        "purpose": "Retry semantics",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/pkg/civitai/retry.go"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "Apache source license",
+        "url": "https://github.com/civitai/cli/blob/f98eb736adc33aa4974b9b56d355e1bf94d9166c/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "desktop-release-kit",
+    "name": "Desktop Release Kit — distribution baseline",
+    "license": "MIT",
+    "platforms": "macOS Apple Silicon/Intel; Windows x64; Linux x64/ARM64",
+    "distribution": "Tauri canary with signed releases, native installers, updater artifacts, and acceptance evidence",
+    "fit": "Adopt release contracts and validation patterns; not a Python/GPU/model installer",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Canary purpose, architecture, and adoption rules",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/README.md"
+      },
+      {
+        "path": "contract/desktop-update-v1.md",
+        "purpose": "Normative updater contract",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/contract/desktop-update-v1.md"
+      },
+      {
+        "path": "contract/desktop-update-channels-v1.md",
+        "purpose": "Stable/Latest channel contract",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/contract/desktop-update-channels-v1.md"
+      },
+      {
+        "path": "src-tauri/tauri.conf.json",
+        "purpose": "Tauri package configuration",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/src-tauri/tauri.conf.json"
+      },
+      {
+        "path": "src-tauri/src/lib.rs",
+        "purpose": "Native lifecycle and updater integration",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/src-tauri/src/lib.rs"
+      },
+      {
+        "path": "scripts/prepare-sidecar.mjs",
+        "purpose": "Target-specific sidecar staging",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/scripts/prepare-sidecar.mjs"
+      },
+      {
+        "path": "docs/canary-testbed-runbook.md",
+        "purpose": "Installed old-to-new acceptance procedure",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/docs/canary-testbed-runbook.md"
+      },
+      {
+        "path": "docs/evidence",
+        "purpose": "Existing recorded cross-platform acceptance evidence",
+        "url": "https://github.com/kzahel/desktop-release-kit/tree/c8d96dd87cb244f96b0123c113b4da17bd698c37/docs/evidence"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "MIT source license",
+        "url": "https://github.com/kzahel/desktop-release-kit/blob/c8d96dd87cb244f96b0123c113b4da17bd698c37/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "comfy-desktop",
+    "name": "Comfy Desktop",
+    "license": "Dual AGPL-3.0-or-later OR commercial license",
+    "platforms": "Windows, macOS Apple Silicon, and documented Linux AppImage/.deb support",
+    "distribution": "Electron desktop manager; external installer delivery; source release feed can lack binary attachments",
+    "fit": "Primary benchmark for managed Comfy installation, instances, snapshots, and recovery",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Desktop setup, instances, supported packaging",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/blob/8f2f26c021971c61608a6207e013474011594dbb/README.md"
+      },
+      {
+        "path": "package.json",
+        "purpose": "Electron/Vue/TypeScript build",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/blob/8f2f26c021971c61608a6207e013474011594dbb/package.json"
+      },
+      {
+        "path": "src/main",
+        "purpose": "Runtime management, installation, and native operations",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/tree/8f2f26c021971c61608a6207e013474011594dbb/src/main"
+      },
+      {
+        "path": "src/preload",
+        "purpose": "Native/renderer bridge",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/tree/8f2f26c021971c61608a6207e013474011594dbb/src/preload"
+      },
+      {
+        "path": "src/renderer",
+        "purpose": "Vue desktop UI",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/tree/8f2f26c021971c61608a6207e013474011594dbb/src/renderer"
+      },
+      {
+        "path": "src/types/ipc.ts",
+        "purpose": "Typed process boundary",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/blob/8f2f26c021971c61608a6207e013474011594dbb/src/types/ipc.ts"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "Explicit dual license",
+        "url": "https://github.com/Comfy-Org/Comfy-Desktop/blob/8f2f26c021971c61608a6207e013474011594dbb/LICENSE"
+      },
+      {
+        "path": "https://docs.comfy.org/installation/system_requirements",
+        "purpose": "Current official Linux/Mac/Windows distribution guidance"
+      }
+    ]
+  },
+  {
+    "slug": "wan2gp-desktop",
+    "name": "Wan2GP Desktop Tauri launcher",
+    "license": "No tracked LICENSE file found; reuse permission unresolved",
+    "platforms": "Windows release artifacts verified in snapshot; macOS/Linux delivery not established",
+    "distribution": "Tauri 2 launcher; Windows NSIS/MSI and updater metadata; manages external WanGP runtime",
+    "fit": "Very close packaging concept, very young implementation, unresolved license",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Launcher purpose and install experience",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/blob/e453fafaf9dac560c4eca9b2372b152c1345579f/README.md"
+      },
+      {
+        "path": "src-tauri/tauri.conf.json",
+        "purpose": "Tauri targets, CSP, and updater endpoint",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/blob/e453fafaf9dac560c4eca9b2372b152c1345579f/src-tauri/tauri.conf.json"
+      },
+      {
+        "path": "src-tauri/src",
+        "purpose": "Rust process/install commands",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/tree/e453fafaf9dac560c4eca9b2372b152c1345579f/src-tauri/src"
+      },
+      {
+        "path": "src/app.js",
+        "purpose": "Launcher UI",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/blob/e453fafaf9dac560c4eca9b2372b152c1345579f/src/app.js"
+      },
+      {
+        "path": "src",
+        "purpose": "Frontend runtime/service controls",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/tree/e453fafaf9dac560c4eca9b2372b152c1345579f/src"
+      },
+      {
+        "path": "package.json",
+        "purpose": "Frontend/build dependency scope",
+        "url": "https://github.com/GKartist75/Wan2GP-Desktop-Tauri/blob/e453fafaf9dac560c4eca9b2372b152c1345579f/package.json"
+      }
+    ]
+  },
+  {
+    "slug": "pinokio",
+    "name": "Pinokio",
+    "license": "MIT application source; installed scripts/apps have separate terms",
+    "platforms": "Windows/Linux/macOS; shipped x64/ARM64 coverage varies by artifact and installed app",
+    "distribution": "Electron desktop launcher with installer/archive releases and a separate pinokiod backend dependency",
+    "fit": "Established onboarding alternative; not a recipe-reproduction application",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Launcher/script model and catalog policy",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/README.md"
+      },
+      {
+        "path": "package.json",
+        "purpose": "Electron packaging and backend dependency",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/package.json"
+      },
+      {
+        "path": "main.js",
+        "purpose": "Desktop main process",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/main.js"
+      },
+      {
+        "path": "preload.js",
+        "purpose": "Renderer bridge",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/preload.js"
+      },
+      {
+        "path": "updater.js",
+        "purpose": "Application update lifecycle",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/updater.js"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "MIT source license",
+        "url": "https://github.com/pinokiocomputer/pinokio/blob/0765ab1c24eee9bf7acf1618b94e1cfdc52886fc/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "viewcomfy",
+    "name": "ViewComfy",
+    "license": "AGPL-3.0",
+    "platforms": "Node/browser app on Windows/Linux/macOS; Comfy can be local or remote",
+    "distribution": "Next.js web app, source releases, separately offered hosted service",
+    "fit": "Prepared Comfy workflow → approachable form; not a foreign recipe resolver",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Local versus hosted scope",
+        "url": "https://github.com/ViewComfy/ViewComfy/blob/fc0ba28a745231e98fd21688cdbb392800a8eb7b/README.md"
+      },
+      {
+        "path": "package.json",
+        "purpose": "Next/React/TypeScript stack",
+        "url": "https://github.com/ViewComfy/ViewComfy/blob/fc0ba28a745231e98fd21688cdbb392800a8eb7b/package.json"
+      },
+      {
+        "path": "app/services/comfyui-service.ts",
+        "purpose": "Comfy service adapter",
+        "url": "https://github.com/ViewComfy/ViewComfy/blob/fc0ba28a745231e98fd21688cdbb392800a8eb7b/app/services/comfyui-service.ts"
+      },
+      {
+        "path": "app/api",
+        "purpose": "Server API/media routes",
+        "url": "https://github.com/ViewComfy/ViewComfy/tree/fc0ba28a745231e98fd21688cdbb392800a8eb7b/app/api"
+      },
+      {
+        "path": "app/editor",
+        "purpose": "Workflow form editor",
+        "url": "https://github.com/ViewComfy/ViewComfy/tree/fc0ba28a745231e98fd21688cdbb392800a8eb7b/app/editor"
+      },
+      {
+        "path": "app",
+        "purpose": "Playground/application structure",
+        "url": "https://github.com/ViewComfy/ViewComfy/tree/fc0ba28a745231e98fd21688cdbb392800a8eb7b/app"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "AGPL source license",
+        "url": "https://github.com/ViewComfy/ViewComfy/blob/fc0ba28a745231e98fd21688cdbb392800a8eb7b/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "sdfx",
+    "name": "SDFX",
+    "license": "AGPL-3.0",
+    "platforms": "Web/Electron builds for Windows/Linux/macOS are described; current binary delivery unestablished",
+    "distribution": "Source setup scripts; Vue/Vite web build and Electron build; no release feed captured",
+    "fit": "Useful declarative workflow/UI architecture; stale default branch makes it a poor primary dependency",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Workflow app concept and maturity",
+        "url": "https://github.com/sdfxai/sdfx/blob/f63c7b85ab2e544b3b4636988c214d04491f7dee/README.md"
+      },
+      {
+        "path": "src/package.json",
+        "purpose": "Vue/Pinia/Electron stack and build modes",
+        "url": "https://github.com/sdfxai/sdfx/blob/f63c7b85ab2e544b3b4636988c214d04491f7dee/src/package.json"
+      },
+      {
+        "path": "src/src/views/OpenGraph",
+        "purpose": "Graph/application views",
+        "url": "https://github.com/sdfxai/sdfx/tree/f63c7b85ab2e544b3b4636988c214d04491f7dee/src/src/views/OpenGraph"
+      },
+      {
+        "path": "src/src/stores",
+        "purpose": "Workflow and model state",
+        "url": "https://github.com/sdfxai/sdfx/tree/f63c7b85ab2e544b3b4636988c214d04491f7dee/src/src/stores"
+      },
+      {
+        "path": "src/electron/main/index.ts",
+        "purpose": "Native shell",
+        "url": "https://github.com/sdfxai/sdfx/blob/f63c7b85ab2e544b3b4636988c214d04491f7dee/src/electron/main/index.ts"
+      },
+      {
+        "path": "setup.py",
+        "purpose": "Backend setup",
+        "url": "https://github.com/sdfxai/sdfx/blob/f63c7b85ab2e544b3b4636988c214d04491f7dee/setup.py"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "AGPL source license",
+        "url": "https://github.com/sdfxai/sdfx/blob/f63c7b85ab2e544b3b4636988c214d04491f7dee/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "visionatrix",
+    "name": "Visionatrix",
+    "license": "AGPL-3.0-or-later",
+    "platforms": "Windows portable CUDA/CPU; Linux/macOS source paths; Docker/remote workers",
+    "distribution": "Python/Nuxt web app, CLI/service, Docker images, Windows portable archive; archived repository",
+    "fit": "Closest service/worker/preset architecture reference; archived, so not recommended as maintained foundation",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Archive declaration, features, and install modes",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/README.md"
+      },
+      {
+        "path": "pyproject.toml",
+        "purpose": "Python API/database dependencies",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/pyproject.toml"
+      },
+      {
+        "path": "web/package.json",
+        "purpose": "Nuxt/Vue/Pinia frontend",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/web/package.json"
+      },
+      {
+        "path": "visionatrix/flows.py",
+        "purpose": "Versioned workflow installation and management",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/flows.py"
+      },
+      {
+        "path": "visionatrix/models.py",
+        "purpose": "Model installation",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/models.py"
+      },
+      {
+        "path": "visionatrix/models_map.py",
+        "purpose": "Graph-to-model catalog mapping",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/models_map.py"
+      },
+      {
+        "path": "visionatrix/tasks_engine.py",
+        "purpose": "Task execution",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/tasks_engine.py"
+      },
+      {
+        "path": "visionatrix/comfyui_wrapper.py",
+        "purpose": "Comfy integration",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/comfyui_wrapper.py"
+      },
+      {
+        "path": "visionatrix/__main__.py",
+        "purpose": "CLI/service entry points",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/visionatrix/__main__.py"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "AGPL license",
+        "url": "https://github.com/Visionatrix/Visionatrix/blob/9f56eb5443371bed89e3f96ffc971ec46f9ac7fd/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "automatic1111",
+    "name": "AUTOMATIC1111 Stable Diffusion WebUI",
+    "license": "AGPL-3.0",
+    "platforms": "Windows/Linux; Apple Silicon instructions exist; hardware/extensions vary",
+    "distribution": "Python/Gradio web app, launch scripts, Windows portable-style assets; extensions",
+    "fit": "Historical metadata/parameter-reuse baseline; major attention, limited recent default-branch activity",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "PNG Info reuse, XY plots, installation, and features",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/README.md"
+      },
+      {
+        "path": "modules/infotext_utils.py",
+        "purpose": "Metadata parsing and parameter transfer",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/modules/infotext_utils.py"
+      },
+      {
+        "path": "modules/processing.py",
+        "purpose": "Generation pipeline and saved parameters",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/modules/processing.py"
+      },
+      {
+        "path": "modules/sd_models.py",
+        "purpose": "Checkpoint inventory and loading",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/modules/sd_models.py"
+      },
+      {
+        "path": "scripts/xyz_grid.py",
+        "purpose": "Controlled parameter grid",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/scripts/xyz_grid.py"
+      },
+      {
+        "path": "modules/api/api.py",
+        "purpose": "Automation API",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/modules/api/api.py"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "AGPL license",
+        "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/82a973c04367123ae98bd9abdf80d9eda9b910e2/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "forge",
+    "name": "Stable Diffusion WebUI Forge",
+    "license": "AGPL-3.0 at root; substantial inherited code",
+    "platforms": "Windows/Linux primarily; inherited/general platform paths do not establish full Mac parity",
+    "distribution": "Python/Gradio web app, Windows one-click archives, source/rolling releases",
+    "fit": "A1111-compatible interaction and memory optimization reference; inspected original fork is not all Forge descendants",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Lineage, install routes, and stated compatibility",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/README.md"
+      },
+      {
+        "path": "backend/memory_management.py",
+        "purpose": "Memory/offload policy",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/backend/memory_management.py"
+      },
+      {
+        "path": "backend/loader.py",
+        "purpose": "Model loading",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/backend/loader.py"
+      },
+      {
+        "path": "backend/diffusion_engine",
+        "purpose": "Model-family execution",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/tree/dfdcbab685e57677014f05a3309b48cc87383167/backend/diffusion_engine"
+      },
+      {
+        "path": "modules/infotext_utils.py",
+        "purpose": "Inherited parameter import",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/modules/infotext_utils.py"
+      },
+      {
+        "path": "LICENSE.txt",
+        "purpose": "AGPL license",
+        "url": "https://github.com/lllyasviel/stable-diffusion-webui-forge/blob/dfdcbab685e57677014f05a3309b48cc87383167/LICENSE.txt"
+      }
+    ]
+  },
+  {
+    "slug": "fooocus",
+    "name": "Fooocus",
+    "license": "GPL-3.0",
+    "platforms": "Windows/Linux; Mac MPS guidance is explicitly less tested; model/hardware scope constrained",
+    "distribution": "Gradio app with Windows archive and automatic preset-model downloads; source scripts",
+    "fit": "Simplicity/preset UX benchmark; limited SDXL-focused LTS, not a modern general video foundation",
+    "sources": [
+      {
+        "path": "readme.md",
+        "purpose": "Product goals, explicit LTS status, presets, and OS caveats",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/readme.md"
+      },
+      {
+        "path": "modules/default_pipeline.py",
+        "purpose": "Generation pipeline",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/modules/default_pipeline.py"
+      },
+      {
+        "path": "modules/async_worker.py",
+        "purpose": "Task execution and UI coordination",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/modules/async_worker.py"
+      },
+      {
+        "path": "modules/meta_parser.py",
+        "purpose": "Metadata formats and reconstruction",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/modules/meta_parser.py"
+      },
+      {
+        "path": "modules/config.py",
+        "purpose": "Presets/model configuration",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/modules/config.py"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "GPL source license",
+        "url": "https://github.com/lllyasviel/Fooocus/blob/ae05379cc97bc4361ec8b4ec90193dab21be763f/LICENSE"
+      }
+    ]
+  },
+  {
+    "slug": "easy-diffusion",
+    "name": "Easy Diffusion",
+    "license": "Custom MIT-style license with use-based restrictions; not plain MIT",
+    "platforms": "Windows/Linux/macOS; runtime/backend and hardware support vary",
+    "distribution": "Windows installer, Linux/Mac archives, Python/FastAPI web app; evolving v4 engine paths",
+    "fit": "Established simple installation/image workflow reference; not proven full Civitai replay-to-video product",
+    "sources": [
+      {
+        "path": "README.md",
+        "purpose": "Installers, current engine changes, and user features",
+        "url": "https://github.com/easydiffusion/easydiffusion/blob/9cd95259381921c9a8be433cf02c9f5db68ad7a7/README.md"
+      },
+      {
+        "path": "ui/easydiffusion/server.py",
+        "purpose": "FastAPI and backend selection",
+        "url": "https://github.com/easydiffusion/easydiffusion/blob/9cd95259381921c9a8be433cf02c9f5db68ad7a7/ui/easydiffusion/server.py"
+      },
+      {
+        "path": "ui/easydiffusion/task_manager.py",
+        "purpose": "Device threads and task cache",
+        "url": "https://github.com/easydiffusion/easydiffusion/blob/9cd95259381921c9a8be433cf02c9f5db68ad7a7/ui/easydiffusion/task_manager.py"
+      },
+      {
+        "path": "ui/easydiffusion",
+        "purpose": "Application/model/task modules",
+        "url": "https://github.com/easydiffusion/easydiffusion/tree/9cd95259381921c9a8be433cf02c9f5db68ad7a7/ui/easydiffusion"
+      },
+      {
+        "path": "scripts",
+        "purpose": "Cross-platform bootstrap/runtime setup",
+        "url": "https://github.com/easydiffusion/easydiffusion/tree/9cd95259381921c9a8be433cf02c9f5db68ad7a7/scripts"
+      },
+      {
+        "path": "LICENSE",
+        "purpose": "Custom use-restricted software license",
+        "url": "https://github.com/easydiffusion/easydiffusion/blob/9cd95259381921c9a8be433cf02c9f5db68ad7a7/LICENSE"
+      }
+    ]
+  }
+]

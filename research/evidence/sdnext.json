@@ -1,0 +1,220 @@
+{
+  "slug": "sdnext",
+  "repo": "vladmandic/sdnext",
+  "tier": "primary",
+  "collected_at": "2026-09-12T06:58:15.967620+00:00",
+  "path": "D:/code/references/sdnext",
+  "errors": [],
+  "head": "684940e015911efab2911667231946d91fef9f50",
+  "branch": "master",
+  "latest_commit": "2026-08-26T11:17:43+02:00 Merge pull request #5062 from vladmandic/dev",
+  "commit_count": 14447,
+  "shallow": false,
+  "oldest_reachable_commit": "2022-08-22T17:05:27+03:00",
+  "contributors_all": {
+    "distinct_author_names": 525,
+    "top": [
+      {
+        "name": "Vladimir Mandic",
+        "commits": 5093
+      },
+      {
+        "name": "Disty0",
+        "commits": 1404
+      },
+      {
+        "name": "AUTOMATIC",
+        "commits": 1032
+      },
+      {
+        "name": "CalamitousFelicitousness",
+        "commits": 598
+      },
+      {
+        "name": "vladmandic",
+        "commits": 570
+      },
+      {
+        "name": "awsr",
+        "commits": 422
+      },
+      {
+        "name": "Seunghoon Lee",
+        "commits": 365
+      },
+      {
+        "name": "DepFA",
+        "commits": 164
+      },
+      {
+        "name": "AI-Casanova",
+        "commits": 131
+      },
+      {
+        "name": "Oleksandr Liutyi",
+        "commits": 94
+      },
+      {
+        "name": "C43H66N12O12S2",
+        "commits": 81
+      },
+      {
+        "name": "brkirch",
+        "commits": 61
+      }
+    ],
+    "nonmerge_commits": 12410
+  },
+  "contributors_90d": {
+    "distinct_author_names": 13,
+    "top": [
+      {
+        "name": "Vladimir Mandic",
+        "commits": 271
+      },
+      {
+        "name": "CalamitousFelicitousness",
+        "commits": 209
+      },
+      {
+        "name": "Disty0",
+        "commits": 91
+      },
+      {
+        "name": "Dity0",
+        "commits": 22
+      },
+      {
+        "name": "Claude",
+        "commits": 13
+      },
+      {
+        "name": "QualiaRain",
+        "commits": 12
+      },
+      {
+        "name": "Pablo Hellmann",
+        "commits": 11
+      },
+      {
+        "name": "Oleksandr Liutyi",
+        "commits": 10
+      },
+      {
+        "name": "awsr",
+        "commits": 5
+      },
+      {
+        "name": "resonantsky",
+        "commits": 3
+      },
+      {
+        "name": "0xDELUXA",
+        "commits": 2
+      },
+      {
+        "name": "Alejandro Alberto Aguilar Morales",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 651
+  },
+  "tags": [
+    "2026-07-14",
+    "2026-07-07",
+    "2026-06-16",
+    "2026-05-14",
+    "2026-04-29",
+    "2026-04-02",
+    "2026-01-22",
+    "2025-12-26",
+    "2025-12-11",
+    "2025-11-06",
+    "2025-10-18",
+    "2025-09-15",
+    "2025-08-20",
+    "2025-07-31",
+    "2025-06-30"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "vladmandic/sdnext",
+    "html_url": "https://github.com/vladmandic/sdnext",
+    "description": "SD.Next: All-in-one WebUI for AI generative image and video creation, captioning and processing",
+    "created_at": "2022-12-24T20:59:11Z",
+    "updated_at": "2026-09-10T20:57:19Z",
+    "pushed_at": "2026-09-12T06:07:21Z",
+    "stargazers_count": 7338,
+    "forks_count": 583,
+    "subscribers_count": 65,
+    "open_issues_count": 60,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "master",
+    "language": "Python",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "homepage": "https://vladmandic.github.io/sdnext/",
+    "size": 116971,
+    "topics": [
+      "ai-art",
+      "caption",
+      "diffusers",
+      "generative-art",
+      "python",
+      "pytorch",
+      "sdnext",
+      "stable-diffusion",
+      "transformers",
+      "webui"
+    ]
+  },
+  "releases": [
+    {
+      "title": "2026-07-14: Merge pull request #4994 from vladmandic/dev",
+      "updated": "2026-07-14T08:24:45Z",
+      "url": "https://github.com/vladmandic/sdnext/releases/tag/2026-07-14",
+      "notes_html": "<p>merge dev</p>",
+      "assets": [],
+      "assets_source": "https://github.com/vladmandic/sdnext/releases/expanded_assets/2026-07-14"
+    },
+    {
+      "title": "2026-07-07: Merge pull request #4983 from vladmandic/dev",
+      "updated": "2026-07-07T07:19:56Z",
+      "url": "https://github.com/vladmandic/sdnext/releases/tag/2026-07-07",
+      "notes_html": "<p>merge dev</p>",
+      "assets": [],
+      "assets_source": "https://github.com/vladmandic/sdnext/releases/expanded_assets/2026-07-07"
+    },
+    {
+      "title": "2026-06-16: Merge pull request #4937 from vladmandic/dev",
+      "updated": "2026-06-16T10:17:57Z",
+      "url": "https://github.com/vladmandic/sdnext/releases/tag/2026-06-16",
+      "notes_html": "<p>merge dev</p>",
+      "assets": [],
+      "assets_source": "https://github.com/vladmandic/sdnext/releases/expanded_assets/2026-06-16"
+    },
+    {
+      "title": "2026-05-14: fix hidream-o1 loader",
+      "updated": "2026-05-14T19:09:50Z",
+      "url": "https://github.com/vladmandic/sdnext/releases/tag/2026-05-14",
+      "notes_html": "<p>Signed-off-by: Vladimir Mandic <a href=\"mailto:mandic00@live.com\">mandic00@live.com</a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/vladmandic/sdnext/releases/expanded_assets/2026-05-14"
+    },
+    {
+      "title": "2026-04-29: Merge pull request #4814 from vladmandic/dev",
+      "updated": "2026-04-29T05:13:43Z",
+      "url": "https://github.com/vladmandic/sdnext/releases/tag/2026-04-29",
+      "notes_html": "<p>refresh master</p>",
+      "assets": [],
+      "assets_source": "https://github.com/vladmandic/sdnext/releases/expanded_assets/2026-04-29"
+    }
+  ]
+}

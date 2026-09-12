@@ -1,0 +1,160 @@
+{
+  "slug": "fooocus",
+  "repo": "lllyasviel/Fooocus",
+  "tier": "baseline",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/fooocus",
+  "errors": [],
+  "head": "ae05379cc97bc4361ec8b4ec90193dab21be763f",
+  "branch": "main",
+  "latest_commit": "2025-09-02T22:28:40+02:00 ci: bump actions/checkout from 4 to 5 (#4085)",
+  "commit_count": 1144,
+  "shallow": false,
+  "oldest_reachable_commit": "2023-08-09T11:44:17-07:00",
+  "contributors_all": {
+    "distinct_author_names": 61,
+    "top": [
+      {
+        "name": "lllyasviel",
+        "commits": 505
+      },
+      {
+        "name": "lvmin",
+        "commits": 327
+      },
+      {
+        "name": "Manuel Schmid",
+        "commits": 157
+      },
+      {
+        "name": "MoonRide303",
+        "commits": 24
+      },
+      {
+        "name": "rsl8",
+        "commits": 4
+      },
+      {
+        "name": "xhoxye",
+        "commits": 4
+      },
+      {
+        "name": "MindOfMatter",
+        "commits": 3
+      },
+      {
+        "name": "Alexdnk",
+        "commits": 2
+      },
+      {
+        "name": "Chris Rohrer",
+        "commits": 2
+      },
+      {
+        "name": "Danil Boldyrev",
+        "commits": 2
+      },
+      {
+        "name": "dependabot[bot]",
+        "commits": 2
+      },
+      {
+        "name": "eddyizm",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 1083
+  },
+  "contributors_90d": {
+    "distinct_author_names": 0,
+    "top": [],
+    "nonmerge_commits": 0
+  },
+  "tags": [
+    "v2.5.5",
+    "v2.5.4",
+    "v2.5.3",
+    "v2.5.2",
+    "v2.5.1",
+    "v2.5.0",
+    "v2.5.0-rc1",
+    "v2.4.3",
+    "v2.4.2",
+    "v2.4.1",
+    "v2.4.0",
+    "2.4.0-rc2",
+    "2.4.0-rc1",
+    "2.3.1",
+    "2.3.0"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "lllyasviel/Fooocus",
+    "html_url": "https://github.com/lllyasviel/Fooocus",
+    "description": "Focus on prompting and generating",
+    "created_at": "2023-08-09T18:43:40Z",
+    "updated_at": "2026-09-12T06:14:43Z",
+    "pushed_at": "2025-12-01T19:17:07Z",
+    "stargazers_count": 53008,
+    "forks_count": 8603,
+    "subscribers_count": 484,
+    "open_issues_count": 313,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Python",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "homepage": "",
+    "size": 34158,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v2.5.5",
+      "updated": "2024-08-12T06:12:31Z",
+      "url": "https://github.com/lllyasviel/Fooocus/releases/tag/v2.5.5",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>fix: resolve colab unsupported image type issue by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2460103846\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3506\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3506/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3506\">#3506</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/lllyasviel/Fooocus/compare/v2.5.4...v2.5.5\"><tt>v2.5.4...v2.5.5</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/lllyasviel/Fooocus/releases/expanded_assets/v2.5.5"
+    },
+    {
+      "title": "v2.5.4",
+      "updated": "2024-08-11T20:49:46Z",
+      "url": "https://github.com/lllyasviel/Fooocus/releases/tag/v2.5.4",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>fix: add handling for default \"None\" value of default_ip_image_* by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2453672305\" data-permission-text=\"Title is private\" data-url=\"https://github.com/mashb1t/Fooocus/issues/70\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mashb1t/Fooocus/pull/70/hovercard\" href=\"https://github.com/mashb1t/Fooocus/pull/70\">mashb1t#70</a></li>\n<li>fix: correctly validate default_inpaint_mask_sam_model by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2455529342\" data-permission-text=\"Title is private\" data-url=\"https://github.com/mashb1t/Fooocus/issues/71\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mashb1t/Fooocus/pull/71/hovercard\" href=\"https://github.com/mashb1t/Fooocus/pull/71\">mashb1t#71</a></li>\n<li>fix: check all dirs instead of only the first one by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2459579000\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3495\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3495/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3495\">#3495</a></li>\n<li>fix: yield enhance_input_image to correctly preview debug masks by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2459631824\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3497\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3497/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3497\">#3497</a></li>\n<li>docs: change code ownership from mashb1t to lllyasviel, see <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"7038194\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/discussions/3504\" data-hovercard-type=\"discussion\" data-hovercard-url=\"/lllyasviel/Fooocus/discussions/3504/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/discussions/3504\">#3504</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/lllyasviel/Fooocus/compare/v2.5.3...v2.5.4\"><tt>v2.5.3...v2.5.4</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/lllyasviel/Fooocus/releases/expanded_assets/v2.5.4"
+    },
+    {
+      "title": "v2.5.3",
+      "updated": "2024-08-03T13:24:08Z",
+      "url": "https://github.com/lllyasviel/Fooocus/releases/tag/v2.5.3",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>fix: use weights_only for loading by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/kit1980/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/kit1980\">@kit1980</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2445890080\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3427\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3427/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3427\">#3427</a></li>\n<li>fix/feat: add checkbox and config to disable updating selected styles when describing an image by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2446302129\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3430\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3430/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3430\">#3430</a></li>\n</ul>\n<h2>New Contributors</h2>\n<ul>\n<li><a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/kit1980/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/kit1980\">@kit1980</a> made their first contribution in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2445890080\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3427\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3427/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3427\">#3427</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/lllyasviel/Fooocus/compare/v2.5.2...v2.5.3\"><tt>v2.5.2...v2.5.3</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/lllyasviel/Fooocus/releases/expanded_assets/v2.5.3"
+    },
+    {
+      "title": "v2.5.2",
+      "updated": "2024-07-27T21:30:40Z",
+      "url": "https://github.com/lllyasviel/Fooocus/releases/tag/v2.5.2",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>fix: add positive prompt if styles don't have a prompt placeholder by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2432998732\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3372\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3372/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3372\">#3372</a></li>\n<li>docs: update numbering of basic debug procedure in issue template by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2433431813\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3376\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3376/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3376\">#3376</a></li>\n<li>feat: extend config settings for input image by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2433603079\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3382\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3382/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3382\">#3382</a></li>\n<li>feat: count image count index from 1 by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2433625952\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3383\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3383/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3383\">#3383</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/lllyasviel/Fooocus/compare/v2.5.1...v2.5.2\"><tt>v2.5.1...v2.5.2</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/lllyasviel/Fooocus/releases/expanded_assets/v2.5.2"
+    },
+    {
+      "title": "v2.5.1",
+      "updated": "2024-07-25T14:05:39Z",
+      "url": "https://github.com/lllyasviel/Fooocus/releases/tag/v2.5.1",
+      "notes_html": "<h2>What's Changed</h2>\n<ul>\n<li>docs: update download URL in readme</li>\n<li>fix: use type pil for image upload to prevent conversion to png through temp file by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2414565893\" data-permission-text=\"Title is private\" data-url=\"https://github.com/mashb1t/Fooocus/issues/58\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mashb1t/Fooocus/pull/58/hovercard\" href=\"https://github.com/mashb1t/Fooocus/pull/58\">mashb1t#58</a></li>\n<li>fix: allow reading of metadata from jpeg, jpg and webp again by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2414632087\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3301\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3301/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3301\">#3301</a></li>\n<li>fix: correctly debug preprocessor again by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2421321782\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3332\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3332/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3332\">#3332</a></li>\n<li>docs: update attributes and add add inline prompt features section to readme by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2421337290\" data-permission-text=\"Title is private\" data-url=\"https://github.com/lllyasviel/Fooocus/issues/3333\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/lllyasviel/Fooocus/pull/3333/hovercard\" href=\"https://github.com/lllyasviel/Fooocus/pull/3333\">#3333</a></li>\n<li>feat: add checkbox, config and handling for saving only the final enhanced image by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2425590952\" data-permission-text=\"Title is private\" data-url=\"https://github.com/mashb1t/Fooocus/issues/61\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mashb1t/Fooocus/pull/61/hovercard\" href=\"https://github.com/mashb1t/Fooocus/pull/61\">mashb1t#61</a></li>\n<li>feat: sort enhance images by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mashb1t/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mashb1t\">@mashb1t</a> in <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2425592307\" data-permission-text=\"Title is private\" data-url=\"https://github.com/mashb1t/Fooocus/issues/62\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/mashb1t/Fooocus/pull/62/hovercard\" href=\"https://github.com/mashb1t/Fooocus/pull/62\">mashb1t#62</a></li>\n</ul>\n<p><strong>Full Changelog</strong>: <a class=\"commit-link\" href=\"https://github.com/lllyasviel/Fooocus/compare/v2.5.0...v2.5.1\"><tt>v2.5.0...v2.5.1</tt></a></p>",
+      "assets": [],
+      "assets_source": "https://github.com/lllyasviel/Fooocus/releases/expanded_assets/v2.5.1"
+    }
+  ]
+}

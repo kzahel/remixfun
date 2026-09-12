@@ -1,0 +1,80 @@
+{
+  "slug": "unbake",
+  "repo": "syugoji/ComfyUI-Unbake",
+  "tier": "primary",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/unbake",
+  "errors": [],
+  "head": "0776f99532d2edbb3e1f1400f614816932ee8bf7",
+  "branch": "main",
+  "latest_commit": "2026-09-09T04:52:00+09:00 Use the LoRA strength the image was actually made with, and say when it cannot be checked",
+  "commit_count": 39,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-08-25T16:56:17+09:00",
+  "contributors_all": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "syugoji",
+        "commits": 35
+      },
+      {
+        "name": "しゅごーじ",
+        "commits": 4
+      }
+    ],
+    "nonmerge_commits": 39
+  },
+  "contributors_90d": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "syugoji",
+        "commits": 35
+      },
+      {
+        "name": "しゅごーじ",
+        "commits": 4
+      }
+    ],
+    "nonmerge_commits": 39
+  },
+  "tags": [],
+  "dirty": "",
+  "github": {
+    "full_name": "syugoji/ComfyUI-Unbake",
+    "html_url": "https://github.com/syugoji/ComfyUI-Unbake",
+    "description": "Rebuild the ComfyUI workflow behind any image — a Civitai link, a PNG with metadata, or your own output. Reads the PNG info, tells you which models are missing and where to get them, then runs a validated XY plot (parameter sweep) that throws if anything but the declared axis moved.",
+    "created_at": "2026-08-25T07:55:58Z",
+    "updated_at": "2026-09-08T19:56:41Z",
+    "pushed_at": "2026-09-08T19:54:03Z",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "subscribers_count": 0,
+    "open_issues_count": 0,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "JavaScript",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "homepage": "https://registry.comfy.org/nodes/comfyui-unbake",
+    "size": 6779,
+    "topics": [
+      "civitai",
+      "comfyui",
+      "comfyui-custom-nodes",
+      "comfyui-nodes",
+      "image-generation",
+      "reproducibility",
+      "stable-diffusion"
+    ]
+  },
+  "releases": []
+}

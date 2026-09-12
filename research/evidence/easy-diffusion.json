@@ -1,0 +1,191 @@
+{
+  "slug": "easy-diffusion",
+  "repo": "easydiffusion/easydiffusion",
+  "tier": "baseline",
+  "collected_at": "2026-09-12T06:58:15.967620+00:00",
+  "path": "D:/code/references/easy-diffusion",
+  "errors": [],
+  "head": "9cd95259381921c9a8be433cf02c9f5db68ad7a7",
+  "branch": "main",
+  "latest_commit": "2026-09-11T13:18:38+05:30 Fix missing ensure_torchruntime.py to startup scripts (#2060)",
+  "commit_count": 3868,
+  "shallow": false,
+  "oldest_reachable_commit": "2022-08-24T01:58:18+05:30",
+  "contributors_all": {
+    "distinct_author_names": 58,
+    "top": [
+      {
+        "name": "cmdr2",
+        "commits": 2061
+      },
+      {
+        "name": "JeLuF",
+        "commits": 235
+      },
+      {
+        "name": "Marc-Andre Ferland",
+        "commits": 191
+      },
+      {
+        "name": "patriceac",
+        "commits": 138
+      },
+      {
+        "name": "caranicas",
+        "commits": 132
+      },
+      {
+        "name": "Malcolm Diller",
+        "commits": 52
+      },
+      {
+        "name": "Olivia Godone-Maresca",
+        "commits": 42
+      },
+      {
+        "name": "Haka",
+        "commits": 18
+      },
+      {
+        "name": "mrbusysky",
+        "commits": 13
+      },
+      {
+        "name": "rbertus2000",
+        "commits": 11
+      },
+      {
+        "name": "AssassinJN",
+        "commits": 9
+      },
+      {
+        "name": "Saul van der Walt",
+        "commits": 7
+      }
+    ],
+    "nonmerge_commits": 3004
+  },
+  "contributors_90d": {
+    "distinct_author_names": 2,
+    "top": [
+      {
+        "name": "cmdr2",
+        "commits": 20
+      },
+      {
+        "name": "Bryce Villanueva",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 21
+  },
+  "tags": [
+    "v3.0.16",
+    "v3.0.13",
+    "v3.0.9c",
+    "v3.0.9",
+    "v3.0.7",
+    "v3.0.2",
+    "v2.5.48-final",
+    "v2.5.48",
+    "v2.5.46.beta1",
+    "v2.5.41a",
+    "v2.5.41",
+    "v2.5.39",
+    "v2.5.37",
+    "v2.5.33",
+    "v2.5.30"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "easydiffusion/easydiffusion",
+    "html_url": "https://github.com/easydiffusion/easydiffusion",
+    "description": "An easy 1-click way to create beautiful artwork on your PC using AI, with no tech knowledge. Provides a browser UI for generating images from text prompts and images. Just enter your text prompt, and see the generated image.",
+    "created_at": "2022-08-23T20:27:59Z",
+    "updated_at": "2026-09-12T02:30:45Z",
+    "pushed_at": "2026-09-11T07:48:39Z",
+    "stargazers_count": 10462,
+    "forks_count": 862,
+    "subscribers_count": 111,
+    "open_issues_count": 95,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "JavaScript",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "homepage": "https://easydiffusion.github.io/",
+    "size": 33918,
+    "topics": [
+      "art",
+      "diffusion",
+      "generative-art",
+      "gui",
+      "stable"
+    ]
+  },
+  "releases": [
+    {
+      "title": "v3.0.16",
+      "updated": "2026-03-31T11:00:10Z",
+      "url": "https://github.com/easydiffusion/easydiffusion/releases/tag/v3.0.16",
+      "notes_html": "<p>🔥 Adds support for:</p>\n<ul>\n<li>Flux 2 Klein, Z-Image, Qwen and lots more models (including quantized gguf)!</li>\n<li>Improves support for AMD and Intel GPUs (including integrated)</li>\n</ul>\n<p>Enable the <code>v4</code> engine to get the new features:</p>\n<ol>\n<li>Open the <code>Settings</code> tab in Easy Diffusion's UI.</li>\n<li>Select <code>v4 engine</code> in the Backend option.</li>\n<li>Press <code>Save</code> and restart Easy Diffusion.</li>\n</ol>",
+      "assets": [
+        "/easydiffusion/easydiffusion/releases/download/v3.0.16/Easy-Diffusion-Linux.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.16/Easy-Diffusion-Mac.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.16/Easy-Diffusion-Windows.exe"
+      ],
+      "assets_source": "https://github.com/easydiffusion/easydiffusion/releases/expanded_assets/v3.0.16"
+    },
+    {
+      "title": "v3.0.13",
+      "updated": "2025-08-08T11:03:40Z",
+      "url": "https://github.com/easydiffusion/easydiffusion/releases/tag/v3.0.13",
+      "notes_html": "<p>Adds support for Chroma, Krea and the latest models in the beta branch. To use it:</p>\n<ol>\n<li>Please install Easy Diffusion (using the download links below)</li>\n<li>After installing it, please enable <code>Beta</code> in the <code>Settings</code> tab (inside Easy Diffusion's interface).</li>\n<li>Then press <code>Save</code> and restart Easy Diffusion.</li>\n<li>Then select <code>v3.5 engine</code> in the <code>Settings</code> tab (in Easy Diffusion).</li>\n<li>Again, press <code>Save</code> and restart Easy Diffusion.</li>\n</ol>\n<p>This will allow you to use the latest models like Krea, Chroma, Flux etc in Easy Diffusion</p>",
+      "assets": [
+        "/easydiffusion/easydiffusion/releases/download/v3.0.13/Easy-Diffusion-Linux.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.13/Easy-Diffusion-Mac.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.13/Easy-Diffusion-Windows.exe"
+      ],
+      "assets_source": "https://github.com/easydiffusion/easydiffusion/releases/expanded_assets/v3.0.13"
+    },
+    {
+      "title": "v3.0 - Maintenance release",
+      "updated": "2025-03-06T06:49:18Z",
+      "url": "https://github.com/easydiffusion/easydiffusion/releases/tag/v3.0.9c",
+      "notes_html": "<p>Upgrades to python 3.9, and adds support for NVIDIA 50xx series (Blackwell) GPUs.</p>\n<p>Adds support for AMD GPUs, as well as integrated GPUs on Windows.</p>",
+      "assets": [
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9c/Easy-Diffusion-Linux.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9c/Easy-Diffusion-Mac.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9c/Easy-Diffusion-Windows.exe"
+      ],
+      "assets_source": "https://github.com/easydiffusion/easydiffusion/releases/expanded_assets/v3.0.9c"
+    },
+    {
+      "title": "v3.0 - Maintenance release",
+      "updated": "2024-09-09T14:33:10Z",
+      "url": "https://github.com/easydiffusion/easydiffusion/releases/tag/v3.0.9",
+      "notes_html": "<p>Maintenance bug-fixes and updates</p>",
+      "assets": [
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Linux.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Mac.zip",
+        "/easydiffusion/easydiffusion/releases/download/v3.0.9/Easy-Diffusion-Windows.exe"
+      ],
+      "assets_source": "https://github.com/easydiffusion/easydiffusion/releases/expanded_assets/v3.0.9"
+    },
+    {
+      "title": "v3.0.7: Merge pull request #1702 from easydiffusion/beta",
+      "updated": "2023-12-12T12:40:46Z",
+      "url": "https://github.com/easydiffusion/easydiffusion/releases/tag/v3.0.7",
+      "notes_html": "<p>Beta</p>",
+      "assets": [],
+      "assets_source": "https://github.com/easydiffusion/easydiffusion/releases/expanded_assets/v3.0.7"
+    }
+  ]
+}

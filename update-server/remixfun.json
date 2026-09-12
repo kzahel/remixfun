@@ -1,0 +1,21 @@
+{
+  "id": "remixfun",
+  "displayName": "Remixfun",
+  "hostnames": ["updates.graehlarts.com"],
+  "pathPrefix": "/remixfun",
+  "githubRepo": "kzahel/remixfun",
+  "tagPrefix": "desktop-v",
+  "tauriUpdates": true,
+  "channels": {
+    "stable": {
+      "displayName": "Stable",
+      "tagPrefix": "desktop-v",
+      "releaseKind": "release"
+    },
+    "nightly": {
+      "displayName": "Nightly",
+      "tagPrefix": "desktop-nightly-v",
+      "releaseKind": "prerelease"
+    }
+  }
+}

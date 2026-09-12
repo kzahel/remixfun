@@ -1,0 +1,279 @@
+{
+  "slug": "stable-diffusion-cpp",
+  "repo": "leejet/stable-diffusion.cpp",
+  "tier": "engine",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/stable-diffusion-cpp",
+  "errors": [],
+  "head": "7f410a3793c5bba8eb198e962ce7a3d6095f9d89",
+  "branch": "master",
+  "latest_commit": "2026-09-12T01:41:28+08:00 feat: add linear and attention scale overrides (#1964)",
+  "commit_count": 859,
+  "shallow": false,
+  "oldest_reachable_commit": "2023-08-13T15:38:16+08:00",
+  "contributors_all": {
+    "distinct_author_names": 106,
+    "top": [
+      {
+        "name": "leejet",
+        "commits": 408
+      },
+      {
+        "name": "Wagner Bruna",
+        "commits": 94
+      },
+      {
+        "name": "stduhpf",
+        "commits": 93
+      },
+      {
+        "name": "fszontagh",
+        "commits": 25
+      },
+      {
+        "name": "vmobilis",
+        "commits": 17
+      },
+      {
+        "name": "rmatif",
+        "commits": 16
+      },
+      {
+        "name": "akleine",
+        "commits": 15
+      },
+      {
+        "name": "Daniele",
+        "commits": 14
+      },
+      {
+        "name": "Erik Scholz",
+        "commits": 13
+      },
+      {
+        "name": "Cyberhan123",
+        "commits": 6
+      },
+      {
+        "name": "Mario Limonciello",
+        "commits": 6
+      },
+      {
+        "name": "Piotr Wilkin (ilintar)",
+        "commits": 6
+      }
+    ],
+    "nonmerge_commits": 859
+  },
+  "contributors_90d": {
+    "distinct_author_names": 31,
+    "top": [
+      {
+        "name": "leejet",
+        "commits": 73
+      },
+      {
+        "name": "stduhpf",
+        "commits": 19
+      },
+      {
+        "name": "fszontagh",
+        "commits": 17
+      },
+      {
+        "name": "Wagner Bruna",
+        "commits": 11
+      },
+      {
+        "name": "vmobilis",
+        "commits": 10
+      },
+      {
+        "name": "Piotr Wilkin (ilintar)",
+        "commits": 6
+      },
+      {
+        "name": "Cyberhan123",
+        "commits": 2
+      },
+      {
+        "name": "Daniele",
+        "commits": 2
+      },
+      {
+        "name": "jk212h20",
+        "commits": 2
+      },
+      {
+        "name": "Alex Klinkhamer",
+        "commits": 1
+      },
+      {
+        "name": "Daniel Han",
+        "commits": 1
+      },
+      {
+        "name": "Erik Scholz",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 164
+  },
+  "tags": [
+    "master-859-7f410a3",
+    "master-858-5ebce93",
+    "master-857-7f986a9",
+    "master-856-e06b205",
+    "master-855-3191b23",
+    "master-854-e95ab96",
+    "master-853-b68d586",
+    "master-852-14eddb3",
+    "master-851-469fc49",
+    "master-850-6b47fec",
+    "master-849-d04e895",
+    "master-848-9cdb6b6",
+    "master-846-d8fb10c",
+    "master-845-80bac2d",
+    "master-844-dbb6112"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "leejet/stable-diffusion.cpp",
+    "html_url": "https://github.com/leejet/stable-diffusion.cpp",
+    "description": "Diffusion model(SD,Flux,Wan,Qwen Image,Z-Image,...) inference in pure C/C++",
+    "created_at": "2023-08-13T07:36:51Z",
+    "updated_at": "2026-09-12T01:49:29Z",
+    "pushed_at": "2026-09-11T20:38:03Z",
+    "stargazers_count": 6964,
+    "forks_count": 782,
+    "subscribers_count": 78,
+    "open_issues_count": 271,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "master",
+    "language": "C++",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "homepage": "",
+    "size": 157888,
+    "topics": [
+      "ai",
+      "cplusplus",
+      "diffusion",
+      "flux",
+      "flux-dev",
+      "ggml",
+      "image-generation",
+      "image2image",
+      "img2img",
+      "latent-diffusion",
+      "ltx-video",
+      "qwen-image",
+      "stable-diffusion",
+      "text2image",
+      "txt2img",
+      "videogeneration",
+      "wan",
+      "z-image",
+      "z-image-turbo"
+    ]
+  },
+  "releases": [
+    {
+      "title": "master-859-7f410a3",
+      "updated": "2026-09-11T20:38:49Z",
+      "url": "https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-859-7f410a3",
+      "notes_html": "No content.",
+      "assets": [
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/cudart-sd-bin-win-cu12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-Darwin-macOS-26.6.2-arm64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-Linux-Ubuntu-24.04-x86_64-rocm-7.14.0.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-Linux-Ubuntu-24.04-x86_64-vulkan.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-Linux-Ubuntu-24.04-x86_64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-win-cpu-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-win-cuda12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-win-rocm-7.14.0-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-859-7f410a3/sd-master-7f410a3-bin-win-vulkan-x64.zip"
+      ],
+      "assets_source": "https://github.com/leejet/stable-diffusion.cpp/releases/expanded_assets/master-859-7f410a3"
+    },
+    {
+      "title": "master-858-5ebce93",
+      "updated": "2026-09-11T19:46:52Z",
+      "url": "https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-858-5ebce93",
+      "notes_html": "No content.",
+      "assets": [
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/cudart-sd-bin-win-cu12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-Darwin-macOS-26.6.2-arm64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-Linux-Ubuntu-24.04-x86_64-rocm-7.14.0.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-Linux-Ubuntu-24.04-x86_64-vulkan.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-Linux-Ubuntu-24.04-x86_64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-win-cpu-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-win-cuda12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-win-rocm-7.14.0-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-858-5ebce93/sd-master-5ebce93-bin-win-vulkan-x64.zip"
+      ],
+      "assets_source": "https://github.com/leejet/stable-diffusion.cpp/releases/expanded_assets/master-858-5ebce93"
+    },
+    {
+      "title": "master-857-7f986a9",
+      "updated": "2026-09-11T19:34:29Z",
+      "url": "https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-857-7f986a9",
+      "notes_html": "No content.",
+      "assets": [
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/cudart-sd-bin-win-cu12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-Darwin-macOS-26.6.2-arm64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-Linux-Ubuntu-24.04-x86_64-rocm-7.14.0.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-Linux-Ubuntu-24.04-x86_64-vulkan.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-Linux-Ubuntu-24.04-x86_64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-win-cpu-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-win-cuda12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-win-rocm-7.14.0-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-857-7f986a9/sd-master-7f986a9-bin-win-vulkan-x64.zip"
+      ],
+      "assets_source": "https://github.com/leejet/stable-diffusion.cpp/releases/expanded_assets/master-857-7f986a9"
+    },
+    {
+      "title": "master-856-e06b205",
+      "updated": "2026-09-11T18:36:44Z",
+      "url": "https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-856-e06b205",
+      "notes_html": "<p>feat: expose the loaded model version name through the public API (<a class=\"issue-link js-issue-link\" href=\"https://github.com/leejet/stable-diffusion.cpp/pull/1962\">#1962</a></p>\n\n<p><a class=\"issue-link js-issue-link\" href=\"https://github.com/leejet/stable-diffusion.cpp/pull/1962\"></a>)</p>",
+      "assets": [
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/cudart-sd-bin-win-cu12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-Darwin-macOS-26.6.2-arm64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-Linux-Ubuntu-24.04-x86_64-rocm-7.14.0.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-Linux-Ubuntu-24.04-x86_64-vulkan.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-Linux-Ubuntu-24.04-x86_64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-win-cpu-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-win-cuda12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-win-rocm-7.14.0-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-856-e06b205/sd-master-e06b205-bin-win-vulkan-x64.zip"
+      ],
+      "assets_source": "https://github.com/leejet/stable-diffusion.cpp/releases/expanded_assets/master-856-e06b205"
+    },
+    {
+      "title": "master-855-3191b23",
+      "updated": "2026-09-11T18:07:06Z",
+      "url": "https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-855-3191b23",
+      "notes_html": "No content.",
+      "assets": [
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/cudart-sd-bin-win-cu12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-Darwin-macOS-26.6.2-arm64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-Linux-Ubuntu-24.04-x86_64-rocm-7.14.0.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-Linux-Ubuntu-24.04-x86_64-vulkan.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-Linux-Ubuntu-24.04-x86_64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-win-cpu-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-win-cuda12-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-win-rocm-7.14.0-x64.zip",
+        "/leejet/stable-diffusion.cpp/releases/download/master-855-3191b23/sd-master-3191b23-bin-win-vulkan-x64.zip"
+      ],
+      "assets_source": "https://github.com/leejet/stable-diffusion.cpp/releases/expanded_assets/master-855-3191b23"
+    }
+  ]
+}

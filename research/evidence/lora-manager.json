@@ -1,0 +1,193 @@
+{
+  "slug": "lora-manager",
+  "repo": "willmiao/ComfyUI-Lora-Manager",
+  "tier": "primary",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/lora-manager",
+  "errors": [],
+  "head": "6d3f82976fd140499bcb000a3c078dbd31d98898",
+  "branch": "main",
+  "latest_commit": "2026-09-11T23:03:24+08:00 fix(scanner): serve folder tree from scan-recorded, persisted directory list (#1110)",
+  "commit_count": 3041,
+  "shallow": false,
+  "oldest_reachable_commit": "2025-01-25T19:22:02+08:00",
+  "contributors_all": {
+    "distinct_author_names": 33,
+    "top": [
+      {
+        "name": "Will Miao",
+        "commits": 2568
+      },
+      {
+        "name": "pixelpaws",
+        "commits": 162
+      },
+      {
+        "name": "willmiao",
+        "commits": 15
+      },
+      {
+        "name": "start-life",
+        "commits": 13
+      },
+      {
+        "name": "hein",
+        "commits": 4
+      },
+      {
+        "name": "Karl Woditsch",
+        "commits": 3
+      },
+      {
+        "name": "gaoqi125",
+        "commits": 3
+      },
+      {
+        "name": "Andreas",
+        "commits": 2
+      },
+      {
+        "name": "Claude",
+        "commits": 2
+      },
+      {
+        "name": "Luna_K",
+        "commits": 2
+      },
+      {
+        "name": "diodiogod",
+        "commits": 2
+      },
+      {
+        "name": "s.ivanov",
+        "commits": 2
+      }
+    ],
+    "nonmerge_commits": 2800
+  },
+  "contributors_90d": {
+    "distinct_author_names": 8,
+    "top": [
+      {
+        "name": "Will Miao",
+        "commits": 493
+      },
+      {
+        "name": "willmiao",
+        "commits": 9
+      },
+      {
+        "name": "s.ivanov",
+        "commits": 2
+      },
+      {
+        "name": "Aaalice",
+        "commits": 1
+      },
+      {
+        "name": "Luna_K",
+        "commits": 1
+      },
+      {
+        "name": "Martial Michel",
+        "commits": 1
+      },
+      {
+        "name": "d1udiu",
+        "commits": 1
+      },
+      {
+        "name": "hein",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 509
+  },
+  "tags": [
+    "v1.2.2",
+    "v1.2.1",
+    "v1.2.0",
+    "v1.1.9",
+    "v1.1.8",
+    "v1.1.7",
+    "v1.1.6",
+    "v1.1.5",
+    "v1.1.4",
+    "v1.1.3",
+    "v1.1.2",
+    "v1.1.1",
+    "v1.1.0",
+    "v1.0.11",
+    "v1.0.10"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "willmiao/ComfyUI-Lora-Manager",
+    "html_url": "https://github.com/willmiao/ComfyUI-Lora-Manager",
+    "description": "LoRA Manager for ComfyUI - A powerful extension for organizing, previewing, and integrating LoRA models with metadata and workflow support.",
+    "created_at": "2025-01-27T08:39:04Z",
+    "updated_at": "2026-09-11T19:40:36Z",
+    "pushed_at": "2026-09-11T15:08:50Z",
+    "stargazers_count": 1454,
+    "forks_count": 147,
+    "subscribers_count": 11,
+    "open_issues_count": 122,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Python",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "homepage": "",
+    "size": 55599,
+    "topics": []
+  },
+  "releases": [
+    {
+      "title": "v1.2.2",
+      "updated": "2026-09-06T14:29:39Z",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/tag/v1.2.2",
+      "notes_html": "<h3>Changes</h3>\n<ul>\n<li>\n<p><strong>Random Model Selection</strong> -- The Checkpoint Loader and Unet Loader nodes can now pick a random model on every queue, optionally restricted to a base model.</p>\n</li>\n<li>\n<p><strong>Per-file Download Selection &amp; Status</strong> -- Versions with multiple file variants now show per-file downloaded status, let you pick and download several files at once, and stay downloadable after the version is already in your library. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5106096422\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1058\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1058/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1058\">#1058</a>)</p>\n</li>\n<li>\n<p><strong>UI Redesigns</strong> -- The recipe detail modal now uses a three-column workspace layout, and the model example showcase is now an on-demand gallery with thumbnail navigation.</p>\n</li>\n<li>\n<p><strong>Reconnect Deleted or Broken Recipe Models</strong> -- Recipe entries whose LoRA or checkpoint was deleted or has an unresolvable hash can be reconnected to a matching local model, with suggestions, an Undo action, and base-model family fallback.</p>\n</li>\n<li>\n<p><strong>Recipe Status Indicators</strong> -- Recipe cards show a ready/missing/partial/unavailable status pill for their LoRAs.</p>\n</li>\n<li>\n<p><strong>Recipe Filter Additions</strong> -- The filter panel gains a LoRA Availability filter (Ready to use / Has missing / Has deleted) and an Unknown bucket for recipes whose base model could not be determined.</p>\n</li>\n<li>\n<p><strong>Range Selection in Bulk Mode</strong> -- Shift+click selects every card in between, and selections stay put while scrolling long lists.</p>\n</li>\n<li>\n<p><strong>Sticky Action Bar Setting</strong> -- New Keep Action Bar Visible setting pins the Refresh, Download, and related toolbar buttons at the top while scrolling. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5324010014\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1095\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1095/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1095\">#1095</a>)</p>\n</li>\n<li>\n<p><strong>Toolbar Shortcuts &amp; Shortcuts Reference</strong> -- Press R, F, or D on model pages to refresh, fetch metadata, or download; the Help modal now includes a Keyboard and Mouse Shortcuts reference.</p>\n</li>\n<li>\n<p><strong>Live Refresh Progress</strong> -- Refreshing or rebuilding the model cache now shows the current stage (scanning, processing, finalizing) with an estimated time remaining.</p>\n</li>\n<li>\n<p><strong>Delete From Modals</strong> -- Model and recipe modals offer a delete button and Del shortcut, so the open entry can be removed without leaving the modal.</p>\n</li>\n<li>\n<p><strong>Hash Search &amp; Display</strong> -- Search can match model hashes (full SHA256 or 10-character prefix), and the model modal shows copyable hashes in a Hashes section.</p>\n</li>\n<li>\n<p><strong>Removed: Repair Metadata</strong> -- The deprecated Repair metadata and Repair recipes data actions were removed from the context menus.</p>\n</li>\n</ul>\n<h3>Bug Fixes</h3>\n<ul>\n<li>Fixed the model list resetting and losing scroll position after in-place downloads. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5222471571\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1078\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1078/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1078\">#1078</a>)</li>\n<li>Fixed the update-check summary count not matching the Updates filter. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5237988983\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1083\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1083/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1083\">#1083</a>)</li>\n<li>Fixed batch imports failing wholesale on CivitAI rate limits - skipped items are marked with a retry hint instead of counted as failures. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5261999083\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1085\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1085/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1085\">#1085</a>)</li>\n<li>Fixed the batch import modal resetting to an empty form when reopened during a running import. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5257076615\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1084\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1084/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1084\">#1084</a>)</li>\n<li>Fixed downloads failing after their CivitAI signed URLs expired - transfers now resume with a fresh URL and keep partial files.</li>\n<li>Fixed downloads blocked by stray credentials in .netrc files. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5217509981\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1070\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1070/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1070\">#1070</a>)</li>\n<li>Fixed concurrent downloads resolving to the same target path corrupting each other.</li>\n<li>Fixed the recipes page showing an empty state during the first scan - it now shows initialization progress and reloads itself when done.</li>\n<li>Fixed the crashed app when an LLM provider returned a malformed model catalog. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5361225139\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1099\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1099/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1099\">#1099</a>)</li>\n<li>Fixed bulk delete across multiple drives falling back to per-item undo - it now merges into one undoable batch.</li>\n<li>Fixed folders with no models missing from move and download destination pickers. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4756476232\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/999\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/999/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/999\">#999</a>)</li>\n<li>Fixed the folder listing breaking when the saved folder no longer exists - it now falls back to the root folder.</li>\n<li>Fixed modal backdrop blur causing artifacts under software rendering. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5317229072\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1092\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1092/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1092\">#1092</a>)</li>\n<li>Fixed Escape in the full-screen media viewer also closing the model modal underneath it.</li>\n<li>Fixed Lora Info nodes not showing details when the source loader node is toggled off.</li>\n<li>Fixed re-import not working for recipes without a CivitAI source URL - it now falls back to the local source.</li>\n<li>Fixed toasts overlapping page controls - they now appear below the header.</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/expanded_assets/v1.2.2"
+    },
+    {
+      "title": "backup/ed7cf418-tip-fix",
+      "updated": "2026-09-04T04:41:44Z",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/tag/backup%2Fed7cf418-tip-fix",
+      "notes_html": "<p>fix(autocomplete): never show a stale /activefilters Tip when the tog…</p>",
+      "assets": [],
+      "assets_source": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/expanded_assets/backup%2Fed7cf418-tip-fix"
+    },
+    {
+      "title": "v1.2.1",
+      "updated": "2026-08-16T11:48:49Z",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/tag/v1.2.1",
+      "notes_html": "<h3>Changes</h3>\n<ul>\n<li><strong>Recipes Masonry Layout</strong> -- New layout option for the Recipes page that preserves image aspect ratios. Switch between masonry and grid in Settings.</li>\n<li><strong>Recipe Rematch</strong> -- Match recipe models deleted on Civitai against your local library via AutoV3 hashes and re-link them. Available from the right-click context menu for individual recipes, selections, or the whole library.</li>\n<li><strong>LoRA autocomplete within active filters</strong> -- New /activefilters command, with a matching setting in ComfyUI settings, makes LoRA autocomplete in ComfyUI LoRA nodes only suggest LoRAs matching the filters active in the LoRA Manager UI, such as folder, base model, and tags.</li>\n<li><strong>Drag &amp; Drop Preview</strong> -- Set or replace a model card preview by dragging an image or video onto the card. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4966285042\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1034\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1034/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1034\">#1034</a>)</li>\n<li><strong>Delete Undo</strong> -- An Undo toast with a 20 second countdown restores deleted models and recipes.</li>\n<li><strong>Random sort</strong> -- New Random option in the sort dropdowns on model pages and the Recipes page. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5043094173\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1049\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1049/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1049\">#1049</a>)</li>\n<li><strong>Recipes Recently Opened sort</strong> -- Sort recipes by the last time they were opened; never-opened recipes are hidden.</li>\n<li><strong>Missing model flags in workflow</strong> -- LoRA nodes (e.g. Loader, Stacker) now flag LoRAs missing from the local library and block queueing until they're resolved. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5104107536\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1057\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1057/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1057\">#1057</a>)</li>\n<li><strong>Recipes prompt-aware duplicate detection</strong> -- The recipe Duplicates panel now has an Include prompt in matching toggle, so duplicate groups can also require matching prompts.</li>\n<li><strong>Download failure summary</strong> -- Single and batch downloads now show a summary modal with per-item failure reasons, clickable links, Copy Report, and Retry Failed.</li>\n<li><strong>Metadata Overwrite wired inputs</strong> -- The model and sampler fields now accept both manual text entry and wired MODEL/SAMPLER connections, with names extracted automatically when wired.</li>\n<li><strong>Paid updates detection</strong> -- CivitAI versions with paid access are now detected and shown with a Paid badge, plus a new Hide Paid Updates setting and a warning before downloading gated versions. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5106302099\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1060\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1060/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1060\">#1060</a>)</li>\n</ul>\n<h3>Bug Fixes</h3>\n<ul>\n<li>Fixed Send to Workflow targeting nodes whose text comes from wired inputs, where the send silently did nothing.</li>\n<li>Fixed updating a model to a version with a different base model saving the file to the old base model's folder. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5106240348\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1059\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1059/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1059\">#1059</a>)</li>\n<li>Fixed downloads failing with \"No suitable file found\" for models whose only files use newer CivitAI types (e.g. Enhancement LoRA).</li>\n<li>Fixed aria2 downloads failing after the download backend restarts mid-transfer - transfers now resume instead of failing.</li>\n<li>Fixed download URLs without a version ID requiring manual version selection - the latest version is now selected automatically.</li>\n<li>Fixed autocomplete text widget clear not being undoable - Ctrl+Z now restores cleared text. (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5103275881\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1056\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1056/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1056\">#1056</a>)</li>\n<li>Fixed bulk Set Content Rating not working for selected recipes.</li>\n<li>Fixed changing the recipes storage path to a different drive failing on Windows.</li>\n<li>Filter panel improvements - wider panel with height clamped to the viewport, and the 10 preset limit removed.</li>\n<li>Fixed import modal action buttons scrolling out of view on long lists - they now stay pinned.</li>\n<li>Example image downloads - Download Missing now skips already-processed models and existing files; Re-process All retries previously failed models.</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/expanded_assets/v1.2.1"
+    },
+    {
+      "title": "v1.2.0",
+      "updated": "2026-07-31T13:31:13Z",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/tag/v1.2.0",
+      "notes_html": "<h3>Changes</h3>\n<ul>\n<li>\n<p><strong>Create Hook LoRA Node</strong> -- New node that outputs selected LoRAs as a hook group compatible with ComfyUI's native hook pipeline, supporting LoRA masking and scheduling.</p>\n</li>\n<li>\n<p><strong>Metadata Overwrite Node</strong> -- New node for manually specifying generation parameters when auto-detected metadata is inaccurate or you need more control.</p>\n</li>\n<li>\n<p><strong>Meta Hints User Marks</strong> -- Right-click nodes in a workflow and assign a meta hint role (Primary Model, Primary Sampler, prompts) to tell the metadata processor which node to use, overriding heuristic auto-detection.</p>\n</li>\n<li>\n<p><strong>Save Image Node Compression Controls</strong> -- New webp_method (compression level) and jpeg_subsampling (chroma quality) node inputs. Each parameter only appears when the corresponding file format is selected.</p>\n</li>\n<li>\n<p><strong>Release/Nightly Channel Switching</strong> -- Switch between Release and Nightly update channels and update accordingly.</p>\n</li>\n<li>\n<p><strong>HF Repo Version Grouping</strong> -- HF-downloaded models now group by HuggingFace repo in version-group mode (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4979901504\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1040\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1040/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1040\">#1040</a>).</p>\n</li>\n</ul>\n<h3>Bug Fixes</h3>\n<ul>\n<li>Fixed recipe search freezing the server on libraries with large recipe collections</li>\n<li>Fixed open Civitai creator profile link not respecting Civitai host setting</li>\n<li>Fixed AI enrichment failing with LM Studio and other providers that don't support JSON object mode (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4954150416\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1033\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1033/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1033\">#1033</a>)</li>\n<li>Fixed dragging to adjust LoRA strength values on loras node being broken</li>\n<li>Fixed symlinked library directories being blocked by path containment checks (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4927846149\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1028/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\">#1028</a>)</li>\n<li>Fixed workflow failing to load when LoRA widget received unexpected saved data (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4977616228\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1039\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1039/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1039\">#1039</a>)</li>\n<li>Fixed weighted wildcard syntax (e.g., N::value) not resolving in YAML wildcard files (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4977616228\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1039\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1039/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1039\">#1039</a>)</li>\n<li>Fixed search term being lost when applying or clearing other filters</li>\n<li>Fixed duplicate model cards appearing when clicking Refresh before download completes (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4981061396\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1041\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1041/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1041\">#1041</a>)</li>\n<li>Fixed recipe card list scrolling to top after downloading missing loras for recipe(s)</li>\n<li>Fixed delay when opening model modal on network drives</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/expanded_assets/v1.2.0"
+    },
+    {
+      "title": "v1.1.9",
+      "updated": "2026-07-21T14:22:59Z",
+      "url": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/tag/v1.1.9",
+      "notes_html": "<h3>Bug Fixes</h3>\n<ul>\n<li>Fixed recipes page not loading -- a regression from v1.1.8's tag search feature</li>\n<li>Fixed download path sanitization for empty template placeholders (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4927846149\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1028/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\">#1028</a>)</li>\n<li>Fixed file operations accepting paths outside configured library directories (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4927846149\" data-permission-text=\"Title is private\" data-url=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\" data-hovercard-type=\"issue\" data-hovercard-url=\"/willmiao/ComfyUI-Lora-Manager/issues/1028/hovercard\" href=\"https://github.com/willmiao/ComfyUI-Lora-Manager/issues/1028\">#1028</a>)</li>\n</ul>",
+      "assets": [],
+      "assets_source": "https://github.com/willmiao/ComfyUI-Lora-Manager/releases/expanded_assets/v1.1.9"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "slug": "desktop-release-kit",
+  "repo": "kzahel/desktop-release-kit",
+  "tier": "local baseline",
+  "local": "C:/Users/sox/Documents/code/desktop-release-kit",
+  "collected_at": "2026-09-12T06:50:24.985385+00:00",
+  "path": "D:/code/references/desktop-release-kit",
+  "errors": [],
+  "head": "c8d96dd87cb244f96b0123c113b4da17bd698c37",
+  "branch": "main",
+  "latest_commit": "2026-09-05T19:26:08+02:00 Document completed Stable Latest channel acceptance",
+  "commit_count": 10,
+  "shallow": false,
+  "oldest_reachable_commit": "2026-08-09T12:09:21+02:00",
+  "contributors_all": {
+    "distinct_author_names": 1,
+    "top": [
+      {
+        "name": "Kyle Graehl",
+        "commits": 10
+      }
+    ],
+    "nonmerge_commits": 10
+  },
+  "contributors_90d": {
+    "distinct_author_names": 1,
+    "top": [
+      {
+        "name": "Kyle Graehl",
+        "commits": 10
+      }
+    ],
+    "nonmerge_commits": 10
+  },
+  "tags": [
+    "desktop-latest-v0.5.1201",
+    "desktop-v0.4.0",
+    "desktop-latest-v0.3.1101",
+    "desktop-latest-v0.3.901",
+    "desktop-v0.2.0",
+    "desktop-v0.1.1",
+    "desktop-v0.1.0"
+  ],
+  "dirty": "",
+  "source_dirty": "",
+  "github": {
+    "full_name": "kzahel/desktop-release-kit",
+    "html_url": "https://github.com/kzahel/desktop-release-kit",
+    "description": "Signed Tauri desktop update canary, contract, and release validation kit",
+    "created_at": "2026-08-09T10:02:10Z",
+    "updated_at": "2026-09-05T17:26:33Z",
+    "pushed_at": "2026-09-05T17:26:29Z",
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "subscribers_count": 0,
+    "open_issues_count": 0,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "TypeScript",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "homepage": null,
+    "size": 421,
+    "topics": [
+      "auto-update",
+      "desktop-app",
+      "release-engineering",
+      "tauri"
+    ]
+  },
+  "releases": [
+    {
+      "title": "Desktop Release Canary v0.4.0",
+      "updated": "2026-09-05T17:07:43Z",
+      "url": "https://github.com/kzahel/desktop-release-kit/releases/tag/desktop-v0.4.0",
+      "notes_html": "<ul>\n<li>Stable catch-up release for installations on the 0.3 Latest train.</li>\n<li>Show native, webview, and sidecar build IDs together.</li>\n<li>Retry a failed relaunch without downloading or installing the update again.</li>\n</ul>\n<h2>Automated release evidence</h2>\n<ul>\n<li>Five signed updater targets validated from <code>latest.json</code>.</li>\n<li>Developer ID signing and notarization validated for both macOS architectures.</li>\n<li>Authenticode signatures validated for Windows NSIS, MSI, and the nested sidecar.</li>\n<li>Linux AppImage, DEB, and RPM packages validated for x86_64 and ARM64.</li>\n<li>Workflow: <a href=\"https://github.com/kzahel/desktop-release-kit/actions/runs/33978842519\">https://github.com/kzahel/desktop-release-kit/actions/runs/33978842519</a></li>\n<li>Commit: <code>6e6cd56f046324a50ddfff6ac18016f6f3fa5c83</code></li>\n<li>Exact hashes: <a href=\"https://github.com/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/SHA256SUMS\">https://github.com/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/SHA256SUMS</a></li>\n</ul>\n<p>Installed old-to-new testbed evidence is recorded separately and is not implied by CI.</p>",
+      "assets": [
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary-0.4.0-1.aarch64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary-0.4.0-1.x86_64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_aarch64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_aarch64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_amd64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_amd64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_arm64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_x64-setup.exe",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_x64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_0.4.0_x64_en-US.msi",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_aarch64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/Desktop.Release.Canary_x64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/SHA256SUMS",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/latest.json",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.4.0/release-identity.json"
+      ],
+      "assets_source": "https://github.com/kzahel/desktop-release-kit/releases/expanded_assets/desktop-v0.4.0"
+    },
+    {
+      "title": "Desktop Release Canary v0.2.0",
+      "updated": "2026-09-05T16:13:28Z",
+      "url": "https://github.com/kzahel/desktop-release-kit/releases/tag/desktop-v0.2.0",
+      "notes_html": "<ul>\n<li>Add saved Stable and Latest update tracks with explicit installation.</li>\n<li>Preserve legacy Stable checks and wait for Stable to catch up after leaving Latest.</li>\n</ul>\n<h2>Automated release evidence</h2>\n<ul>\n<li>Five signed updater targets validated from <code>latest.json</code>.</li>\n<li>Developer ID signing and notarization validated for both macOS architectures.</li>\n<li>Authenticode signatures validated for Windows NSIS, MSI, and the nested sidecar.</li>\n<li>Linux AppImage, DEB, and RPM packages validated for x86_64 and ARM64.</li>\n<li>Workflow: <a href=\"https://github.com/kzahel/desktop-release-kit/actions/runs/33974983503\">https://github.com/kzahel/desktop-release-kit/actions/runs/33974983503</a></li>\n<li>Commit: <code>40b25c1cd8ec28bbd83398f2e19401ac8243cdd8</code></li>\n<li>Exact hashes: <a href=\"https://github.com/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/SHA256SUMS\">https://github.com/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/SHA256SUMS</a></li>\n</ul>\n<p>Installed old-to-new testbed evidence is recorded separately and is not implied by CI.</p>",
+      "assets": [
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary-0.2.0-1.aarch64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary-0.2.0-1.x86_64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_aarch64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_aarch64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_amd64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_amd64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_arm64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_x64-setup.exe",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_x64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_0.2.0_x64_en-US.msi",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_aarch64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/Desktop.Release.Canary_x64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/SHA256SUMS",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/latest.json",
+        "/kzahel/desktop-release-kit/releases/download/desktop-v0.2.0/release-identity.json"
+      ],
+      "assets_source": "https://github.com/kzahel/desktop-release-kit/releases/expanded_assets/desktop-v0.2.0"
+    },
+    {
+      "title": "Desktop Release Canary v0.5.1201",
+      "updated": "2026-09-05T17:06:56Z",
+      "url": "https://github.com/kzahel/desktop-release-kit/releases/tag/desktop-latest-v0.5.1201",
+      "notes_html": "<h2>Automated release evidence</h2>\n<ul>\n<li>Five signed updater targets validated from <code>latest.json</code>.</li>\n<li>Developer ID signing and notarization validated for both macOS architectures.</li>\n<li>Authenticode signatures validated for Windows NSIS, MSI, and the nested sidecar.</li>\n<li>Linux AppImage, DEB, and RPM packages validated for x86_64 and ARM64.</li>\n<li>Workflow: <a href=\"https://github.com/kzahel/desktop-release-kit/actions/runs/33978840903\">https://github.com/kzahel/desktop-release-kit/actions/runs/33978840903</a></li>\n<li>Commit: <code>6e6cd56f046324a50ddfff6ac18016f6f3fa5c83</code></li>\n<li>Exact hashes: <a href=\"https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/SHA256SUMS\">https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/SHA256SUMS</a></li>\n</ul>\n<p>Installed old-to-new testbed evidence is recorded separately and is not implied by CI.</p>",
+      "assets": [
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary-0.5.1201-1.aarch64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary-0.5.1201-1.x86_64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_aarch64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_aarch64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_amd64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_amd64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_arm64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_x64-setup.exe",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_x64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_0.5.1201_x64_en-US.msi",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_aarch64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/Desktop.Release.Canary_x64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/SHA256SUMS",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/latest.json",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.5.1201/release-identity.json"
+      ],
+      "assets_source": "https://github.com/kzahel/desktop-release-kit/releases/expanded_assets/desktop-latest-v0.5.1201"
+    },
+    {
+      "title": "Desktop Release Canary v0.3.1101",
+      "updated": "2026-09-05T16:34:59Z",
+      "url": "https://github.com/kzahel/desktop-release-kit/releases/tag/desktop-latest-v0.3.1101",
+      "notes_html": "<h2>Automated release evidence</h2>\n<ul>\n<li>Five signed updater targets validated from <code>latest.json</code>.</li>\n<li>Developer ID signing and notarization validated for both macOS architectures.</li>\n<li>Authenticode signatures validated for Windows NSIS, MSI, and the nested sidecar.</li>\n<li>Linux AppImage, DEB, and RPM packages validated for x86_64 and ARM64.</li>\n<li>Workflow: <a href=\"https://github.com/kzahel/desktop-release-kit/actions/runs/33975315620\">https://github.com/kzahel/desktop-release-kit/actions/runs/33975315620</a></li>\n<li>Commit: <code>577302786a28cd11bf445fc19b2f0ab70c1f4702</code></li>\n<li>Exact hashes: <a href=\"https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/SHA256SUMS\">https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/SHA256SUMS</a></li>\n</ul>\n<p>Installed old-to-new testbed evidence is recorded separately and is not implied by CI.</p>",
+      "assets": [
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary-0.3.1101-1.aarch64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary-0.3.1101-1.x86_64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_aarch64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_aarch64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_amd64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_amd64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_arm64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_x64-setup.exe",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_x64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_0.3.1101_x64_en-US.msi",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_aarch64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/Desktop.Release.Canary_x64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/SHA256SUMS",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/latest.json",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.1101/release-identity.json"
+      ],
+      "assets_source": "https://github.com/kzahel/desktop-release-kit/releases/expanded_assets/desktop-latest-v0.3.1101"
+    },
+    {
+      "title": "Desktop Release Canary v0.3.901",
+      "updated": "2026-09-05T16:11:39Z",
+      "url": "https://github.com/kzahel/desktop-release-kit/releases/tag/desktop-latest-v0.3.901",
+      "notes_html": "<h2>Automated release evidence</h2>\n<ul>\n<li>Five signed updater targets validated from <code>latest.json</code>.</li>\n<li>Developer ID signing and notarization validated for both macOS architectures.</li>\n<li>Authenticode signatures validated for Windows NSIS, MSI, and the nested sidecar.</li>\n<li>Linux AppImage, DEB, and RPM packages validated for x86_64 and ARM64.</li>\n<li>Workflow: <a href=\"https://github.com/kzahel/desktop-release-kit/actions/runs/33974947605\">https://github.com/kzahel/desktop-release-kit/actions/runs/33974947605</a></li>\n<li>Commit: <code>40b25c1cd8ec28bbd83398f2e19401ac8243cdd8</code></li>\n<li>Exact hashes: <a href=\"https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/SHA256SUMS\">https://github.com/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/SHA256SUMS</a></li>\n</ul>\n<p>Installed old-to-new testbed evidence is recorded separately and is not implied by CI.</p>",
+      "assets": [
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary-0.3.901-1.aarch64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary-0.3.901-1.x86_64.rpm",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_aarch64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_aarch64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_amd64.AppImage",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_amd64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_arm64.deb",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_x64-setup.exe",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_x64.dmg",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_0.3.901_x64_en-US.msi",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_aarch64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/Desktop.Release.Canary_x64.app.tar.gz",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/SHA256SUMS",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/latest.json",
+        "/kzahel/desktop-release-kit/releases/download/desktop-latest-v0.3.901/release-identity.json"
+      ],
+      "assets_source": "https://github.com/kzahel/desktop-release-kit/releases/expanded_assets/desktop-latest-v0.3.901"
+    }
+  ]
+}

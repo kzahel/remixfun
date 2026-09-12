@@ -1,0 +1,199 @@
+{
+  "slug": "krita-ai-diffusion",
+  "repo": "Acly/krita-ai-diffusion",
+  "tier": "primary",
+  "collected_at": "2026-09-12T06:58:15.967620+00:00",
+  "path": "D:/code/references/krita-ai-diffusion",
+  "errors": [],
+  "head": "dda58d1c63e361207ccec085efbc34dbd32f1654",
+  "branch": "main",
+  "latest_commit": "2026-08-23T13:02:28+02:00 CI: set Qt to use offscreen platform to avoid libEGL load issue",
+  "commit_count": 1778,
+  "shallow": false,
+  "oldest_reachable_commit": "2023-06-07T19:36:54+02:00",
+  "contributors_all": {
+    "distinct_author_names": 51,
+    "top": [
+      {
+        "name": "Acly",
+        "commits": 1618
+      },
+      {
+        "name": "Danamir",
+        "commits": 18
+      },
+      {
+        "name": "Drakosha405",
+        "commits": 13
+      },
+      {
+        "name": "FeepingCreature",
+        "commits": 11
+      },
+      {
+        "name": "Sen-sou",
+        "commits": 11
+      },
+      {
+        "name": "flaviohr",
+        "commits": 11
+      },
+      {
+        "name": "lokpro",
+        "commits": 8
+      },
+      {
+        "name": "Jelly Dreams",
+        "commits": 6
+      },
+      {
+        "name": "SHoogstad",
+        "commits": 4
+      },
+      {
+        "name": "sejoung kim",
+        "commits": 4
+      },
+      {
+        "name": "yantoz",
+        "commits": 4
+      },
+      {
+        "name": "gergelyszaz",
+        "commits": 3
+      }
+    ],
+    "nonmerge_commits": 1762
+  },
+  "contributors_90d": {
+    "distinct_author_names": 6,
+    "top": [
+      {
+        "name": "Acly",
+        "commits": 28
+      },
+      {
+        "name": "Sen-sou",
+        "commits": 8
+      },
+      {
+        "name": "Fumiaki MATSUSHIMA",
+        "commits": 1
+      },
+      {
+        "name": "amiiari",
+        "commits": 1
+      },
+      {
+        "name": "fukc-gihtub",
+        "commits": 1
+      },
+      {
+        "name": "陳廷安",
+        "commits": 1
+      }
+    ],
+    "nonmerge_commits": 40
+  },
+  "tags": [
+    "v1.53.0",
+    "v1.52.1",
+    "v1.52.0",
+    "v1.51.1",
+    "v1.51.0",
+    "v1.50.0",
+    "v1.49.1",
+    "v1.49.0",
+    "v1.48.0",
+    "v1.47.0",
+    "v1.46.1",
+    "v1.46.0",
+    "v1.45.0",
+    "v1.44.1",
+    "v1.44.0"
+  ],
+  "dirty": "",
+  "github": {
+    "full_name": "Acly/krita-ai-diffusion",
+    "html_url": "https://github.com/Acly/krita-ai-diffusion",
+    "description": "Streamlined interface for generating images with AI in Krita. Inpaint and outpaint with optional text prompt, no tweaking required.",
+    "created_at": "2023-09-01T22:52:13Z",
+    "updated_at": "2026-09-12T05:57:01Z",
+    "pushed_at": "2026-08-28T20:55:10Z",
+    "stargazers_count": 10571,
+    "forks_count": 625,
+    "subscribers_count": 82,
+    "open_issues_count": 100,
+    "archived": false,
+    "disabled": false,
+    "fork": false,
+    "default_branch": "main",
+    "language": "Python",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "homepage": "https://www.interstice.cloud",
+    "size": 33627,
+    "topics": [
+      "generative-ai",
+      "krita-plugin",
+      "stable-diffusion"
+    ]
+  },
+  "releases": [
+    {
+      "title": "Version 1.53.0",
+      "updated": "2026-08-22T19:38:06Z",
+      "url": "https://github.com/Acly/krita-ai-diffusion/releases/tag/v1.53.0",
+      "notes_html": "<h2><a href=\"https://github.com/Acly/krita-ai-diffusion/releases/download/v1.53.0/krita_ai_diffusion-1.53.0.zip\">Download krita_ai_diffusion-1.53.0.zip</a></h2>\n<p><strong>For Krita 5</strong> (recommended: Krita 5.3.2.1)</p>\n<h2>Anima Segmentation Control</h2>\n<p><a href=\"https://huggingface.co/Sen-sou/Anima-LLLite-Regional-Controlnet\" rel=\"nofollow\">Segmentation control layer</a> is now supported for Anima (PR by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/Sen-sou/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/Sen-sou\">@Sen-sou</a>).</p>\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://private-user-images.githubusercontent.com/6485914/639926509-3252c759-597f-40de-b643-23e51df198a0.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODkxOTY2MDAsIm5iZiI6MTc4OTE5NjMwMCwicGF0aCI6Ii82NDg1OTE0LzYzOTkyNjUwOS0zMjUyYzc1OS01OTdmLTQwZGUtYjY0My0yM2U1MWRmMTk4YTAucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDkxMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA5MTJUMDY1ODIwWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZTU4MTk5NWIxNDAzNTFlMjNlMDdmNmQ5ZDkzZGQxMjUyMDI1NDEzMzMxMzRiN2M1ODU1YmQwYzhlZDk1OWYyMSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGcG5nIn0.Si75sLxO6mBZpRyBNdRk6tps-LTnc13a8YISYwKH99g\"><img width=\"880\" alt=\"release-1 53 0-segmentation\" src=\"https://private-user-images.githubusercontent.com/6485914/639926509-3252c759-597f-40de-b643-23e51df198a0.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODkxOTY2MDAsIm5iZiI6MTc4OTE5NjMwMCwicGF0aCI6Ii82NDg1OTE0LzYzOTkyNjUwOS0zMjUyYzc1OS01OTdmLTQwZGUtYjY0My0yM2U1MWRmMTk4YTAucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDkxMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA5MTJUMDY1ODIwWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZTU4MTk5NWIxNDAzNTFlMjNlMDdmNmQ5ZDkzZGQxMjUyMDI1NDEzMzMxMzRiN2M1ODU1YmQwYzhlZDk1OWYyMSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGcG5nIn0.Si75sLxO6mBZpRyBNdRk6tps-LTnc13a8YISYwKH99g\" content-type-secured-asset=\"image/png\" style=\"max-width: 100%;\"></a>\n<p>Instructions:</p>\n<ol>\n<li>Download <a href=\"https://huggingface.co/Sen-sou/Anima-LLLite-Regional-Controlnet/resolve/main/anima-lllite-regional-exp-v3.safetensors\" rel=\"nofollow\">the model</a> and put it into <code>models/controlnet</code></li>\n<li>Create a Control Layer and select Segmentation mode</li>\n<li>(Optional) Create a segmentation image from your existing Regions with the <code>T</code> button</li>\n<li>Generate</li>\n</ol>\n<h2>Upgrades and Removals</h2>\n<ul>\n<li>Upgraded managed server to CUDA 13, PyTorch 2.13 and latest ComfyUI</li>\n<li>Now supports int8 / int4 / ConvRot models <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4810249715\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2553\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2553/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2553\">#2553</a></li>\n<li>Removed Nunchaku support</li>\n<li>Removed insightface (used by SD1.5/SDXL Face-ID) from managed server install</li>\n</ul>\n<p>If you were using the Nunchaku variants of Flux 1, Flux 1 Kontext, Qwen or Z-Image you will have to redownload alternative versions of these models. See <a href=\"https://docs.interstice.cloud/models/?arch-flux=true&amp;arch-zimage=true&amp;arch-sdxl=false&amp;kind-checkpoint=true&amp;set-optional=true&amp;kind-ip_adapter=false&amp;kind-inpaint=false&amp;kind=model_patch=false&amp;kind-upscaler=false&amp;kind-clip_vision=false&amp;kind-controlnet=false&amp;kind-text_encoder=false&amp;kind-vae=false&amp;kind-lora=false#downloading-models\" rel=\"nofollow\">models</a> or use the Managed Server installation.</p>\n<h2>Cloud Changes</h2>\n<p>As an image generation service, Interstice.cloud complies with EU AI Act Transparency laws.</p>\n<ul>\n<li>Images saved from the history now contain a metadata tag to identify them as AI generated</li>\n<li>Images contain an invisible watermark with a fixed tag that links them to the service (users from EU only)</li>\n</ul>\n<p><em>This does not affect local use!</em></p>\n<h2>Other Changes</h2>\n<ul>\n<li>Fixed image history displaying timestamps in UTC instead of local timezone <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4798319004\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2551\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2551/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2551\">#2551</a></li>\n<li>New-lines are now preserved when importing prompts from PNG metadata (by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/amiiari/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/amiiari\">@amiiari</a>)</li>\n<li>Warn when there are duplicate parameter names in a custom workflow <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"5055220153\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2581\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2581/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2581\">#2581</a></li>\n</ul>",
+      "assets": [
+        "/Acly/krita-ai-diffusion/releases/download/v1.53.0/krita_ai_diffusion-1.53.0.zip"
+      ],
+      "assets_source": "https://github.com/Acly/krita-ai-diffusion/releases/expanded_assets/v1.53.0"
+    },
+    {
+      "title": "Version 1.52.1",
+      "updated": "2026-06-30T12:39:14Z",
+      "url": "https://github.com/Acly/krita-ai-diffusion/releases/tag/v1.52.1",
+      "notes_html": "<h2><a href=\"https://github.com/Acly/krita-ai-diffusion/releases/download/v1.52.1/krita_ai_diffusion-1.52.1.zip\">Download krita_ai_diffusion-1.52.1.zip</a></h2>\n<p><strong>For Krita 5</strong> (recommended: Krita 5.3.2.1)</p>\n<h2>Changes</h2>\n<ul>\n<li>Fixed plugin not connecting to the managed server after it was started <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4762662107\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2548\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2548/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2548\">#2548</a></li>\n</ul>",
+      "assets": [
+        "/Acly/krita-ai-diffusion/releases/download/v1.52.1/krita_ai_diffusion-1.52.1.zip"
+      ],
+      "assets_source": "https://github.com/Acly/krita-ai-diffusion/releases/expanded_assets/v1.52.1"
+    },
+    {
+      "title": "Version 1.52.0",
+      "updated": "2026-06-28T12:46:37Z",
+      "url": "https://github.com/Acly/krita-ai-diffusion/releases/tag/v1.52.0",
+      "notes_html": "<h2><a href=\"https://github.com/Acly/krita-ai-diffusion/releases/download/v1.52.0/krita_ai_diffusion-1.52.0.zip\">Download krita_ai_diffusion-1.52.0.zip</a></h2>\n<p><strong>For Krita 5</strong> (recommended: Krita 5.3.2.1)</p>\n<div class=\"markdown-alert markdown-alert-important\"><p class=\"markdown-alert-title\"><svg data-component=\"Octicon\" class=\"octicon octicon-report mr-2\" viewBox=\"0 0 16 16\" version=\"1.1\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path d=\"M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z\"></path></svg>Important</p>\n<p>Because auto-update was broken in the previous version, please <a href=\"https://docs.interstice.cloud/installation/#installing-the-plugin\" rel=\"nofollow\">download and install</a> this version manually.</p>\n</div>\n<h2>Changes</h2>\n<ul>\n<li>Basic support for Krea 2 model, see <a href=\"https://github.com/Acly/krita-ai-diffusion/discussions/2547\" data-hovercard-type=\"discussion\" data-hovercard-url=\"/Acly/krita-ai-diffusion/discussions/2547/hovercard\">discussion</a> (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4731545508\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2541\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Acly/krita-ai-diffusion/pull/2541/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/pull/2541\">#2541</a> by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/fukc-gihtub/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/fukc-gihtub\">@fukc-gihtub</a>)</li>\n<li>Region support for Anima (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4400438295\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2480\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2480/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2480\">#2480</a> by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/Sen-sou/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/Sen-sou\">@Sen-sou</a>)</li>\n<li>Fixed auto-updates installing to the wrong folder <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4668172315\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2533\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2533/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2533\">#2533</a></li>\n<li>Fixed model architecture not being set correctly from style in custom workflows (<a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4659785080\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2529\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Acly/krita-ai-diffusion/pull/2529/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/pull/2529\">#2529</a> by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mtsmfm/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/mtsmfm\">@mtsmfm</a>)</li>\n<li>Increased maximum prompt text box size <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4712225793\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2538\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2538/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2538\">#2538</a></li>\n<li>Use edit mode for expanding images with Flux Klein 9B <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4614975775\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2518\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2518/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2518\">#2518</a></li>\n</ul>",
+      "assets": [
+        "/Acly/krita-ai-diffusion/releases/download/v1.52.0/krita_ai_diffusion-1.52.0.zip"
+      ],
+      "assets_source": "https://github.com/Acly/krita-ai-diffusion/releases/expanded_assets/v1.52.0"
+    },
+    {
+      "title": "Version 1.51.1",
+      "updated": "2026-06-05T20:49:34Z",
+      "url": "https://github.com/Acly/krita-ai-diffusion/releases/tag/v1.51.1",
+      "notes_html": "<h2><a href=\"https://github.com/Acly/krita-ai-diffusion/releases/download/v1.51.1/krita_ai_diffusion-1.51.1.zip\">Download krita_ai_diffusion-1.51.1.zip</a></h2>\n<p><strong>For Krita 5</strong> (recommended: Krita 5.3.1)</p>\n<h2>Changes</h2>\n<ul>\n<li>Fixed managed installation on macOS <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4558386418\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2505\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2505/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2505\">#2505</a></li>\n<li>Fixed managed installation upgrade from old environments (Linux)</li>\n</ul>",
+      "assets": [
+        "/Acly/krita-ai-diffusion/releases/download/v1.51.1/krita_ai_diffusion-1.51.1.zip"
+      ],
+      "assets_source": "https://github.com/Acly/krita-ai-diffusion/releases/expanded_assets/v1.51.1"
+    },
+    {
+      "title": "Version 1.51.0",
+      "updated": "2026-05-31T13:34:45Z",
+      "url": "https://github.com/Acly/krita-ai-diffusion/releases/tag/v1.51.0",
+      "notes_html": "<h2><a href=\"https://github.com/Acly/krita-ai-diffusion/releases/download/v1.51.0/krita_ai_diffusion-1.51.0.zip\">Download krita_ai_diffusion-1.51.0.zip</a></h2>\n<p><strong>For Krita 5</strong> (recommended: Krita 5.3.1)</p>\n<h2>Control layers for Anima</h2>\n<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://private-user-images.githubusercontent.com/6485914/600600516-472aa378-9753-4c53-aa38-09c169e7969b.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODkxOTY2MDEsIm5iZiI6MTc4OTE5NjMwMSwicGF0aCI6Ii82NDg1OTE0LzYwMDYwMDUxNi00NzJhYTM3OC05NzUzLTRjNTMtYWEzOC0wOWMxNjllNzk2OWIucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDkxMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA5MTJUMDY1ODIxWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YTZkNWIzYWE0MDFhMTYyM2Q5YjNlODRmNWMyYjhiYjQyM2RkNjhlNzVjMTNhZjljMDdmOTNiMWY2MDc3MDUyNiZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGcG5nIn0.4AHwbme0_xNSzvuspb-BwZmMiu3nwkwPiWTV5kx-e6w\"><img width=\"1024\" height=\"558\" alt=\"release-1 51 0-anima-control\" src=\"https://private-user-images.githubusercontent.com/6485914/600600516-472aa378-9753-4c53-aa38-09c169e7969b.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODkxOTY2MDEsIm5iZiI6MTc4OTE5NjMwMSwicGF0aCI6Ii82NDg1OTE0LzYwMDYwMDUxNi00NzJhYTM3OC05NzUzLTRjNTMtYWEzOC0wOWMxNjllNzk2OWIucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDkxMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjA5MTJUMDY1ODIxWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YTZkNWIzYWE0MDFhMTYyM2Q5YjNlODRmNWMyYjhiYjQyM2RkNjhlNzVjMTNhZjljMDdmOTNiMWY2MDc3MDUyNiZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC10eXBlPWltYWdlJTJGcG5nIn0.4AHwbme0_xNSzvuspb-BwZmMiu3nwkwPiWTV5kx-e6w\" content-type-secured-asset=\"image/png\" style=\"max-width: 100%; height: auto; max-height: 558px;\"></a>\n<p>Supported control modes:</p>\n<ul>\n<li>for official v1.0: Scribble, Line Art, Unblur</li>\n<li>for old preview models: Depth, Pose</li>\n</ul>\n<p>Fill, Expand, etc. at full strength now <em>requires</em> the inpaint control model and gives much better results.</p>\n<p>Please check the <a href=\"https://github.com/Acly/krita-ai-diffusion/discussions/2477\" data-hovercard-type=\"discussion\" data-hovercard-url=\"/Acly/krita-ai-diffusion/discussions/2477/hovercard\">discussion</a> for model downloads! PR by <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/Sen-sou/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/Sen-sou\">@Sen-sou</a></p>\n<h2>Other Changes</h2>\n<ul>\n<li>Added ROCm as managed install option for supported AMD GPUs <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2001686265\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/76\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/76/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/76\">#76</a> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3875639015\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2315\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2315/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2315\">#2315</a> <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4463072812\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2493\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2493/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2493\">#2493</a></li>\n<li>Fixed wrong assignments of <code>&lt;layer:name&gt;</code> references in prompts</li>\n<li>De-duplicate references to the same layer in more cases so they are only passed to the model once</li>\n<li>Fixed crash when a single-channel layer is used as input (eg. transparency mask) <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4462798867\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2492\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2492/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2492\">#2492</a></li>\n<li>Fixed the upscale strength slider being permanently disabled after selecting an edit model <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4516859954\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2499\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2499/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2499\">#2499</a></li>\n<li>Fixed issues when opening a document, especially with custom workflows <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4395392213\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2479\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/Acly/krita-ai-diffusion/pull/2479/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/pull/2479\">#2479</a></li>\n<li>Changed color match functionality to detect when there is no color information outside the selection <a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"4415995695\" data-permission-text=\"Title is private\" data-url=\"https://github.com/Acly/krita-ai-diffusion/issues/2483\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Acly/krita-ai-diffusion/issues/2483/hovercard\" href=\"https://github.com/Acly/krita-ai-diffusion/issues/2483\">#2483</a></li>\n<li>Improved error message when trying to use reference layers in the prompt, but the model does not support them</li>\n<li>Improved file handling when come files are inaccessible (eg. access denied due to permissions)</li>\n</ul>",
+      "assets": [
+        "/Acly/krita-ai-diffusion/releases/download/v1.51.0/krita_ai_diffusion-1.51.0.zip"
+      ],
+      "assets_source": "https://github.com/Acly/krita-ai-diffusion/releases/expanded_assets/v1.51.0"
+    }
+  ]
+}
