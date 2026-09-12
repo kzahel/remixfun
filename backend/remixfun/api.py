@@ -3,7 +3,7 @@ import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI, File, UploadFile, Header
+from fastapi import FastAPI, File, UploadFile, Header, Query
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -24,6 +24,13 @@ class DownloadRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     revision: str = Field(pattern=r"^[a-f0-9]{64}$")
     choices: dict[str, str] = Field(default_factory=dict, max_length=64)
+
+
+class ReproduceRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    revision: str | None = Field(default=None, pattern=r"^[a-f0-9]{64}$")
+    accept_assumptions: bool = Field(default=False, strict=True)
+    seed_offset: int = Field(default=0, ge=0, le=31, strict=True)
 
 
 class ModelSettings(BaseModel):
@@ -116,8 +123,8 @@ def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.
         return {"status": "stopping"}
 
     @app.get("/api/imports/{identifier}/dependencies")
-    def dependencies(identifier: str):
-        return service.dependencies(identifier)
+    def dependencies(identifier: str, seed_offset: int = Query(default=0, ge=0, le=31)):
+        return service.dependencies(identifier, seed_offset)
 
     @app.post("/api/imports/{identifier}/dependencies/resolve", status_code=202)
     async def resolve_models(identifier: str):
@@ -201,8 +208,8 @@ def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.
         return JSONResponse(service.store.get(identifier), headers={"Content-Disposition": 'attachment; filename="remixfun-recipe.json"'})
 
     @app.post("/api/imports/{identifier}/reproduce", status_code=202)
-    async def reproduce(identifier: str):
-        return service.reproduce(identifier)
+    async def reproduce(identifier: str, body: ReproduceRequest | None = None):
+        return service.reproduce(identifier, **(body.model_dump() if body else {}))
 
     @app.get("/api/jobs")
     def jobs():

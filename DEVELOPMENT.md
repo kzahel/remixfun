@@ -2,7 +2,8 @@
 
 Remixfun has a local import/library application, shared service and CLI, and a
 Windows Tauri developer shell. An optional managed Comfy profile generates new
-SDXL images on the GPU through the source service. Imported-source reproduction,
+SDXL images and supported imported-recipe attempts on the GPU through the source
+service. Exact source reproduction,
 signed installers and publication remain planned. Civitai model acquisition
 with verified downloads and resume is implemented; see [models](docs/topics/models.md).
 See the [local preview evidence](docs/evidence/local-preview.md) and
@@ -60,6 +61,12 @@ before availability; downloads can pause/resume across restart. See
 [live acquisition](docs/evidence/model-downloads.md). Model availability does not
 imply that an imported recipe has a supported reproduction profile.
 
+For supported SDXL imports with a configured runtime, **Try reproduction** shows
+the effective assumptions before running. The CLI uses
+`reproduce <import-id> --accept-assumptions --wait`. Source metadata stays unchanged;
+the result saves settings and a source comparison. See the
+[attempt contract](docs/topics/reproduction.md) and [beetle run](docs/evidence/beetle-attempt.md).
+
 For the unsigned Windows desktop folder, install Rust with MSVC build tools
 and WebView2, then run `uv run python scripts/build_local.py`. Open
 `dist/desktop-preview/Remixfun.exe`; keep the entire folder together. This build
@@ -72,6 +79,12 @@ For development, after building the frontend and sidecar once, use
 installers or publishing. macOS/Linux desktop packaging is not implemented.
 
 ## Documentation ownership
+
+Keep generated images, comparison reports, downloaded weights, local libraries
+and raw test logs under ignored `artifacts/`, `models/` or `runtimes/` paths.
+Root scratch/temp directories and test coverage output are ignored too. Commit
+curated evidence summaries in `docs/evidence/` and small, intentional replay
+fixtures in `tests/fixtures/`; do not put raw experiment output there.
 
 - `README.md`: short product and contributor entry point.
 - `docs/topics/`: durable product behavior and technical contracts.

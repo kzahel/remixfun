@@ -2,9 +2,11 @@
 
 Status: service/domain tests, browser flow tests and process smoke checks exist.
 Local Windows evidence is in [local preview](../evidence/local-preview.md).
-Hosted CI, installed-artifact acceptance and imported-source GPU reproduction
+Hosted CI, installed-artifact acceptance and exact imported-source GPU reproduction
 remain unverified. [Local SDXL generation](../evidence/local-sdxl-generation.md)
 records a real GPU output created through the app, separate from mock tests.
+The [beetle attempt](../evidence/beetle-attempt.md) records two identical local
+imported-recipe outputs that differ from the public source.
 
 The [Civitai provider evidence](../evidence/civitai-page-import.md) separates
 historical user-supplied findings, a live HTTP import, and offline parser,
@@ -26,6 +28,12 @@ Real GPU tests separately establish selected public SDXL image reproduction,
 controlled missing-batch recovery, Comfy upgrade compatibility, and video output.
 Record exact model hashes, workflow, runtime, source bytes, and comparison method.
 Never report fake-engine success as GPU correctness or similarity as equality.
+Use automated decoded-pixel equality and image-difference metrics to assess and
+rank reproduction trials. Avoid token-consuming manual composition inspection.
+Record dimensions, preprocessing (none by default), differing-pixel count and
+RGB error metrics. An error score is not a perceptual similarity percentage.
+The [castle trial](../evidence/castle-attempt.md) tests eight incremented-seed
+candidates against a PNG reference, with a separate exact local repeat check.
 
 ## Installed desktop acceptance
 

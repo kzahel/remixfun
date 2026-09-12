@@ -1,7 +1,7 @@
 # Product
 
-Status: local import/library and new SDXL generation implemented; imported-source
-reproduction, remixing and animation remain planned.
+Status: local import/library, new SDXL generation and initial imported SDXL
+attempts implemented. Exact source reproduction, remixing and animation remain planned.
 
 ## Implemented local preview
 
@@ -43,15 +43,18 @@ large source integers without JavaScript number rounding.
 
 An authored landscape demo illustrates the saved recipe and asynchronous result
 flow. It reuses the sample SVG, explicitly labels its output as demo, and never
-reports generation, similarity or pixel-equality evidence. Real imports reject
-reproduction with an actionable 409 response until their exact models and
-generation profile are supported. Remixing and animation are not exposed as working actions.
+reports generation, similarity or pixel-equality evidence. Supported imports can
+**Try reproduction** after model verification and disclosure of attempt assumptions;
+unsupported dependencies/settings return 409 before generation. See the
+[attempt contract](reproduction.md). Remixing and animation are not exposed as working actions.
 Imports retain an acquisition-time assessment; the dependency API and desktop
 show the current reproduction assessment, including model availability:
 missing settings, unverified model files, differing checkpoint hashes where
 established, and unsupported sampler/conditioning behavior. The source image
-141984808 imports successfully but cannot run on the current authored SDXL Base
-profile. Missing scheduler and batch evidence remain unknown.
+141984808 ran through the imported attempt profile with its exact VAE-fix checkpoint.
+The result differed from the source and repeated identically locally. Missing
+scheduler and batch evidence remain unknown in the source, with explicit
+effective assumptions attached to each attempt.
 
 An explicitly configured managed Comfy runtime enables **Create an image on your
 GPU**. New recipes default to the verified SDXL Base 1.0 checkpoint, Euler/normal,

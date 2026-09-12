@@ -4,8 +4,9 @@ type File = { file_id: string; name: string; sha256: string; size_estimate: numb
 type Download = { id: string; status: string; downloaded_bytes: number; total_bytes: number | null; message: string; consumers?: string[] };
 type Dependency = { id: string; name: string; version_name?: string; status: string; message?: string;
   file: File | null; candidates: File[]; download?: Download };
-type Plan = { revision: string; dependencies: Dependency[]; total_download_bytes: number; unknown_sizes: number;
-  generation_blockers: string[]; operation?: { status: string; message?: string } };
+export type Plan = { revision: string; dependencies: Dependency[]; total_download_bytes: number; unknown_sizes: number;
+  generation_blockers: string[]; operation?: { status: string; message?: string };
+  reproduction?: { revision: string; ready: boolean; assumptions: { field: string; reason: string }[]; mappings: unknown[] } };
 
 export async function modelApi<T>(path: string, method = "GET", body?: unknown): Promise<T> {
   const res = await fetch(`/api${path}`, { method, ...(body === undefined ? {} : {
@@ -26,7 +27,7 @@ const labels: Record<string, string> = { available: "Available", download_needed
   blocked: "Needs attention", queued: "Queued", downloading: "Downloading", verifying: "Verifying SHA-256",
   retry_wait: "Retrying", paused: "Paused", canceled: "Canceled", failed: "Download failed" };
 
-export function ModelDownloads({ importId }: { importId: string }) {
+export function ModelDownloads({ importId, onPlan }: { importId: string; onPlan?: (plan: Plan | null) => void }) {
   const [plan, setPlan] = useState<Plan | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -38,13 +39,13 @@ export function ModelDownloads({ importId }: { importId: string }) {
     async function poll() {
       try {
         const next = await modelApi<Plan>(`/imports/${importId}/dependencies`);
-        if (active) { setPlan(next); setError(""); }
-      } catch (e) { if (active) setError((e as Error).message); }
+        if (active) { setPlan(next); onPlan?.(next); setError(""); }
+      } catch (e) { if (active) { setError((e as Error).message); onPlan?.(null); } }
       if (active) timer = setTimeout(poll, 1000);
     }
     poll();
     return () => { active = false; clearTimeout(timer); };
-  }, [importId]);
+  }, [importId, onPlan]);
 
   async function command(path: string, body?: unknown) {
     setBusy(true); setError("");
@@ -96,9 +97,15 @@ export function ModelDownloads({ importId }: { importId: string }) {
     <button className="secondary" disabled={busy || !!resolving}
       onClick={() => command(`/imports/${importId}/dependencies/resolve`)}>Refresh model details</button>
     {error && <p role="alert" className="notice">{error}</p>}
-    {plan && <div className="notice"><strong>{plan.dependencies.length > 0 && plan.dependencies.every(d => d.status === "available")
-      ? "Models available. Generation needs setup." : "Recipe saved. Reproduction needs setup."}</strong>
+    {plan && <div className="notice"><strong>{plan.reproduction?.ready && !plan.generation_blockers.length
+      ? "Ready to try this recipe." : plan.dependencies.length > 0 && plan.dependencies.every(d => d.status === "available")
+        ? "Models available. Generation needs setup." : "Recipe saved. Reproduction needs setup."}</strong>
       {plan.generation_blockers.map(reason => <p key={reason}>{reason}</p>)}</div>}
+    {plan?.reproduction?.ready && <div className="notice"><strong>Settings for this attempt</strong>
+      {plan.reproduction.assumptions.map(a => <p key={a.field}>{a.reason}</p>)}
+      <p>Try reproduction uses these assumptions and saves them with the result. Your source recipe stays unchanged.</p>
+      <details className="advanced"><summary>Sampler and CLIP mapping</summary><pre>{JSON.stringify(plan.reproduction.mappings, null, 2)}</pre></details>
+    </div>}
   </section>;
 }
 

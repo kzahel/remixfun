@@ -13,9 +13,23 @@ build/
 coverage/
 playwright-report/
 test-results/
+# Raw local test evidence and generated payloads. Curated docs/ and fixtures stay tracked.
 artifacts/
 models/
 runtimes/
+# Ad hoc local experiments belong outside version control.
+/scratch/
+/tmp/
+/temp/
+/test-evidence/
+.coverage
+.coverage.*
+htmlcov/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.part
+*.partial
 *.safetensors
 *.ckpt
 *.gguf

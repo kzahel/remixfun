@@ -10,6 +10,7 @@ from .provider import USER_AGENT, MAX_JSON
 
 STORAGE_HOSTS = {
     "civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com",
+    "b2.civitai.com",
 }
 
 

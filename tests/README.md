@@ -1,5 +1,13 @@
 # Tests
 
+`test_reproduction.py` covers imported attempt plans, exact checkpoint and graph
+binding, source preservation, settings/assumption boundaries, comparison and
+damaged artifact recovery. `scripts/verify_reproduction.py` separately runs the
+live beetle recipe twice on GPU; see [evidence](../docs/evidence/beetle-attempt.md).
+`test_castle.py` replays image 141866240 metadata, checks unique hash-based model
+reference linking, DPM++ 2M SDE/Karras mapping, bounded explicit seed offsets,
+conflict rejection and credential stripping on Civitai's B2 redirect.
+
 `test_app.py` covers source normalization, file imports,
 exact seed transport, immutable manifests, persistence and job recovery.
 `test_civitai.py` uses owned synthetic Next.js pages and mock HTTP responses for

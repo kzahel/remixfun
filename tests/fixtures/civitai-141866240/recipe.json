@@ -1,0 +1,114 @@
+{
+  "id": 141866240,
+  "meta": {
+    "prompt": "medieval castle on a small hill, a narrow river flowing in the valley beneath, a medieval town in the distance, a forest and mountains in the background,, High quality, best quality, masterpiece, muted tones, desaturated colors, strong geometric architecture, loneliness, quiet introspection, stillness, melancholic atmosphere, 1940s American realism, mid-century architecture, vintage clothing styles,  oil painting texture, canvas brush strokes, in the style of an Edward Hopper painting",
+    "negativePrompt": "worst quality, low quality, normal quality, lowres, text,  signature, watermark, artist name, sign, artifacts, fonts, typography, letters, writing, logo, url, words, name,",
+    "cfgScale": 7,
+    "steps": 30,
+    "sampler": "DPM++ 2M SDE",
+    "seed": 1902445674,
+    "hashes": {
+      "model": "3304b2b917"
+    },
+    "resources": [
+      {
+        "type": "model",
+        "name": "realbluejuggernautmi_v10",
+        "hash": "3304b2b917"
+      }
+    ],
+    "Model": "realbluejuggernautmi_v10",
+    "width": 1152,
+    "height": 896,
+    "Version": "f2.0.1v1.10.1-previous-669-gdfdcbab6",
+    "Model hash": "3304b2b917",
+    "Schedule type": "Karras",
+    "Style Selector Style": "base",
+    "Style Selector Enabled": "True",
+    "Style Selector Randomize": "False"
+  },
+  "generation_data": {
+    "type": "image",
+    "onSite": false,
+    "process": "txt2img",
+    "meta": {
+      "prompt": "medieval castle on a small hill, a narrow river flowing in the valley beneath, a medieval town in the distance, a forest and mountains in the background,, High quality, best quality, masterpiece, muted tones, desaturated colors, strong geometric architecture, loneliness, quiet introspection, stillness, melancholic atmosphere, 1940s American realism, mid-century architecture, vintage clothing styles,  oil painting texture, canvas brush strokes, in the style of an Edward Hopper painting",
+      "negativePrompt": "worst quality, low quality, normal quality, lowres, text,  signature, watermark, artist name, sign, artifacts, fonts, typography, letters, writing, logo, url, words, name,",
+      "cfgScale": 7,
+      "steps": 30,
+      "sampler": "DPM++ 2M SDE",
+      "seed": 1902445674,
+      "hashes": {
+        "model": "3304b2b917"
+      },
+      "resources": [
+        {
+          "type": "model",
+          "name": "realbluejuggernautmi_v10",
+          "hash": "3304b2b917"
+        }
+      ],
+      "Model": "realbluejuggernautmi_v10",
+      "width": 1152,
+      "height": 896,
+      "Version": "f2.0.1v1.10.1-previous-669-gdfdcbab6",
+      "Model hash": "3304b2b917",
+      "Schedule type": "Karras",
+      "Style Selector Style": "base",
+      "Style Selector Enabled": "True",
+      "Style Selector Randomize": "False"
+    },
+    "displayKeys": null,
+    "resources": [
+      {
+        "imageId": 141866240,
+        "modelVersionId": 1317649,
+        "strength": null,
+        "modelId": 1171106,
+        "modelName": "RealBlueJuggernautMix",
+        "modelType": "Checkpoint",
+        "versionId": 1317649,
+        "versionName": "v1.0",
+        "baseModel": "SDXL 1.0"
+      }
+    ],
+    "tools": [],
+    "techniques": [],
+    "external": null,
+    "canRemix": true,
+    "remixOfId": null,
+    "remixOfIds": []
+  },
+  "model_versions": [
+    {
+      "version_id": "1317649",
+      "status": "identified",
+      "model_id": 1171106,
+      "files": [
+        {
+          "id": 1221707,
+          "name": "realbluejuggernautmi_v10.safetensors",
+          "type": "Model",
+          "sizeKB": 6775432.548828125,
+          "hashes": {
+            "AutoV1": "03A30647",
+            "AutoV2": "3304B2B917",
+            "SHA256": "3304B2B91749C1EA2CCBA3687E5329133B675E70B41F8AEDE3A9CA52F6B8B6DF",
+            "CRC32": "A28DF5D3",
+            "BLAKE3": "59A7D97E6A51A3166A1F67A3E500EBDBD79368A1D8670CDCF819071A556F91FF",
+            "AutoV3": "18F7E51C5956",
+            "SHA256_12": "3304B2B91749"
+          },
+          "metadata": {
+            "format": "SafeTensor",
+            "size": "full",
+            "fp": "fp16"
+          },
+          "primary": true
+        }
+      ],
+      "name": "v1.0",
+      "base_model": "SDXL 1.0"
+    }
+  ]
+}

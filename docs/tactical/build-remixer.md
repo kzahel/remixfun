@@ -13,14 +13,17 @@ and deployment performed on an infrastructure-equipped machine.
 M0 is partial: the core import/result flow, persistence, CLI and desktop shell
 exist. A pinned Comfy 0.35.0 / CUDA profile now generates an authored SDXL test
 recipe through the app. Public SDXL source/model acquisition is now verified;
-imported-source reproduction remains open. The original preview's anonymous Civitai request
+the beetle now runs through an imported attempt profile and repeats locally,
+with a source non-match. Exact imported-source reproduction remains open.
+The original preview's anonymous Civitai request
 returned HTTP 403. The provider now reads embedded page data using the user's
 subsequent live findings, with REST limited to preview-URL enrichment. This
 revision now has a successful live HTTP import of image 141984808, including its
 source JPEG, selected-metadata replay and model-version file evidence. The model
-is SD XL v1.0 VAE fix, which differs from the configured checkpoint; scheduler
-and batch evidence are missing and source generation remains unsupported.
-See [provider evidence](../evidence/civitai-page-import.md).
+is SD XL v1.0 VAE fix, acquired and used by the attempt. Scheduler
+and batch evidence remain missing; effective assumptions are saved separately.
+See [provider evidence](../evidence/civitai-page-import.md) and the
+[beetle attempt](../evidence/beetle-attempt.md).
 No public reproduction fixture or image-match result was invented.
 The authored demo is only a UI/service fixture. Full M1 reproduction acceptance
 still gates a supported reproduction release, even if signing setup starts now.

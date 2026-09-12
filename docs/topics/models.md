@@ -21,6 +21,12 @@ file substitution. Checkpoint, LoRA and VAE acquisition roles exist; only SDXL
 1.0 checkpoints currently have an authored generation handoff. Live LoRA/VAE
 generation is unverified.
 
+A hash-only A1111 `model`/checkpoint reference can be linked to a versioned
+checkpoint when its reported hash matches that version's file hashes and only
+one referenced version matches. Both source entries remain preserved; the plan
+records linked evidence and constrains selection with every reported hash.
+Names alone never merge dependencies; conflicts and ambiguity remain blocked.
+
 **Download missing models** displays known sizes and per-file progress. Pause,
 resume, retry and discard-partial controls operate on durable shared transfers.
 The UI identifies transfers requested by several imports: controls affect all
@@ -65,7 +71,8 @@ active transfers resume. Ready records with missing/changed files lose availabil
 Model transfers have a separate transport from previews because legitimate
 signed storage URLs have query parameters. Version/exact-file requests use
 Civitai HTTPS; storage redirects allow the specifically observed Civitai R2
-account. Infrastructure changes require a reviewed allowlist update. Enqueue
+account and `b2.civitai.com`, observed for model version 1317649. Infrastructure
+changes require a reviewed allowlist update. Enqueue
 accepts plan/file choices, not arbitrary URLs or destination paths. Signed
 locations are ephemeral, never saved or logged, and can be refreshed once while
 preserving selected identity.
@@ -92,9 +99,10 @@ Generated extra-path configuration exposes cache aliases. Each generation
 verifies its model binding and rejects ambiguous loader names. The authored
 SDXL preset retains its Base checkpoint pin; `model_sha256` explicitly selects
 another verified SDXL 1.0 checkpoint for a new recipe. Graph, generation profile,
-model binding and output are saved. Imported graphs/settings are not executed
-or filled in by the downloader.
+model binding and output are saved. The separate [imported attempt profile](reproduction.md)
+can execute supported normalized settings with recorded assumptions; the downloader
+never fills source gaps or executes imported graphs.
 
 The [implementation plan](../tactical/model-downloads.md) retains broader intent.
 Cache migration, per-import detachment, automatic downloads, arbitrary formats
-and source-compatible reproduction profiles remain follow-on work.
+and exact source-compatible reproduction profiles remain follow-on work.

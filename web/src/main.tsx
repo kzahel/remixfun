@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import "./style.css";
 import { ModelDownloads, ModelSettings } from "./ModelDownloads";
+import type { Plan } from "./ModelDownloads";
 
 type Media = { url: string; sha256: string; bytes: number };
 type Recipe = {
@@ -58,6 +59,8 @@ type Job = {
   output: Media | null;
   engine: string;
   image?: { width: number; height: number };
+  reference_comparison?: { status: string };
+  attempt?: unknown;
 };
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
@@ -87,6 +90,7 @@ function App() {
     "connecting",
   );
   const [job, setJob] = useState<Job | null>(null);
+  const [importPlan, setImportPlan] = useState<Plan | null>(null);
   const [panel, setPanel] = useState<"settings" | "help" | null>(null);
   const [tab, setTab] = useState<"recipe" | "result">("recipe");
   const [drag, setDrag] = useState(false);
@@ -164,6 +168,7 @@ function App() {
   async function open(item: ImportRecord) {
     const epoch = ++loadEpoch.current;
     setSelected(item);
+    setImportPlan(null);
     setJob(null);
     setError("");
     setTab("recipe");
@@ -213,7 +218,11 @@ function App() {
     setError("");
     try {
       setJob(
-        await api(`/imports/${selected.id}/reproduce`, { method: "POST" }),
+        await api(`/imports/${selected.id}/reproduce`, { method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(importPlan?.reproduction && !selected.demo && selected.source.kind !== "authored"
+            ? { revision: importPlan.reproduction.revision, accept_assumptions: true } : {}),
+        }),
       );
     } catch (e) {
       setError((e as Error).message);
@@ -526,8 +535,8 @@ function App() {
               Available now: recipe import, saved library, and a demo result
               flow.
               <br />
-              {gpu ? "SDXL generation is connected. Imported-source reproduction, remixing and animation need further integration." :
-                "Configure a local SDXL runtime to generate new images. Imported-source reproduction, remixing and animation are coming next."}
+              {gpu ? "SDXL generation and supported imported-recipe attempts are connected. Remixing and animation are coming next." :
+                "Configure a local SDXL runtime to generate images and try supported imported recipes."}
             </p>
           </div>
         ) : (
@@ -664,7 +673,7 @@ function App() {
                         </div>
                       ))}
                     </div>
-                    {!selected.demo && !authored ? <ModelDownloads importId={selected.id} /> : <><div className="section-heading">
+                    {!selected.demo && !authored ? <ModelDownloads key={selected.id} importId={selected.id} onPlan={setImportPlan} /> : <><div className="section-heading">
                       <h3>Model dependencies</h3>
                       <span>{selected.recipe.resources.length || "—"}</span>
                     </div>
@@ -731,7 +740,7 @@ function App() {
                     )}
                     <button
                       className="primary generate"
-                      disabled={busy || !!running || (!selected.demo && !(authored && gpu))}
+                      disabled={busy || !!running || (!selected.demo && !(gpu && (authored || (importPlan?.reproduction?.ready && !importPlan.generation_blockers.length))))}
                       onClick={reproduce}
                     >
                       {running ? (
@@ -744,7 +753,7 @@ function App() {
                           <WandSparkles size={17} />
                           {selected.demo
                             ? "Run demo preview"
-                            : authored && gpu ? "Generate image" : "Reproduction unavailable"}
+                            : authored && gpu ? "Generate image" : gpu && importPlan?.reproduction?.ready && !importPlan.generation_blockers.length ? "Try reproduction" : "Reproduction unavailable"}
                           <ArrowRight size={16} />
                         </>
                       )}
@@ -790,13 +799,14 @@ function App() {
                       </div>
                       <div>
                         <span>Source match</span>
-                        <strong>Not evaluated</strong>
+                        <strong>{job?.reference_comparison ? job.reference_comparison.status === "equal_reference_pixels" ? "Saved reference pixels match" : "Output differs" : "Not evaluated"}</strong>
                       </div>
                     </div>
                     <p className="notice">
-                      {job?.engine === "comfy" ? "The generated image and its workflow are saved locally. This is a new image; matching an imported source has not been evaluated." :
+                      {job?.attempt ? "This is a reproduction attempt. Assumptions and the source comparison are saved; an exact original match is not established." : job?.engine === "comfy" ? "The generated image and its workflow are saved locally. This is a new image; matching an imported source has not been evaluated." :
                         "This demo reuses an illustration. Configure the SDXL runtime to generate new images on your GPU."}
                     </p>
+                    {!!job?.attempt && <details className="advanced"><summary>Attempt settings & comparison</summary><pre>{JSON.stringify({ attempt: job.attempt, comparison: job.reference_comparison }, null, 2)}</pre></details>}
                     {job?.output && <a className="secondary" href={job.output.url} download="remixfun-generated.png">Download image <ArrowDownToLine size={16} /></a>}
                     <button
                       className="secondary"
@@ -884,7 +894,8 @@ function App() {
                 </p>
                 <p className="notice">
                   A similar-looking image is not an exact reproduction. This
-                  preview does not generate images.
+                  app can try supported SDXL recipes with a configured GPU runtime;
+                  assumptions and comparisons stay attached to the result.
                 </p>
               </>
             )}

@@ -1,6 +1,8 @@
 """Application commands shared by HTTP, desktop and CLI clients."""
 
 import asyncio
+import copy
+import hashlib
 import io
 import json
 import uuid
@@ -18,6 +20,7 @@ from .model_inventory import Inventory
 from .model_resolution import build_plan
 from .downloads import Downloads
 from .provider import USER_AGENT
+from .reproduction import IMPORT_PROFILE, attempt_plan, compare_reference
 import httpx
 
 
@@ -81,7 +84,7 @@ class Service:
                 operation.update(status="interrupted", message="Service restarted; refresh to check models again.")
                 self.store.put(operation, "operation")
 
-    def dependencies(self, identifier):
+    def dependencies(self, identifier, seed_offset=0):
         record = self.store.get(identifier)
         saved = self.inventory.get("plans", identifier) or {}
         plan = build_plan(record, saved.get("versions"), saved.get("choices"))
@@ -108,12 +111,13 @@ class Service:
                     blockers.append(f"{dependency['name']} requires checkpoint bytes different from the configured SDXL Base model. Download and verify the selected file.")
                 else:
                     blockers.append(f"{dependency['name']}: {dependency.get('message') or 'model acquisition is required'}.")
-        if record["recipe"]["unknown"]:
-            blockers.append("Missing source settings: " + ", ".join(record["recipe"]["unknown"]) + ".")
-        blockers.append("Imported-source sampling and conditioning still need a supported generation profile. No model was substituted.")
+        reproduction = attempt_plan(record, plan["dependencies"], seed_offset)
+        blockers.extend(reproduction["blockers"])
+        if self.engine is None:
+            blockers.append("Connect a local Comfy runtime to try this recipe.")
         plan.update(total_download_bytes=sum(v for v in required.values() if v is not None),
                     unknown_sizes=sum(v is None for v in required.values()),
-                    generation_blockers=blockers, operation=saved.get("operation"))
+                    generation_blockers=list(dict.fromkeys(blockers)), reproduction=reproduction, operation=saved.get("operation"))
         if saved.get("operation"):
             plan["operation"] = self.store.get(saved["operation"], "operation")
         return plan
@@ -275,10 +279,27 @@ class Service:
         return self.save(raw, None, {"kind": "authored", "acquired_at": now(), "reference_quality": "no_source_image"},
                          "SDXL · " + settings["prompt"][:65])
 
-    def reproduce(self, identifier):
+    def reproduce(self, identifier, revision=None, accept_assumptions=False, seed_offset=0):
         record = self.store.get(identifier)
+        attempt = None
         if record["source"]["kind"] in {"civitai", "file"}:
-            raise Problem(" ".join(self.dependencies(identifier)["generation_blockers"]), 409)
+            plan = self.dependencies(identifier, seed_offset)
+            attempt = plan["reproduction"]
+            if plan["generation_blockers"]:
+                raise Problem(" ".join(plan["generation_blockers"]) + " No model was substituted.", 409)
+            if revision != attempt["revision"]:
+                raise Problem("Review the current attempt settings and submit their revision before generating.", 409)
+            if attempt["assumptions"] and not accept_assumptions:
+                raise Problem("This attempt uses disclosed assumptions. Review and accept them before generating.", 409)
+            record = copy.deepcopy(record)
+            selected = attempt["checkpoint"]
+            filename = selected["sha256"] + ".safetensors"
+            record["recipe"] = attempt["effective_recipe"]
+            record["raw"].update(generation_profile=IMPORT_PROFILE, checkpoint_sha256=selected["sha256"],
+                model_binding={"sha256": selected["sha256"], "filename": filename, "file": selected,
+                               "path": str(self.inventory.root / "comfy" / "checkpoints" / filename)})
+        elif seed_offset:
+            raise Problem("Seed-offset hypotheses apply only to imported recipes.")
         if not record["demo"]:
             if self.engine is None:
                 raise Problem("Real generation is not connected yet. " + " ".join(self.dependencies(identifier)["generation_blockers"]), 409)
@@ -291,6 +312,9 @@ class Service:
                    "runtime": self.engine.identity, "output": None, "prompt_id": None}
             job["model_binding"] = record["raw"].get("model_binding") or {"sha256": CHECKPOINT_SHA256, "filename": CHECKPOINT}
             job["generation_profile"] = record["raw"]["generation_profile"]
+            if attempt:
+                job.update(attempt=attempt, source_recipe=self.store.get(identifier)["recipe"],
+                           reference_media=record["media"], message="Preparing the imported recipe attempt")
             self.store.put(job, "job")
             task = asyncio.create_task(self.run_generation(job))
             self.tasks.add(task)
@@ -310,6 +334,8 @@ class Service:
             job.update(prompt_id=prompt_id, status="running", message="Generating on your GPU")
             self.store.put(job, "job")
         try:
+            if job.get("generation_profile") == IMPORT_PROFILE:
+                await asyncio.to_thread(self.inventory.bind, job["model_binding"]["file"])
             content = await self.engine.generate(job["workflow"], accepted)
             details, _ = inspect_image(content)
             if any(details[key] != job["recipe"]["fields"][key] for key in ("width", "height")):
@@ -317,6 +343,20 @@ class Service:
             job.update(status="completed", finished_at=now(), image=details,
                        output=self.store.artifact(content, details["encoding"]),
                        message="Generated with SDXL. Recipe, model SHA-256 and workflow are saved; source matching has not been evaluated.")
+            if job.get("attempt"):
+                job["message"] = "Recipe attempt generated. Source settings, effective settings and assumptions are saved."
+                reference = job.get("reference_media")
+                if reference:
+                    try:
+                        source_bytes = (self.store.root / "media" / reference["name"]).read_bytes()
+                        if hashlib.sha256(source_bytes).hexdigest() != reference["sha256"]:
+                            raise ValueError("Reference changed")
+                        comparison = await asyncio.to_thread(compare_reference, source_bytes, content, job["attempt"]["reference_quality"])
+                        job.update(reference_comparison=comparison, comparison=comparison["status"])
+                        job["message"] += (" Pixels match the saved reference; exact source reproduction is not established."
+                                           if comparison["status"] == "equal_reference_pixels" else " The output differs from the saved source image.")
+                    except (OSError, ValueError):
+                        job["message"] += " Source comparison was unavailable; the generated output is saved."
         except asyncio.CancelledError:
             job.update(status="interrupted", finished_at=now(), message="Generation interrupted by service shutdown. It was not resubmitted.")
         except Problem as exc:

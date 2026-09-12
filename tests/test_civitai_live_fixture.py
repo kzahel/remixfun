@@ -65,7 +65,8 @@ def test_live_recipe_blob_redirect_version_identity_and_restart(tmp_path):
         blocked = client.post(f"/api/imports/{record['id']}/reproduce")
         assert blocked.status_code == 409
         assert "different from the configured" in blocked.json()["detail"]
-        assert "scheduler" in blocked.json()["detail"]
+        plan = client.get(f"/api/imports/{record['id']}/dependencies").json()
+        assert any(a["field"] == "scheduler" for a in plan["reproduction"]["assumptions"])
         assert client.get("/api/jobs").json() == []
     assert len(calls) == 4  # Duplicate source references require only one version lookup.
     with TestClient(create_app(tmp_path), base_url="http://127.0.0.1") as client:

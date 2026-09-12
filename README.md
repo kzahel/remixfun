@@ -13,7 +13,7 @@ using [Desktop Release Kit](https://github.com/kzahel/desktop-release-kit).
 
 **Status:** runnable local import/library preview, shared service/CLI, and a
 Windows desktop developer build. An optional source-service Comfy profile now
-generates new SDXL images on GPU. Imported-source reproduction and signed
+generates new SDXL images and supported imported-recipe attempts on GPU. Exact source reproduction and signed
 installers remain planned. The illustrated demo remains separate from GPU output.
 
 ## Development
@@ -42,7 +42,8 @@ For real generation, follow the [SDXL runtime setup](runtime-profiles/README.md)
 the Tauri shell. `tests/` owns service tests and `web/tests/` browser tests.
 Provider design follows the Dreamtime source assessment, with conservative
 normalization and separate source evidence. The narrow Comfy adapter has
-[local GPU evidence](docs/evidence/local-sdxl-generation.md). Imported-source
+[local GPU evidence](docs/evidence/local-sdxl-generation.md) and a repeatable
+[beetle attempt](docs/evidence/beetle-attempt.md) that differs from its source. Exact imported-source
 reproduction claims still require exact models and suitable public fixtures.
 
 Source licensing is not yet selected. Third-party components retain their own

@@ -67,6 +67,8 @@ def main(argv=None):
         cmd.add_argument("--json", action="store_true")
         if name == "reproduce":
             cmd.add_argument("--wait", action="store_true")
+            cmd.add_argument("--accept-assumptions", action="store_true", help="Accept the disclosed imported-attempt settings")
+            cmd.add_argument("--seed-offset", type=int, default=0, choices=range(32), help="Explicit imported batch-base seed hypothesis (0–31)")
     args = parser.parse_args(argv)
     try:
         if args.command == "serve":
@@ -126,7 +128,17 @@ def main(argv=None):
                 with Path(args.source).open("rb") as stream:
                     result = request(args.service, "POST", "/api/imports/file", files={"file": (Path(args.source).name, stream)})
         elif args.command == "reproduce":
-            result = request(args.service, "POST", f"/api/imports/{args.id}/reproduce")
+            source = request(args.service, "GET", f"/api/imports/{args.id}")
+            body = {}
+            if source["source"]["kind"] in {"civitai", "file"}:
+                plan = request(args.service, "GET", f"/api/imports/{args.id}/dependencies", params={"seed_offset": args.seed_offset})["reproduction"]
+                if not args.accept_assumptions:
+                    print(json.dumps(plan, ensure_ascii=True, indent=2))
+                    raise RuntimeError("Review these settings; use --accept-assumptions to run an attempt.")
+                body = {"revision": plan["revision"], "accept_assumptions": True, "seed_offset": args.seed_offset}
+            elif args.seed_offset:
+                raise RuntimeError("Seed-offset hypotheses apply only to imported recipes.")
+            result = request(args.service, "POST", f"/api/imports/{args.id}/reproduce", json=body)
             if args.wait:
                 deadline = time.monotonic() + 660
                 while result["status"] in {"queued", "running"}:

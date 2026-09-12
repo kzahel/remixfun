@@ -32,7 +32,7 @@ With `--comfy-root`, the service verifies the pinned Comfy revision, then starts
 its own runtime on an available loopback port. It verifies the selected checkpoint
 before generation. Managed cache aliases are supplied through extra model paths.
 CUDA is required for this profile. No custom or API nodes load. Graphs are
-constructed from bounded authored-recipe fields; arbitrary imported graphs are
+constructed from bounded authored or supported imported-recipe fields; arbitrary imported graphs are
 never executed. See the [runtime profile](../../runtime-profiles/README.md).
 
 One real generation may be active at a time. Submission is not retried after
@@ -64,6 +64,9 @@ restricted download transport. Civitai keys use an approved OS credential store;
 they are sent only to Civitai, never redirected storage. Background resolution
 keeps file choices separate from source metadata. See the implemented
 [model contract](models.md) for transfer, cache and shutdown behavior.
+Imported attempts have a revisioned plan and save effective settings separately
+from immutable sources. The [attempt contract](reproduction.md) owns mappings,
+explicit assumptions and decoded-reference comparisons.
 
 ## Planned runtime and distribution boundaries
 

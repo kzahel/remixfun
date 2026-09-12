@@ -6,6 +6,10 @@ supports newly authored SDXL Base 1.0 recipes or an explicitly selected verified
 SDXL 1.0 checkpoint, Euler/normal, batch size one,
 checkpoint VAE, and no LoRAs or additional conditioning stages. Imported Civitai
 recipes are not silently assigned this model or profile.
+The separate [imported attempt profile](../docs/topics/reproduction.md) uses an
+exact acquired SDXL checkpoint, Euler/Euler ancestral, explicit CLIP layer and
+disclosed scheduler/batch assumptions. The [beetle run](../docs/evidence/beetle-attempt.md)
+verified generation and local repeatability, with a source non-match.
 
 Install Python 3.12, uv, Git, and a compatible NVIDIA driver. From the repo root:
 

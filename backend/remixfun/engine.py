@@ -12,6 +12,7 @@ import time
 import httpx
 
 from .domain import Problem
+from .reproduction import IMPORT_PROFILE, SCHEDULERS, SAMPLERS
 
 COMFY_REVISION = "40c4fcdf513a4523e39d54a9d391908af8df8171"
 CHECKPOINT = "sd_xl_base_1.0.safetensors"
@@ -52,7 +53,8 @@ def reproduction_blockers(record):
 def workflow(record):
     raw = record["raw"]
     binding = raw.get("model_binding")
-    selected = (raw.get("generation_profile") == MODEL_PROFILE and record.get("source", {}).get("kind") == "authored"
+    imported = raw.get("generation_profile") == IMPORT_PROFILE and record.get("source", {}).get("kind") in {"civitai", "file"}
+    selected = ((raw.get("generation_profile") == MODEL_PROFILE and record.get("source", {}).get("kind") == "authored" or imported)
                 and isinstance(binding, dict) and binding.get("sha256") == raw.get("checkpoint_sha256")
                 and re.fullmatch(r"[a-f0-9]{64}", str(binding.get("sha256")))
                 and binding.get("filename") == binding["sha256"] + ".safetensors"
@@ -64,13 +66,16 @@ def workflow(record):
     required = ("prompt", "negative_prompt", "seed", "steps", "cfg", "width", "height", "sampler", "scheduler")
     if any(fields.get(key) is None for key in required):
         raise Problem("Generation settings are incomplete. Missing values will not be guessed.", 409)
-    if fields["sampler"] != "euler" or fields["scheduler"] != "normal":
+    if imported and (fields["sampler"] not in set(SAMPLERS.values()) or fields["scheduler"] not in SCHEDULERS
+                     or fields.get("clip_skip") not in range(1, 13) or fields.get("batch_size") != 1 or fields.get("batch_position") != 0):
+        raise Problem("The effective imported recipe exceeds this attempt profile.", 409)
+    if not imported and (fields["sampler"] != "euler" or fields["scheduler"] != "normal"):
         raise Problem("This runtime profile supports Euler with the normal scheduler only.", 409)
     if not (1 <= fields["steps"] <= 100 and 0 <= fields["cfg"] <= 20
             and 0 <= int(fields["seed"]) < 2**64
             and all(256 <= fields[key] <= 1536 and fields[key] % 64 == 0 for key in ("width", "height"))):
         raise Problem("Generation settings exceed the supported profile limits.", 409)
-    return {
+    graph = {
         "1": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": binding["filename"] if selected else CHECKPOINT}},
         "2": {"class_type": "CLIPTextEncode", "inputs": {"text": fields["prompt"], "clip": ["1", 1]}},
         "3": {"class_type": "CLIPTextEncode", "inputs": {"text": fields["negative_prompt"], "clip": ["1", 1]}},
@@ -81,6 +86,11 @@ def workflow(record):
         "6": {"class_type": "VAEDecode", "inputs": {"samples": ["5", 0], "vae": ["1", 2]}},
         "7": {"class_type": "SaveImage", "inputs": {"images": ["6", 0], "filename_prefix": "remixfun/generated"}},
     }
+    if imported:
+        graph["8"] = {"class_type": "CLIPSetLastLayer", "inputs": {"clip": ["1", 1], "stop_at_clip_layer": -fields["clip_skip"]}}
+        graph["2"]["inputs"]["clip"] = ["8", 0]
+        graph["3"]["inputs"]["clip"] = ["8", 0]
+    return graph
 
 
 class Comfy:
@@ -144,7 +154,7 @@ class Comfy:
                             raise Problem("The SDXL GPU profile requires an available CUDA device.", 503)
                         system = stats["system"]
                         self.identity = {"comfy_revision": COMFY_REVISION, "default_checkpoint_sha256": CHECKPOINT_SHA256,
-                            "supported_profiles": [PROFILE, MODEL_PROFILE], "torch_version": system.get("pytorch_version"),
+                            "supported_profiles": [PROFILE, MODEL_PROFILE, IMPORT_PROFILE], "torch_version": system.get("pytorch_version"),
                             "python_version": system.get("python_version")}
                         return
                     except httpx.HTTPError:

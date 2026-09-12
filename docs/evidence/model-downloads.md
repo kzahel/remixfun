@@ -3,6 +3,8 @@
 Date: 2026-09-12. Windows local source service and unsigned developer folder.
 This verifies acquisition and a new authored GPU image, not source reproduction
 or signed installer acceptance. Dreamtime was inspected as source only.
+The subsequent [beetle attempt](beetle-attempt.md) separately exercises imported
+generation with this checkpoint and records a source non-match.
 
 ## Live HTTP acquisition
 

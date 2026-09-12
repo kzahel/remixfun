@@ -1,5 +1,9 @@
 # Civitai page metadata import
 
+The acquisition-time generation limits below are historical. The subsequent
+[beetle attempt](beetle-attempt.md) runs this imported recipe with disclosed
+assumptions and its exact acquired checkpoint; it does not match the source.
+
 ## Live import and desktop rebuild, 2026-09-12
 
 The shared Python importer successfully acquired

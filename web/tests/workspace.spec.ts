@@ -147,3 +147,30 @@ test("model download progress and resume controls restore from the service", asy
   await expect(page.getByRole("button", { name: "Reproduction unavailable" })).toBeDisabled();
   await expect(page.getByText("Source scheduler remains unknown.")).toBeVisible();
 });
+
+test("imported attempt discloses assumptions and submits the reviewed plan", async ({ page }) => {
+  const revision = "b".repeat(64);
+  await page.route("**/api/health", route => route.fulfill({ json: { engine: "comfy" } }));
+  await page.route("**/api/imports/*/dependencies", route => route.fulfill({ json: {
+    revision, dependencies: [], total_download_bytes: 0, unknown_sizes: 0, generation_blockers: [],
+    reproduction: { revision, ready: true, mappings: [], assumptions: [
+      { field: "scheduler", reason: "The source does not specify a scheduler; this attempt uses normal." },
+      { field: "batch", reason: "Try one image at the recorded seed." },
+    ] },
+  } }));
+  await page.route("**/api/imports/*/reproduce", route => {
+    expect(route.request().postDataJSON()).toEqual({ revision, accept_assumptions: true });
+    return route.fulfill({ status: 202, json: { id: "owned-attempt", status: "completed", engine: "comfy",
+      output: null, message: "The output differs from the saved source image.",
+      attempt: { assumptions: ["normal scheduler"] }, reference_comparison: { status: "different_pixels" },
+    } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Import image file").setInputFiles(path.resolve("../tests/fixtures/metadata.png"));
+  await expect(page.getByText("The source does not specify a scheduler; this attempt uses normal.")).toBeVisible();
+  await expect(page.getByText("Try one image at the recorded seed.")).toBeVisible();
+  await page.getByRole("button", { name: "Try reproduction", exact: true }).click();
+  await page.getByRole("button", { name: "Result", exact: true }).click();
+  await expect(page.getByText("Output differs", { exact: true })).toBeVisible();
+  await expect(page.getByText("This is a reproduction attempt.", { exact: false })).toBeVisible();
+});

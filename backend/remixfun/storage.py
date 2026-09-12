@@ -51,7 +51,9 @@ class Store:
         digest = hashlib.sha256(content).hexdigest()
         name = f"{digest}.{extension}"
         target = self.root / "media" / name
-        if not target.exists():
+        # A filename alone is not proof of intact content after external damage.
+        intact = target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == digest
+        if not intact:
             fd, temporary = tempfile.mkstemp(dir=target.parent, suffix=".partial")
             try:
                 with os.fdopen(fd, "wb") as stream:

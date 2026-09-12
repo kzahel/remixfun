@@ -6,6 +6,7 @@ explicit; a requirement here does not mean it has shipped.
 - [Product](product.md): import, reproduce, remix, and animate.
 - [Architecture](architecture.md): desktop, shared service, engines, and networking.
 - [Models](models.md): file resolution, model downloads, cache and recovery.
+- [Reproduction attempts](reproduction.md): imported SDXL execution, assumptions and comparisons.
 - [Releases](releases.md): signed CI and Stable/Nightly update policy.
 - [Testing](testing.md): automated tests and installed-artifact evidence.
 
