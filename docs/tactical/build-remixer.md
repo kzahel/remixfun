@@ -1,6 +1,6 @@
 # Remixfun product and implementation plan
 
-**Status: current build plan, 2026-09-12.** The first local app slice is implemented: shared service/CLI, browser import/library, explicit demo jobs and Windows developer shell. Model downloads and real generation remain unimplemented. See [local preview evidence](../evidence/local-preview.md). Competitive trials remain outside the implementation prerequisites.
+**Status: current build plan, 2026-09-12.** The local app has shared service/CLI, browser import/library, explicit demo jobs and a Windows developer shell. An optional source-service Comfy profile now generates new SDXL Base images on GPU. Imported-model resolution, source reproduction, remixing and animation remain open. See [local preview evidence](../evidence/local-preview.md) and [GPU evidence](../evidence/local-sdxl-generation.md). Competitive trials remain outside the implementation prerequisites.
 
 ### Local preview checkpoint
 
@@ -11,8 +11,9 @@ and service payload to package. Continue operational work using the
 and deployment performed on an infrastructure-equipped machine.
 
 M0 is partial: the core import/result flow, persistence, CLI and desktop shell
-exist. Public SDXL fixture acquisition, current Comfy profile selection and
-real engine work remain open. The original preview's anonymous Civitai request
+exist. A pinned Comfy 0.35.0 / CUDA profile now generates an authored SDXL test
+recipe through the app. Public SDXL fixture acquisition and imported-source
+reproduction remain open. The original preview's anonymous Civitai request
 returned HTTP 403. The provider now reads embedded page data using the user's
 subsequent live findings, with REST limited to preview-URL enrichment. This
 revision has offline synthetic-fixture coverage; a successful live import on

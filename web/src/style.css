@@ -583,6 +583,7 @@ input::placeholder {
 .detail-heading .eyebrow {
   font-size: 8px;
 }
+.detail-heading > div { min-width: 0; }
 .detail h1 {
   font-size: 35px;
   letter-spacing: -1px;
@@ -1194,3 +1195,10 @@ input::placeholder {
     animation: none;
   }
 }
+
+.create-box { margin-top: 24px; }
+.create-box > p { color: var(--muted); font-size: 13px; }
+.create-box form { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+.create-box label { font-size: 13px; font-weight: 600; }
+.create-box textarea { min-height: 92px; resize: vertical; padding: 14px; border: 1px solid #d8dcd6; border-radius: 9px; font: inherit; font-size: 14px; }
+.create-box .primary { align-self: flex-start; }

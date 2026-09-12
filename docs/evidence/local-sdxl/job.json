@@ -1,0 +1,160 @@
+{
+  "id": "c3c392c4-816b-414c-bb92-0292e3907324",
+  "import_id": "254cc72a-0f3e-4cee-a684-fb42c3a4268a",
+  "created_at": "2026-09-12T10:57:07.857556+00:00",
+  "status": "completed",
+  "engine": "comfy",
+  "comparison": "not_tested",
+  "message": "Generated with SDXL. Recipe, model SHA-256 and workflow are saved; source matching has not been evaluated.",
+  "recipe": {
+    "fields": {
+      "prompt": "A quiet alpine lake at sunrise, snow capped mountains reflected in perfectly still turquoise water, pine forest along the shore, warm golden sunlight, a tiny red canoe, detailed landscape photograph, no text",
+      "negative_prompt": "",
+      "seed": "42",
+      "steps": 25,
+      "cfg": 7.0,
+      "sampler": "euler",
+      "scheduler": "normal",
+      "clip_skip": null,
+      "width": 1024,
+      "height": 1024,
+      "batch_position": null,
+      "batch_size": null
+    },
+    "provenance": {
+      "prompt": "meta.prompt",
+      "negative_prompt": "meta.negativePrompt",
+      "seed": "meta.seed",
+      "steps": "meta.steps",
+      "cfg": "meta.cfgScale",
+      "sampler": "meta.sampler",
+      "scheduler": "meta.scheduler",
+      "width": "meta.width",
+      "height": "meta.height"
+    },
+    "resources": [
+      {
+        "name": "sd_xl_base_1.0.safetensors",
+        "type": "checkpoint",
+        "model_id": null,
+        "version_id": null,
+        "file_id": null,
+        "hash": "31e35c80fc4829d14f90153f4c74cd59c90b779f6afe05a74cd6120b893f7e5b",
+        "weight": null,
+        "evidence": "meta.resources",
+        "base_model": null,
+        "status": "unresolved"
+      }
+    ],
+    "unknown": [],
+    "batch_strategy": "unknown",
+    "readiness": "needs_resolution"
+  },
+  "workflow": {
+    "1": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "sd_xl_base_1.0.safetensors"
+      }
+    },
+    "2": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "A quiet alpine lake at sunrise, snow capped mountains reflected in perfectly still turquoise water, pine forest along the shore, warm golden sunlight, a tiny red canoe, detailed landscape photograph, no text",
+        "clip": [
+          "1",
+          1
+        ]
+      }
+    },
+    "3": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "",
+        "clip": [
+          "1",
+          1
+        ]
+      }
+    },
+    "4": {
+      "class_type": "EmptyLatentImage",
+      "inputs": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 1
+      }
+    },
+    "5": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 42,
+        "steps": 25,
+        "cfg": 7.0,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "denoise": 1.0,
+        "model": [
+          "1",
+          0
+        ],
+        "positive": [
+          "2",
+          0
+        ],
+        "negative": [
+          "3",
+          0
+        ],
+        "latent_image": [
+          "4",
+          0
+        ]
+      }
+    },
+    "6": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "5",
+          0
+        ],
+        "vae": [
+          "1",
+          2
+        ]
+      }
+    },
+    "7": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": [
+          "6",
+          0
+        ],
+        "filename_prefix": "remixfun/generated"
+      }
+    }
+  },
+  "workflow_json": "{\n  \"1\": {\n    \"class_type\": \"CheckpointLoaderSimple\",\n    \"inputs\": {\n      \"ckpt_name\": \"sd_xl_base_1.0.safetensors\"\n    }\n  },\n  \"2\": {\n    \"class_type\": \"CLIPTextEncode\",\n    \"inputs\": {\n      \"text\": \"A quiet alpine lake at sunrise, snow capped mountains reflected in perfectly still turquoise water, pine forest along the shore, warm golden sunlight, a tiny red canoe, detailed landscape photograph, no text\",\n      \"clip\": [\n        \"1\",\n        1\n      ]\n    }\n  },\n  \"3\": {\n    \"class_type\": \"CLIPTextEncode\",\n    \"inputs\": {\n      \"text\": \"\",\n      \"clip\": [\n        \"1\",\n        1\n      ]\n    }\n  },\n  \"4\": {\n    \"class_type\": \"EmptyLatentImage\",\n    \"inputs\": {\n      \"width\": 1024,\n      \"height\": 1024,\n      \"batch_size\": 1\n    }\n  },\n  \"5\": {\n    \"class_type\": \"KSampler\",\n    \"inputs\": {\n      \"seed\": 42,\n      \"steps\": 25,\n      \"cfg\": 7.0,\n      \"sampler_name\": \"euler\",\n      \"scheduler\": \"normal\",\n      \"denoise\": 1.0,\n      \"model\": [\n        \"1\",\n        0\n      ],\n      \"positive\": [\n        \"2\",\n        0\n      ],\n      \"negative\": [\n        \"3\",\n        0\n      ],\n      \"latent_image\": [\n        \"4\",\n        0\n      ]\n    }\n  },\n  \"6\": {\n    \"class_type\": \"VAEDecode\",\n    \"inputs\": {\n      \"samples\": [\n        \"5\",\n        0\n      ],\n      \"vae\": [\n        \"1\",\n        2\n      ]\n    }\n  },\n  \"7\": {\n    \"class_type\": \"SaveImage\",\n    \"inputs\": {\n      \"images\": [\n        \"6\",\n        0\n      ],\n      \"filename_prefix\": \"remixfun/generated\"\n    }\n  }\n}",
+  "runtime": {
+    "comfy_revision": "40c4fcdf513a4523e39d54a9d391908af8df8171",
+    "checkpoint_sha256": "31e35c80fc4829d14f90153f4c74cd59c90b779f6afe05a74cd6120b893f7e5b",
+    "profile": "sdxl-base-txt2img-v1",
+    "torch_version": "2.14.0+cu130",
+    "python_version": "3.12.11 (main, Aug 18 2025, 19:17:54) [MSC v.1944 64 bit (AMD64)]"
+  },
+  "output": {
+    "name": "99f1d9dad09856d9247b74d1f70878e6bcfcf9ba05c02335b1baac82bdc3ce06.png",
+    "sha256": "99f1d9dad09856d9247b74d1f70878e6bcfcf9ba05c02335b1baac82bdc3ce06",
+    "bytes": 1797406,
+    "url": "/api/media/99f1d9dad09856d9247b74d1f70878e6bcfcf9ba05c02335b1baac82bdc3ce06.png"
+  },
+  "prompt_id": "37e873e1-cb9d-4cc3-8ba7-8f1b9b6034cb",
+  "finished_at": "2026-09-12T10:57:16.330400+00:00",
+  "image": {
+    "width": 1024,
+    "height": 1024,
+    "encoding": "png"
+  }
+}

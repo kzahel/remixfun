@@ -1,7 +1,8 @@
 # Architecture
 
 Status: shared local service, browser/CLI clients, SQLite/artifact storage and
-Windows developer shell implemented. Comfy and remote listening remain planned.
+Windows developer shell implemented. An optional managed Comfy SDXL profile
+runs through the source service. Remote listening remains planned.
 
 ## Current application boundary
 
@@ -25,6 +26,21 @@ close keeps an independently started service alive. It refuses ordinary window
 close while its owned service reports an active demo, and stops an idle owned
 service on exit. Crash cleanup, generation cancellation, and robust active-job
 update coordination still require the later runtime/lifecycle work.
+
+With `--comfy-root`, the service verifies the pinned Comfy revision and local
+checkpoint hash, then starts its own runtime on an available loopback port.
+CUDA is required for this profile. No custom or API nodes load. Graphs are
+constructed from bounded authored-recipe fields; arbitrary imported graphs are
+never executed. See the [runtime profile](../../runtime-profiles/README.md).
+
+One real generation may be active at a time. Submission is not retried after
+an uncertain response. The job retains its Comfy prompt ID once acknowledged;
+uncertain outcomes block further GPU submissions until inspection and restart.
+Shutdown cancels monitoring, marks the job interrupted and stops the owned
+runtime. Restart never resubmits jobs. Hard-crash child-process reconciliation
+is still manual. CPU tests cover these transitions; real GPU close/restart
+acceptance remains pending. The initial frozen desktop does not configure this
+optional source-service runtime.
 
 The preview has no remote bind option, credential store, native privileged web
 commands, updater, or external engine attachment. Host and Origin checks reject

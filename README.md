@@ -12,8 +12,9 @@ will be built in CI, with separate **Stable** and **Nightly** update tracks,
 using [Desktop Release Kit](https://github.com/kzahel/desktop-release-kit).
 
 **Status:** runnable local import/library preview, shared service/CLI, and a
-Windows desktop developer build. Real generation and signed installers remain
-planned. The demo uses an authored illustration, not a generated image.
+Windows desktop developer build. An optional source-service Comfy profile now
+generates new SDXL images on GPU. Imported-source reproduction and signed
+installers remain planned. The illustrated demo remains separate from GPU output.
 
 ## Development
 
@@ -30,6 +31,7 @@ uv run remixfun serve
 Open `http://127.0.0.1:8788`. Import an original PNG, paste a Civitai image URL,
 or choose **Open demo**. See [development](DEVELOPMENT.md) for CLI commands,
 checks, data locations, and the unsigned Windows desktop build.
+For real generation, follow the [SDXL runtime setup](runtime-profiles/README.md).
 
 - [Product and architecture contracts](docs/topics/README.md)
 - [Application build plan](docs/tactical/build-remixer.md)
@@ -39,8 +41,9 @@ checks, data locations, and the unsigned Windows desktop build.
 `web/` contains React/Vite, `backend/` the shared Python service, and `desktop/`
 the Tauri shell. `tests/` owns service tests and `web/tests/` browser tests.
 Provider design follows the Dreamtime source assessment, with conservative
-normalization and separate source evidence. The Comfy adapter and tested
-runtime are still pending. Reproduction claims require real fixtures.
+normalization and separate source evidence. The narrow Comfy adapter has
+[local GPU evidence](docs/evidence/local-sdxl-generation.md). Imported-source
+reproduction claims still require exact models and suitable public fixtures.
 
 Source licensing is not yet selected. Third-party components retain their own
 licenses; reference clones and model weights are not included in this repository.

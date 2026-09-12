@@ -1,9 +1,11 @@
 # Development
 
 Remixfun has a local import/library application, shared service and CLI, and a
-Windows Tauri developer shell. Demo jobs exercise persistence and result flow;
-real generation, model acquisition, signed installers and publication remain
-planned. See the [local preview evidence](docs/evidence/local-preview.md).
+Windows Tauri developer shell. An optional managed Comfy profile generates new
+SDXL images on the GPU through the source service. Imported-source reproduction,
+general model acquisition, signed installers and publication remain planned.
+See the [local preview evidence](docs/evidence/local-preview.md) and
+[GPU evidence](docs/evidence/local-sdxl-generation.md).
 
 ## Run the local app
 
@@ -29,6 +31,12 @@ The default data directory comes from `platformdirs` (`Remixfun`, no app author)
 Override it with `--data-dir "path with spaces"` or `REMIXFUN_DATA_DIR`.
 Only one service can open a library. The service binds to loopback; remote
 listening and credentials are not exposed in this preview.
+
+For actual GPU generation, follow the [SDXL runtime setup](runtime-profiles/README.md)
+and run the source service with `--comfy-root`. The browser then offers new
+SDXL recipes and **Generate image**. The source import path does not substitute
+SDXL Base for an unresolved imported model. Existing frozen desktop folders
+predate this integration and do not configure the optional runtime.
 
 For frontend hot reload, keep the service running and run `npm --prefix web run
 dev` in another terminal. Vite proxies `/api` to the same service.

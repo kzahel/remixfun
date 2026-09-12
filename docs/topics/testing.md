@@ -2,7 +2,9 @@
 
 Status: service/domain tests, browser flow tests and process smoke checks exist.
 Local Windows evidence is in [local preview](../evidence/local-preview.md).
-Hosted CI, installed-artifact acceptance and GPU reproduction remain unverified.
+Hosted CI, installed-artifact acceptance and imported-source GPU reproduction
+remain unverified. [Local SDXL generation](../evidence/local-sdxl-generation.md)
+records a real GPU output created through the app, separate from mock tests.
 
 The [Civitai provider evidence](../evidence/civitai-page-import.md) separates
 user-supplied live findings from our offline parser, transport and persistence

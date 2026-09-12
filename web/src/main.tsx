@@ -52,6 +52,8 @@ type Job = {
   status: string;
   message: string;
   output: Media | null;
+  engine: string;
+  image?: { width: number; height: number };
 };
 
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
@@ -70,6 +72,9 @@ function App() {
   const [items, setItems] = useState<ImportRecord[]>([]);
   const [selected, setSelected] = useState<ImportRecord | null>(null);
   const [url, setUrl] = useState("");
+  const [gpu, setGpu] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [seed, setSeed] = useState("42");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [health, setHealth] = useState<"connecting" | "online" | "offline">(
@@ -116,8 +121,8 @@ function App() {
     setItems(await api<ImportRecord[]>("/imports"));
   }
   useEffect(() => {
-    api("/health")
-      .then(() => setHealth("online"))
+    api<{ engine: string }>("/health")
+      .then((status) => { setHealth("online"); setGpu(status.engine === "comfy"); })
       .catch(() => setHealth("offline"));
     refresh().catch(() =>
       setError(
@@ -209,8 +214,23 @@ function App() {
       setBusy(false);
     }
   }
+  async function createRecipe() {
+    setBusy(true);
+    setError("");
+    try {
+      const record = await api<ImportRecord>("/recipes", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt, seed }),
+      });
+      await refresh();
+      await open(record);
+    } catch (e) { setError((e as Error).message); }
+    finally { setBusy(false); }
+  }
   const running = job && ["queued", "running"].includes(job.status);
   const fields = selected?.recipe.fields;
+  const authored = selected?.source.kind === "authored";
+  const displayedMedia = tab === "result" && job?.output ? job.output : selected?.media;
 
   return (
     <div className="app">
@@ -270,7 +290,7 @@ function App() {
                 <span>
                   <strong>{item.title}</strong>
                   <small>
-                    {item.demo ? "Demo collection" : "Imported recipe"}
+                    {item.demo ? "Demo collection" : item.source.kind === "authored" ? "Generation recipe" : "Imported recipe"}
                   </small>
                 </span>
               </button>
@@ -402,6 +422,22 @@ function App() {
                 <small>PNG, JPG, WebP · up to 25 MB</small>
               </div>
             </section>
+            {gpu && <section className="import-box create-box">
+              <h2>Create an image on your GPU</h2>
+              <p>SDXL Base 1.0 · a new recipe with a verified model file.</p>
+              <form onSubmit={(e) => { e.preventDefault(); createRecipe(); }}>
+                <label htmlFor="create-prompt">Describe your image</label>
+                <textarea id="create-prompt" value={prompt} onChange={(e) => setPrompt(e.target.value)}
+                  maxLength={10000} placeholder="A quiet alpine lake at sunrise…" disabled={busy} required />
+                <details className="advanced">
+                  <summary>Generation settings <ChevronDown size={16} /></summary>
+                  <p>1024 × 1024 · 25 steps · guidance 7 · Euler / normal · empty negative prompt</p>
+                  <label htmlFor="create-seed">Seed</label>
+                  <input id="create-seed" value={seed} onChange={(e) => setSeed(e.target.value)} inputMode="numeric" pattern="[0-9]{1,20}" />
+                </details>
+                <button className="primary" disabled={busy || !prompt.trim()}>Create recipe <ArrowRight size={17} /></button>
+              </form>
+            </section>}
             <section className="demo-card">
               <div className="demo-image">
                 <div className="mini-landscape">
@@ -464,7 +500,7 @@ function App() {
                     <span>
                       <strong>{item.title}</strong>
                       <small>
-                        {item.demo ? "Demo collection" : "Imported recipe"}
+                        {item.demo ? "Demo collection" : item.source.kind === "authored" ? "Generation recipe" : "Imported recipe"}
                       </small>
                     </span>
                     <ArrowRight size={15} className="push" />
@@ -476,8 +512,8 @@ function App() {
               Available now: recipe import, saved library, and a demo result
               flow.
               <br />
-              Model downloads, real generation, remixing, and animation are
-              coming next.
+              {gpu ? "SDXL generation is connected. Imported-source reproduction, remixing and animation need further integration." :
+                "Configure a local SDXL runtime to generate new images. Imported-source reproduction, remixing and animation are coming next."}
             </p>
           </div>
         ) : (
@@ -495,7 +531,7 @@ function App() {
             <div className="detail-heading">
               <div>
                 <div className="eyebrow">
-                  {selected.demo ? "ILLUSTRATED DEMO" : "SAVED IMPORT"}
+                  {selected.demo ? "ILLUSTRATED DEMO" : authored ? "NEW IMAGE RECIPE" : "SAVED IMPORT"}
                 </div>
                 <h1>{selected.title}</h1>
               </div>
@@ -511,34 +547,29 @@ function App() {
             <div className="detail-grid">
               <section className="image-column">
                 <div className="image-stage">
-                  {selected.media ? (
+                  {displayedMedia ? (
                     <img
-                      src={
-                        (tab === "result" && job?.output
-                          ? job.output
-                          : selected.media
-                        ).url
-                      }
+                      src={displayedMedia.url}
                       alt={selected.title}
                     />
                   ) : (
                     <div className="no-preview">
                       <ImagePlus size={42} />
-                      <p>Source preview unavailable</p>
-                      <small>The recovered recipe is saved.</small>
+                      <p>{authored ? "Your image will appear here" : "Source preview unavailable"}</p>
+                      <small>{authored ? "Review the recipe, then generate." : "The recovered recipe is saved."}</small>
                     </div>
                   )}
                   <span className="image-label">
                     {tab === "result"
-                      ? "DEMO OUTPUT · SAMPLE REUSED"
+                      ? job?.engine === "comfy" ? "GENERATED OUTPUT · SDXL" : "DEMO OUTPUT · SAMPLE REUSED"
                       : selected.demo
                         ? "SAMPLE ILLUSTRATION"
-                        : "SOURCE IMAGE"}
+                        : authored ? "NEW RECIPE" : "SOURCE IMAGE"}
                   </span>
                 </div>
                 <div className="image-caption">
                   <span>
-                    {selected.image
+                    {tab === "result" && job?.image ? `${job.image.width} × ${job.image.height}` : selected.image
                       ? `${selected.image.width} × ${selected.image.height}`
                       : "Dimensions unknown"}
                   </span>
@@ -588,7 +619,7 @@ function App() {
                         <p>
                           {selected.demo
                             ? "An example recipe, paired with an authored illustration."
-                            : "Recovered values stay separate from anything you change."}
+                            : authored ? "A new SDXL recipe. Its settings and model identity are saved." : "Recovered values stay separate from anything you change."}
                         </p>
                       </div>
                     </div>
@@ -633,13 +664,13 @@ function App() {
                             <strong>{resource.name}</strong>
                             <small>
                               {resource.type}
-                              {resource.version_id
+                              {authored ? " · SHA-256 pinned" : resource.version_id
                                 ? ` · Version ${resource.version_id}`
                                 : " · Exact file unresolved"}
                             </small>
                           </div>
                           <span className="tag">
-                            {selected.demo ? "Demo" : "Unresolved"}
+                            {selected.demo ? "Demo" : authored ? "Pinned" : "Unresolved"}
                           </span>
                         </div>
                       ))
@@ -676,12 +707,12 @@ function App() {
                     {selected.warning && (
                       <p className="notice">{selected.warning}</p>
                     )}
-                    {!selected.demo && (
+                    {!selected.demo && !authored && (
                       <div className="notice">
                         <strong>Recipe saved. Reproduction needs setup.</strong>
                         <p>
-                          Exact model resolution and a tested Comfy runtime are
-                          not connected in this preview.
+                          This imported source needs exact model resolution and
+                          a compatible generation profile.
                           {selected.recipe.unknown.length > 0 &&
                             ` ${selected.recipe.unknown.length} core recipe fields are also unknown.`}
                         </p>
@@ -689,20 +720,20 @@ function App() {
                     )}
                     <button
                       className="primary generate"
-                      disabled={busy || !!running || !selected.demo}
+                      disabled={busy || !!running || (!selected.demo && !(authored && gpu))}
                       onClick={reproduce}
                     >
                       {running ? (
                         <>
                           <LoaderCircle size={17} className="spin" />
-                          Preparing demo…
+                          {selected.demo ? "Preparing demo…" : "Generating…"}
                         </>
                       ) : (
                         <>
                           <WandSparkles size={17} />
                           {selected.demo
                             ? "Run demo preview"
-                            : "Reproduction unavailable"}
+                            : authored && gpu ? "Generate image" : "Reproduction unavailable"}
                           <ArrowRight size={16} />
                         </>
                       )}
@@ -710,7 +741,7 @@ function App() {
                     <p className="honesty">
                       {selected.demo
                         ? "Uses the sample illustration. No model runs or reproduction claims."
-                        : "Your original settings and model identities remain unchanged."}
+                        : authored ? "Runs SDXL on your GPU. No source-match claim is made." : "Your original settings and model identities remain unchanged."}
                     </p>
                   </>
                 ) : (
@@ -726,7 +757,7 @@ function App() {
                     </span>
                     <div className="eyebrow">
                       {job?.status === "completed"
-                        ? "FLOW VERIFIED"
+                        ? job?.engine === "comfy" ? "IMAGE GENERATED" : "FLOW VERIFIED"
                         : job?.status?.toUpperCase()}
                     </div>
                     <h2>
@@ -734,13 +765,13 @@ function App() {
                         ? "A starting point, saved."
                         : running
                           ? "Preparing your preview."
-                          : "The demo stopped."}
+                          : "The job stopped."}
                     </h2>
                     <p>{job?.message}</p>
                     <div className="result-facts">
                       <div>
                         <span>Engine</span>
-                        <strong>Demo · no GPU</strong>
+                        <strong>{job?.engine === "comfy" ? "Comfy · SDXL on GPU" : "Demo · no GPU"}</strong>
                       </div>
                       <div>
                         <span>Source recipe</span>
@@ -752,10 +783,10 @@ function App() {
                       </div>
                     </div>
                     <p className="notice">
-                      Real reproduction and remix controls will follow once
-                      exact model resolution and the generation runtime are
-                      tested.
+                      {job?.engine === "comfy" ? "The generated image and its workflow are saved locally. This is a new image; matching an imported source has not been evaluated." :
+                        "This demo reuses an illustration. Configure the SDXL runtime to generate new images on your GPU."}
                     </p>
+                    {job?.output && <a className="secondary" href={job.output.url} download="remixfun-generated.png">Download image <ArrowDownToLine size={16} /></a>}
                     <button
                       className="secondary"
                       onClick={() => setTab("recipe")}
@@ -823,7 +854,7 @@ function App() {
                   </div>
                   <div>
                     <span>Generation runtime</span>
-                    <strong>Not connected</strong>
+                    <strong>{gpu ? "Comfy · SDXL" : "Not connected"}</strong>
                   </div>
                 </div>
                 <p className="muted">

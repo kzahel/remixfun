@@ -5,7 +5,7 @@ from pathlib import Path
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from . import __version__
 from .build_info import source_sha
@@ -19,14 +19,43 @@ class ImportRequest(BaseModel):
     url: str = Field(min_length=1, max_length=2048)
 
 
-def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.5, instance="headless"):
-    service = Service(root, provider, demo_delay)
+class RecipeRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    prompt: str = Field(min_length=1, max_length=10000)
+    negativePrompt: str = Field(default="", max_length=10000)
+    seed: str = Field(default="42", pattern=r"^[0-9]{1,20}$")
+    steps: int = Field(default=25, ge=1, le=100, strict=True)
+    cfgScale: float = Field(default=7.0, ge=0, le=20)
+    width: int = Field(default=1024, ge=256, le=1536, strict=True)
+    height: int = Field(default=1024, ge=256, le=1536, strict=True)
+
+    @field_validator("width", "height")
+    @classmethod
+    def multiples(cls, value):
+        if value % 64:
+            raise ValueError("Dimensions must be multiples of 64")
+        return value
+
+    @field_validator("seed")
+    @classmethod
+    def seed_range(cls, value):
+        if int(value) >= 2**64:
+            raise ValueError("Seed must fit an unsigned 64-bit integer")
+        return str(int(value))
+
+
+def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.5, instance="headless", engine=None):
+    service = Service(root, provider, demo_delay, engine)
 
     @asynccontextmanager
     async def lifespan(app):
         service.recover()
-        yield
-        await service.close()
+        try:
+            if engine:
+                await engine.start()
+            yield
+        finally:
+            await service.close()
 
     app = FastAPI(title="Remixfun", version=__version__, lifespan=lifespan, docs_url=None, redoc_url=None)
     app.state.service = service
@@ -53,7 +82,11 @@ def create_app(root: Path, web: Path | None = None, provider=None, demo_delay=1.
     def health():
         return {"app": "remixfun", "version": __version__, "api_version": 1,
                 "source_sha": source_sha(),
-                "instance": instance, "engine": "demo_only", "network": "loopback_only"}
+                "instance": instance, "engine": "comfy" if engine else "demo_only", "network": "loopback_only"}
+
+    @app.post("/api/recipes", status_code=201)
+    def create_recipe(body: RecipeRequest):
+        return service.create_recipe({**body.model_dump(), "sampler": "euler", "scheduler": "normal"})
 
     @app.get("/api/imports")
     def imports():

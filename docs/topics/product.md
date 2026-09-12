@@ -1,6 +1,7 @@
 # Product
 
-Status: local import/library preview implemented; generation remains planned.
+Status: local import/library and new SDXL generation implemented; imported-source
+reproduction, remixing and animation remain planned.
 
 ## Implemented local preview
 
@@ -34,8 +35,20 @@ large source integers without JavaScript number rounding.
 An authored landscape demo illustrates the saved recipe and asynchronous result
 flow. It reuses the sample SVG, explicitly labels its output as demo, and never
 reports generation, similarity or pixel-equality evidence. Real imports reject
-reproduction with an actionable 409 response until a tested runtime and exact
-model resolution exist. Remixing and animation are not exposed as working actions.
+reproduction with an actionable 409 response until their exact models and
+generation profile are supported. Remixing and animation are not exposed as working actions.
+
+An explicitly configured managed Comfy runtime enables **Create an image on your
+GPU**. New recipes use the verified SDXL Base 1.0 checkpoint, Euler/normal,
+checkpoint VAE and one image per job. Defaults apply to these new recipes only;
+they never fill missing imported settings. The default UI exposes the prompt;
+the seed and preset settings stay collapsed. The API also accepts bounded steps,
+guidance and dimensions. Runtime setup remains a documented developer operation.
+
+Real jobs retain the submitted graph, decimal-text graph representation, model
+SHA-256, runtime identity and output bytes. The result view and download work
+even when the recipe has no source preview. These are newly generated images,
+not evidence of matching a Civitai source. See [GPU evidence](../evidence/local-sdxl-generation.md).
 
 ## Intended complete experience
 

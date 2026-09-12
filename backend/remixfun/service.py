@@ -11,6 +11,7 @@ from pathlib import Path
 from PIL import Image, UnidentifiedImageError
 
 from .domain import Problem, normalize, parse_parameters
+from .engine import CHECKPOINT, CHECKPOINT_SHA256, PROFILE, workflow
 from .provider import Civitai, redact
 from .storage import Store
 
@@ -35,16 +36,17 @@ def inspect_image(content):
 
 
 class Service:
-    def __init__(self, root, provider=None, demo_delay=1.5):
+    def __init__(self, root, provider=None, demo_delay=1.5, engine=None):
         self.store = Store(root)
         self.provider = provider or Civitai()
         self.demo_delay = demo_delay
         self.tasks = set()
+        self.engine = engine
 
     def recover(self):
         for job in self.store.list("job"):
-            if job["status"] in {"queued", "running"}:
-                job.update(status="interrupted", message="The service stopped before this demo finished. You can run it again.", finished_at=now())
+            if job["status"] in {"queued", "running", "unknown"}:
+                job.update(status="interrupted", message="The service stopped before this job finished. It was not automatically resubmitted.", finished_at=now())
                 self.store.put(job, "job")
 
     def save(self, raw, content, source, title, demo=False, warning=None, extension=None):
@@ -98,10 +100,31 @@ class Service:
                          {"kind": "demo", "reference_quality": "authored_svg_not_generated"},
                          "Stillwater at dawn", demo=True, extension="svg")
 
+    def create_recipe(self, settings):
+        if self.engine is None:
+            raise Problem("Start the service with a configured Comfy runtime to create a generation recipe.", 409)
+        raw = {"generation_profile": PROFILE, "checkpoint_sha256": CHECKPOINT_SHA256,
+               "meta": {**settings, "resources": [{"name": CHECKPOINT, "type": "checkpoint", "hash": CHECKPOINT_SHA256}]}}
+        return self.save(raw, None, {"kind": "authored", "acquired_at": now(), "reference_quality": "no_source_image"},
+                         "SDXL · " + settings["prompt"][:65])
+
     def reproduce(self, identifier):
         record = self.store.get(identifier)
         if not record["demo"]:
-            raise Problem("Real generation is not connected yet. Your source recipe is saved; exact model resolution and a tested Comfy runtime are required before reproduction.", 409)
+            if self.engine is None:
+                raise Problem("Real generation is not connected yet. Your source recipe is saved; exact model resolution and a tested Comfy runtime are required before reproduction.", 409)
+            graph = workflow(record)
+            if any(job["status"] in {"queued", "running", "unknown"} and job.get("engine") == "comfy" for job in self.store.list("job")):
+                raise Problem("A generation is already active or awaiting inspection. Finish or resolve it before starting another.", 409)
+            job = {"id": str(uuid.uuid4()), "import_id": identifier, "created_at": now(), "status": "queued",
+                   "engine": "comfy", "comparison": "not_tested", "message": "Preparing the SDXL model",
+                   "recipe": record["recipe"], "workflow": graph, "workflow_json": json.dumps(graph, indent=2),
+                   "runtime": self.engine.identity, "output": None, "prompt_id": None}
+            self.store.put(job, "job")
+            task = asyncio.create_task(self.run_generation(job))
+            self.tasks.add(task)
+            task.add_done_callback(self.tasks.discard)
+            return job
         job = {"id": str(uuid.uuid4()), "import_id": identifier, "created_at": now(), "status": "queued",
                "engine": "demo", "comparison": "not_applicable", "message": "Preparing the demo preview",
                "recipe": record["recipe"], "output": None}
@@ -110,6 +133,27 @@ class Service:
         self.tasks.add(task)
         task.add_done_callback(self.tasks.discard)
         return job
+
+    async def run_generation(self, job):
+        def accepted(prompt_id):
+            job.update(prompt_id=prompt_id, status="running", message="Generating on your GPU")
+            self.store.put(job, "job")
+        try:
+            content = await self.engine.generate(job["workflow"], accepted)
+            details, _ = inspect_image(content)
+            if any(details[key] != job["recipe"]["fields"][key] for key in ("width", "height")):
+                raise Problem("The generated image dimensions differ from the submitted recipe. No result was accepted.", 502)
+            job.update(status="completed", finished_at=now(), image=details,
+                       output=self.store.artifact(content, details["encoding"]),
+                       message="Generated with SDXL. Recipe, model SHA-256 and workflow are saved; source matching has not been evaluated.")
+        except asyncio.CancelledError:
+            job.update(status="interrupted", finished_at=now(), message="Generation interrupted by service shutdown. It was not resubmitted.")
+        except Problem as exc:
+            job.update(status="unknown" if exc.status == 504 else "failed", finished_at=now(), message=exc.message)
+        except Exception:
+            job.update(status="unknown", finished_at=now(),
+                       message="Generation status could not be confirmed. Inspect the runtime log and restart the service before retrying; no job was resubmitted.")
+        self.store.put(job, "job")
 
     async def run_demo(self, job, record):
         try:
@@ -129,3 +173,5 @@ class Service:
             task.cancel()
         if self.tasks:
             await asyncio.gather(*self.tasks, return_exceptions=True)
+        if self.engine:
+            await self.engine.close()

@@ -36,6 +36,11 @@ def main(argv=None):
     serve.add_argument("--data-dir", type=Path, default=Path(os.environ.get("REMIXFUN_DATA_DIR", user_data_path("Remixfun", appauthor=False))))
     serve.add_argument("--web-dir", type=Path)
     serve.add_argument("--instance", default="headless")
+    serve.add_argument("--comfy-root", type=Path, help="Manage the pinned local SDXL runtime in this directory")
+    recipe = sub.add_parser("create")
+    recipe.add_argument("prompt")
+    recipe.add_argument("--seed", default="42")
+    recipe.add_argument("--json", action="store_true")
     for name in ("health", "list", "demo", "jobs"):
         sub.add_parser(name).add_argument("--json", action="store_true")
     imp = sub.add_parser("import")
@@ -59,12 +64,16 @@ def main(argv=None):
             args.data_dir.mkdir(parents=True, exist_ok=True)
             try:
                 with FileLock(args.data_dir / "service.lock", timeout=0):
-                    app = create_app(args.data_dir, args.web_dir or default_web, instance=args.instance)
+                    from .engine import Comfy
+                    engine = Comfy(args.comfy_root, args.data_dir / "logs") if args.comfy_root else None
+                    app = create_app(args.data_dir, args.web_dir or default_web, instance=args.instance, engine=engine)
                     uvicorn.run(app, host=args.host, port=args.port, access_log=False)
             except Timeout as exc:
                 raise RuntimeError("This library is already open in another Remixfun service. Attach to that service instead.") from exc
             return 0
-        if args.command == "import":
+        if args.command == "create":
+            result = request(args.service, "POST", "/api/recipes", json={"prompt": args.prompt, "seed": args.seed})
+        elif args.command == "import":
             if args.source.startswith("https://"):
                 result = request(args.service, "POST", "/api/imports", json={"url": args.source})
             else:
@@ -73,7 +82,7 @@ def main(argv=None):
         elif args.command == "reproduce":
             result = request(args.service, "POST", f"/api/imports/{args.id}/reproduce")
             if args.wait:
-                deadline = time.monotonic() + 120
+                deadline = time.monotonic() + 660
                 while result["status"] in {"queued", "running"}:
                     if time.monotonic() > deadline:
                         raise RuntimeError(f"Wait timed out; job {result['id']} remains saved.")
@@ -85,7 +94,7 @@ def main(argv=None):
                             "show": ("GET", f"/api/imports/{getattr(args, 'id', '')}")}[args.command]
             result = request(args.service, method, path)
         print(json.dumps(result, ensure_ascii=True, indent=2))
-        return 1 if isinstance(result, dict) and result.get("status") in {"failed", "interrupted"} else 0
+        return 1 if isinstance(result, dict) and result.get("status") in {"failed", "interrupted", "unknown"} else 0
     except (RuntimeError, OSError) as exc:
         print(json.dumps({"error": str(exc)}), file=sys.stderr)
         return 1
