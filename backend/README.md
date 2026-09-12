@@ -1,4 +1,6 @@
 # Application service
 
-Reserved for the Python/FastAPI service and headless CLI.
-See [architecture](../docs/topics/architecture.md). Implementation pending.
+Python/FastAPI owns imports, conservative recipe normalization, SQLite records,
+content-addressed source files and explicit demo jobs. The CLI uses the same API.
+See [development](../DEVELOPMENT.md) for startup and tests, and
+[architecture](../docs/topics/architecture.md) for implemented/planned boundaries.

@@ -1,6 +1,31 @@
 # Product
 
-Status: accepted direction; application implementation pending.
+Status: local import/library preview implemented; generation remains planned.
+
+## Implemented local preview
+
+Import a public Civitai image URL or upload a PNG/JPEG/WebP (25 MB maximum).
+The service saves source bytes, SHA-256, source provenance and raw metadata,
+and normalizes common A1111 fields without adding generation defaults. URL
+acquisition requests full metadata and verifies the returned image ID. Civitai
+access denial is actionable; authenticated acquisition and tRPC fallback are
+not implemented. Embedded Comfy graphs are retained, not flattened or executed.
+
+The library survives restart and exports a JSON source/recipe manifest. Model,
+version, file and reported hash evidence remain separate and unresolved; no
+models are downloaded or substituted. Unknown source fields stay visible under
+collapsed details. Source dimensions are distinct from generation dimensions.
+Unsigned 64-bit seeds cross the API as decimal strings without rounding.
+Raw evidence also has a JSON-text representation so the browser can display
+large source integers without JavaScript number rounding.
+
+An authored landscape demo illustrates the saved recipe and asynchronous result
+flow. It reuses the sample SVG, explicitly labels its output as demo, and never
+reports generation, similarity or pixel-equality evidence. Real imports reject
+reproduction with an actionable 409 response until a tested runtime and exact
+model resolution exist. Remixing and animation are not exposed as working actions.
+
+## Intended complete experience
 
 Remixfun makes Civitai image reproduction and remixing straightforward. The
 normal path is import → reproduce → remix → animate, with advanced controls

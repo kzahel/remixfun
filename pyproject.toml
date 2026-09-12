@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "remixfun"
+version = "0.1.0"
+description = "Local image recipe workspace and shared application service"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.34,<1",
+    "httpx>=0.28,<1",
+    "pillow>=11,<13",
+    "python-multipart>=0.0.20,<1",
+    "platformdirs>=4,<5",
+    "filelock>=3.32.6",
+]
+
+[project.scripts]
+remixfun = "remixfun.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pyinstaller>=6,<7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend/remixfun"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

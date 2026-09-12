@@ -1,6 +1,22 @@
 # Remixfun product and implementation plan
 
-**Status: current build plan, 2026-09-12.** The user has decided to build the app. Competitive trials are not a prerequisite. The existing research remains reference material; this document supersedes its recommendations to delay implementation for competitor testing. No application/runtime code or model downloads have been implemented yet.
+**Status: current build plan, 2026-09-12.** The first local app slice is implemented: shared service/CLI, browser import/library, explicit demo jobs and Windows developer shell. Model downloads and real generation remain unimplemented. See [local preview evidence](../evidence/local-preview.md). Competitive trials remain outside the implementation prerequisites.
+
+### Local preview checkpoint
+
+The user requested a runnable basic version, screenshots, a commit, and a stop
+at a reasonable signing/publishing handoff. The local preview provides the app
+and service payload to package. Continue operational work using the
+[signed delivery plan](signed-desktop-delivery.md), with private provisioning
+and deployment performed on an infrastructure-equipped machine.
+
+M0 is partial: the core import/result flow, persistence, CLI and desktop shell
+exist. Public SDXL fixture acquisition, current Comfy profile selection and
+real engine work remain open. Anonymous Civitai acquisition returned HTTP 403
+from the development machine; original-image upload and recorded-response
+tests work. No public reproduction fixture or image-match result was invented.
+The authored demo is only a UI/service fixture. Full M1 reproduction acceptance
+still gates a supported reproduction release, even if signing setup starts now.
 
 ## 1. Product contract
 
@@ -57,7 +73,7 @@ tests/fixtures/              Recorded provider metadata and recipe fixtures
 tests/gpu/                   Explicit real-engine reproduction/upgrade tests
 ```
 
-Proposed CLI contract (design examples, not available commands):
+Target CLI contract (the implemented subset is documented in [development](../../DEVELOPMENT.md)):
 
 ```text
 remixfun serve

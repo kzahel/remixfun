@@ -26,3 +26,7 @@ runtimes/
 *.pem
 *.log
 AGENTS.local.md
+desktop/binaries/
+desktop/gen/
+*.spec
+.e2e-data/

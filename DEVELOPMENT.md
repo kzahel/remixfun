@@ -1,7 +1,52 @@
 # Development
 
-Remixfun is in repository bootstrap. Generation, desktop packaging, and signed
-publication are planned; there is no runnable application yet.
+Remixfun has a local import/library application, shared service and CLI, and a
+Windows Tauri developer shell. Demo jobs exercise persistence and result flow;
+real generation, model acquisition, signed installers and publication remain
+planned. See the [local preview evidence](docs/evidence/local-preview.md).
+
+## Run the local app
+
+Install Python 3.12+, uv, and Node 24. From the repository root:
+
+```sh
+uv sync --locked
+npm ci --prefix web
+npm --prefix web run build
+uv run remixfun serve
+```
+
+Open `http://127.0.0.1:8788`. Try **Open demo**, a public Civitai image URL,
+or an original PNG with A1111 metadata. Civitai can deny anonymous API access;
+the UI explains this and supports original-image upload. Demo output reuses an
+authored illustration and is never classified as reproduced or generated.
+
+The default data directory comes from `platformdirs` (`Remixfun`, no app author).
+Override it with `--data-dir "path with spaces"` or `REMIXFUN_DATA_DIR`.
+Only one service can open a library. The service binds to loopback; remote
+listening and credentials are not exposed in this preview.
+
+For frontend hot reload, keep the service running and run `npm --prefix web run
+dev` in another terminal. Vite proxies `/api` to the same service.
+
+```sh
+uv run remixfun demo --json
+uv run remixfun list --json
+uv run remixfun import https://civitai.com/images/12345 --json
+uv run remixfun import original.png --json
+uv run remixfun reproduce <demo-import-id> --wait --json
+```
+
+For the unsigned Windows desktop folder, install Rust with MSVC build tools
+and WebView2, then run `uv run python scripts/build_local.py`. Open
+`dist/desktop-preview/Remixfun.exe`; keep the entire folder together. This build
+needs no signing credentials. It attaches to a compatible independent service
+or starts its bundled service, and only stops the service it owns.
+
+For development, after building the frontend and sidecar once, use
+`cargo run --manifest-path desktop/Cargo.toml`. See the
+[delivery handoff](docs/tactical/signed-desktop-delivery.md) before packaging
+installers or publishing. macOS/Linux desktop packaging is not implemented.
 
 ## Documentation ownership
 
@@ -35,8 +80,27 @@ python -X utf8 scripts/check_repo.py
 git diff --check
 ```
 
-GitHub Actions runs these checks on Windows, macOS, and Linux. These are
-repository checks, not application builds or installed-app verification.
+Application checks:
+
+```sh
+uv run pytest -q
+npm --prefix web run build
+uv run python scripts/smoke_service.py
+cd web
+npx playwright install chromium
+npm test
+```
+
+The browser suite starts its own service on port 8791 with an ignored test
+library. The process smoke uses an isolated temporary library and an available
+port. After packaging, also run `uv run python scripts/smoke_service.py
+--executable dist/desktop-preview/remixfun-service.exe` and
+`cargo test --locked --manifest-path desktop/Cargo.toml`.
+
+GitHub Actions is configured for repository and service/frontend checks on
+Windows, macOS, and Linux, browser tests on Linux, and an unsigned Windows
+developer folder. Hosted results are pending until pushed and run. These
+checks do not establish installed-app, signing, update, or GPU acceptance.
 
 For local research maintenance with the sibling reference clones available:
 

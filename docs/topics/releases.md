@@ -1,7 +1,8 @@
 # Signed desktop delivery
 
-Status: contract and product configuration scaffolded. Installer builds,
-signing credentials, live route registration, and publication are not wired yet.
+Status: unsigned Windows developer-folder build and CI configuration implemented.
+Installer builds, signing credentials, updater integration, live route registration,
+and publication are not wired yet. See the [handoff](../tactical/signed-desktop-delivery.md).
 
 ## Shared foundation
 
@@ -13,10 +14,18 @@ finalizer; it is an operational reference, not an exported reusable workflow.
 
 Remixfun owns its branding, service packaging, release identity, updater key,
 channel setting, and [product registration](../../update-server/remixfun.json).
-Use the existing simple-app-update-server and deployment guidance in the local
-dotfiles checkout: `projects/desktop-release-platform/README.md`,
+Use the existing simple-app-update-server and deployment guidance on a machine
+with the private dotfiles checkout and infrastructure access:
+`projects/desktop-release-platform/README.md`,
 `runbooks/desktop-code-signing.md`, and the Pi update-server runbook. Do not
 copy private machine inventory or signing material into this public repo.
+
+Local app work and unsigned build scaffolding do not require that machine.
+Signing provisioning, repository secret uploads, update-server deployment and
+inventory-backed installed acceptance are a separate operational handoff.
+Do not assume the current development machine has usable dotfiles or publisher
+access. A CI artifact named `unsigned-windows-developer-preview` is a development
+folder, not a signed release or installer, and must not enter the updater feed.
 
 ## Stable and Nightly
 

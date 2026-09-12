@@ -1,6 +1,8 @@
 # Testing and evidence
 
-Status: portable repository CI exists; application and installer tests pending.
+Status: service/domain tests, browser flow tests and process smoke checks exist.
+Local Windows evidence is in [local preview](../evidence/local-preview.md).
+Hosted CI, installed-artifact acceptance and GPU reproduction remain unverified.
 
 Use pure CPU tests for metadata normalization, exact dependency resolution,
 recipe diffs, seed/batch search, and lineage. Replay provider responses and use a
