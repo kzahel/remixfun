@@ -12,6 +12,8 @@ remain unverified. [Local SDXL generation](../evidence/local-sdxl-generation.md)
 records a real GPU output created through the app, separate from mock tests.
 The [beetle attempt](../evidence/beetle-attempt.md) records two identical local
 imported-recipe outputs that differ from the public source.
+The [Mac CPU-RNG sweep](../evidence/civitai-cpu-sweep.md) records four additional
+public SDXL Base sources tested with real Comfy/MPS graphs and no source match.
 
 The [Civitai provider evidence](../evidence/civitai-page-import.md) separates
 historical user-supplied findings, a live HTTP import, and offline parser,
