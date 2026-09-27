@@ -10,6 +10,7 @@ decoded pixels compare equal to the saved reference.
 | --- | --- | --- | --- |
 | 141984808 | https://civitai.com/images/141984808 | `artifacts/civitai-141984808/`, `artifacts/beetle-attempt/` | Attempted with exact SDXL VAE-fix checkpoint. Local repeats were deterministic, but saved Civitai reference did not pixel-match. |
 | 141866240 | https://civitai.com/images/141866240 | `artifacts/civitai-141866240/`, `artifacts/castle-attempt/` | Attempted with exact RealBlueJuggernautMix checkpoint. Seed offsets 0-7 did not pixel-match. |
+| 1760948 | https://civitai.com/images/1760948 | `artifacts/ginger-attempt/` | Simplest current Mac target: one already-installed SDXL Base checkpoint, no LoRAs, Euler, 1024 × 1024. Two MPS attempts were identical to each other but differed from the source. See [ginger attempt](ginger-attempt.md). |
 | 117446208 | https://civitai.com/images/117446208 | `artifacts/civitai-samples/117446208/` | Metadata-rich, but blocked before generation: Illustrious/Pony/NoobAI LoRA stack, hash-only resources without exact versions, ADetailer/TI/hash extras, and non-SDXL-1.0 checkpoint profile. |
 | 142257543 | https://civitai.com/images/142257543 | `artifacts/civitai-samples/142257543/` | Metadata-rich, but blocked before generation: SDXL checkpoint plus three LoRAs, inline `DPM++ 2M Karras` sampler/scheduler spelling, workflow/ecosystem extras, and prompt model references. |
 

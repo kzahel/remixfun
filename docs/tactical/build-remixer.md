@@ -14,10 +14,11 @@ M0 is partial: the core import/result flow, persistence, CLI and desktop shell
 exist. A pinned Comfy 0.35.0 / CUDA profile now generates an authored SDXL test
 recipe through the app. An Apple Silicon/MPS source-service profile also
 generates an authored SDXL Base image through the CLI and retains it across
-service restart. Mac desktop packaging and imported-source attempts on MPS
-remain open. Public SDXL source/model acquisition is now verified; the beetle
-now runs through an imported attempt profile and repeats locally,
-with a source non-match. Exact imported-source reproduction remains open.
+service restart. An imported SDXL Base attempt now also runs repeatably on MPS,
+with a source non-match. Mac desktop packaging remains open. Public SDXL
+source/model acquisition is now verified; the beetle also runs through an
+imported attempt profile and repeats locally, with a source non-match. Exact
+imported-source reproduction remains open.
 The original preview's anonymous Civitai request
 returned HTTP 403. The provider now reads embedded page data using the user's
 subsequent live findings, with REST limited to preview-URL enrichment. This
@@ -26,7 +27,9 @@ source JPEG, selected-metadata replay and model-version file evidence. The model
 is SD XL v1.0 VAE fix, acquired and used by the attempt. Scheduler
 and batch evidence remain missing; effective assumptions are saved separately.
 See [provider evidence](../evidence/civitai-page-import.md) and the
-[beetle attempt](../evidence/beetle-attempt.md).
+[beetle attempt](../evidence/beetle-attempt.md). The
+[Mac ginger attempt](../evidence/ginger-attempt.md) reused the installed SDXL
+Base checkpoint and required no additional model download.
 No public reproduction fixture or image-match result was invented.
 The authored demo is only a UI/service fixture. Full M1 reproduction acceptance
 still gates a supported reproduction release, even if signing setup starts now.

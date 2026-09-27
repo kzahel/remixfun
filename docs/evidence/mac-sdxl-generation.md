@@ -4,6 +4,8 @@ Date: 2026-09-27. Source service on an Apple M4 Pro Mac with 48 GiB unified
 memory, macOS 26.6.2. This verifies new authored SDXL Base image generation
 through Remixfun's CLI and managed Comfy process. It does not verify a Mac
 desktop package, Civitai model acquisition, or imported-source reproduction.
+An imported-source MPS attempt was subsequently run; see the
+[ginger evidence](ginger-attempt.md).
 
 ## Runtime and model
 

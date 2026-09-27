@@ -46,8 +46,10 @@ acquisition but does not configure the optional GPU runtime.
 On Apple Silicon, the source service and CLI can generate an authored SDXL Base
 image with the pinned MPS profile. The opt-in `scripts/verify_gpu_cli.py` checks
 the real CLI job and saved output across service restart. See
-[Mac GPU evidence](docs/evidence/mac-sdxl-generation.md). macOS desktop
-packaging and imported-source pixel matching remain unverified.
+[Mac GPU evidence](docs/evidence/mac-sdxl-generation.md). An imported Civitai
+SDXL attempt also runs repeatably on MPS, but differs from its source; see the
+[ginger attempt](docs/evidence/ginger-attempt.md). macOS desktop packaging and
+exact imported-source reproduction remain open.
 
 For frontend hot reload, keep the service running and run `npm --prefix web run
 dev` in another terminal. Vite proxies `/api` to the same service.

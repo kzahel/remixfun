@@ -1,9 +1,10 @@
 # Imported SDXL attempts
 
 Status: an initial imported text-to-image attempt profile is implemented.
-Image 141984808 was run twice on the local Windows GPU; both attempts were
-identical to one another and different from the source. See the
-[beetle evidence](../evidence/beetle-attempt.md). Exact source reproduction,
+Image 141984808 was run twice on the local Windows GPU, and image 1760948 was
+run twice on Apple Silicon/MPS. Each pair repeated locally but differed from
+its public source. See the [beetle evidence](../evidence/beetle-attempt.md)
+and [Mac ginger evidence](../evidence/ginger-attempt.md). Exact source reproduction,
 batch recovery, remix and animation acceptance remain open.
 
 ## Attempt contract
