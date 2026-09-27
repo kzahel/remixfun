@@ -1,8 +1,9 @@
 # Architecture
 
 Status: shared local service, browser/CLI clients, SQLite/artifact storage and
-Windows developer shell implemented. An optional managed Comfy SDXL profile
-runs through the source service. Remote listening remains planned.
+Windows developer shell implemented. Optional managed Comfy SDXL profiles run
+through the source service on verified Windows/NVIDIA and Apple Silicon/MPS
+setups. Remote listening remains planned.
 
 ## Current application boundary
 
@@ -31,7 +32,9 @@ update coordination still require the later runtime/lifecycle work.
 With `--comfy-root`, the service verifies the pinned Comfy revision, then starts
 its own runtime on an available loopback port. It verifies the selected checkpoint
 before generation. Managed cache aliases are supplied through extra model paths.
-CUDA is required for this profile. No custom or API nodes load. Graphs are
+The service requires CUDA on Windows/Linux and MPS on macOS; the Mac profile is
+validated for newly authored SDXL Base images. The selected device type is saved
+with the job runtime identity. No custom or API nodes load. Graphs are
 constructed from bounded authored or supported imported-recipe fields; arbitrary imported graphs are
 never executed. See the [runtime profile](../../runtime-profiles/README.md).
 
@@ -42,7 +45,7 @@ Shutdown cancels monitoring, marks the job interrupted and stops the owned
 runtime. Restart never resubmits jobs. Hard-crash child-process reconciliation
 is still manual. CPU tests cover these transitions; real GPU close/restart
 acceptance remains pending. The initial frozen desktop does not configure this
-optional source-service runtime.
+optional source-service runtime. macOS desktop packaging is not implemented.
 
 The preview has no remote bind option, native privileged web
 commands, updater, or external engine attachment. Host and Origin checks reject

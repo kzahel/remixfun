@@ -7,13 +7,15 @@ reproduce a baseline, and make it your own. Turn a selected image into video
 with a few curated workflows. Advanced controls stay hidden until needed.
 
 Planned as a Tauri desktop app with a shared web frontend and headless service.
-Windows/NVIDIA first; macOS and Linux remain intended targets. Signed installers
-will be built in CI, with separate **Stable** and **Nightly** update tracks,
+Windows/NVIDIA first; an Apple Silicon source-service GPU profile is verified.
+macOS desktop packaging and Linux GPU support remain intended targets. Signed
+installers will be built in CI, with separate **Stable** and **Nightly** tracks,
 using [Desktop Release Kit](https://github.com/kzahel/desktop-release-kit).
 
 **Status:** runnable local import/library preview, shared service/CLI, and a
-Windows desktop developer build. An optional source-service Comfy profile now
-generates new SDXL images and supported imported-recipe attempts on GPU. Exact source reproduction and signed
+Windows desktop developer build. Optional source-service Comfy profiles generate
+new SDXL images on Windows/NVIDIA and Apple Silicon/MPS; supported imported-recipe
+attempts have Windows GPU evidence. Exact source reproduction and signed
 installers remain planned. The illustrated demo remains separate from GPU output.
 
 ## Development
@@ -42,9 +44,11 @@ For real generation, follow the [SDXL runtime setup](runtime-profiles/README.md)
 the Tauri shell. `tests/` owns service tests and `web/tests/` browser tests.
 Provider design follows the Dreamtime source assessment, with conservative
 normalization and separate source evidence. The narrow Comfy adapter has
-[local GPU evidence](docs/evidence/local-sdxl-generation.md) and a repeatable
-[beetle attempt](docs/evidence/beetle-attempt.md) that differs from its source. Exact imported-source
-reproduction claims still require exact models and suitable public fixtures.
+[Windows GPU evidence](docs/evidence/local-sdxl-generation.md),
+[Mac GPU evidence](docs/evidence/mac-sdxl-generation.md), and a repeatable
+[beetle attempt](docs/evidence/beetle-attempt.md) that differs from its source.
+Exact imported-source reproduction claims still require exact models and
+suitable public fixtures.
 
 Source licensing is not yet selected. Third-party components retain their own
 licenses; reference clones and model weights are not included in this repository.

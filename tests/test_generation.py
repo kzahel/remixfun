@@ -15,7 +15,7 @@ from PIL import Image
 
 from remixfun.api import create_app
 from remixfun.domain import Problem
-from remixfun.engine import CHECKPOINT, CHECKPOINT_SHA256, Comfy, workflow
+from remixfun.engine import CHECKPOINT, CHECKPOINT_SHA256, Comfy, verified_gpu_device, workflow
 from remixfun.service import Service
 
 PNG = (Path(__file__).parent / "fixtures/metadata.png").read_bytes()
@@ -54,6 +54,14 @@ def finished(client, identifier):
             return job
         time.sleep(0.01)
     raise AssertionError("Job did not finish")
+
+
+@pytest.mark.parametrize("platform,device", [("darwin", "mps"), ("win32", "cuda"), ("linux", "cuda")])
+def test_gpu_profile_requires_the_primary_platform_device(platform, device):
+    primary = {"type": device, "name": "owned GPU"}
+    assert verified_gpu_device({"devices": [primary]}, platform) == primary
+    with pytest.raises(Problem, match=device.upper()):
+        verified_gpu_device({"devices": [{"type": "cpu"}, primary]}, platform)
 
 
 def test_generation_persists_workflow_seed_output_and_immutable_source(tmp_path):

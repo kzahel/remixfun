@@ -52,6 +52,9 @@ Comfy aliases use hardlinks or verified copies. Copy fallback and other queued
 transfers count toward free-space reservations, with a 256 MiB floor. Unknown
 sizes reserve a conservative maximum; a transfer cannot exceed 100 GiB. Managed
 damaged aliases can be repaired; external originals are never deleted.
+After creating a hardlink, the service rechecks the source hash and refreshes
+its file fingerprint because link creation can change inode metadata on POSIX.
+Later content changes still invalidate availability.
 
 Two transfer workers and one verifier run off the API event loop. Progress is
 periodically flushed/fsynced and persisted, including at stream exit. Resume

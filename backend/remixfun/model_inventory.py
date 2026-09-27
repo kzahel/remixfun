@@ -127,7 +127,7 @@ class Inventory:
                 "size": target.stat().st_size, "verified_at": time.time(), "file": file}
         self.put("blobs", digest, body)
         self.bind(file)
-        return body
+        return self.get("blobs", digest)
 
     def bind(self, file):
         blob = self.available(file["sha256"])
@@ -154,6 +154,18 @@ class Inventory:
                 shutil.copyfile(source, temporary)
                 self.verify(temporary, file["sha256"])
                 os.replace(temporary, target)
+            else:
+                # Creating a hardlink changes the source inode's ctime on POSIX.
+                # Recheck its bytes before saving the new fingerprint so the
+                # freshly verified blob remains available across restarts.
+                try:
+                    current = self.verify(source, file["sha256"])
+                except Problem:
+                    target.unlink()
+                    raise
+                if current != blob["fingerprint"]:
+                    blob["fingerprint"] = current
+                    self.put("blobs", file["sha256"], blob)
         return {"sha256": file["sha256"], "filename": target.name, "path": str(target), "file": file}
 
     def scan(self, paths, expected_files):

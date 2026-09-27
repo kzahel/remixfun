@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import socket
 import subprocess
+import sys
 import time
 
 import httpx
@@ -19,6 +20,14 @@ CHECKPOINT = "sd_xl_base_1.0.safetensors"
 CHECKPOINT_SHA256 = "31e35c80fc4829d14f90153f4c74cd59c90b779f6afe05a74cd6120b893f7e5b"
 PROFILE = "sdxl-base-txt2img-v1"
 MODEL_PROFILE = "sdxl-checkpoint-txt2img-v1"
+
+
+def verified_gpu_device(stats, platform=sys.platform):
+    required = "mps" if platform == "darwin" else "cuda"
+    devices = stats.get("devices") or []
+    if not devices or devices[0].get("type") != required:
+        raise Problem(f"The SDXL GPU profile requires an available {required.upper()} device.", 503)
+    return devices[0]
 
 
 def reproduction_blockers(record):
@@ -150,12 +159,12 @@ class Comfy:
                         response = await client.get("/system_stats")
                         response.raise_for_status()
                         stats = response.json()
-                        if not any(device.get("type") == "cuda" for device in stats.get("devices", [])):
-                            raise Problem("The SDXL GPU profile requires an available CUDA device.", 503)
+                        device = verified_gpu_device(stats)
                         system = stats["system"]
                         self.identity = {"comfy_revision": COMFY_REVISION, "default_checkpoint_sha256": CHECKPOINT_SHA256,
                             "supported_profiles": [PROFILE, MODEL_PROFILE, IMPORT_PROFILE], "torch_version": system.get("pytorch_version"),
-                            "python_version": system.get("python_version")}
+                            "python_version": system.get("python_version"), "device_type": device["type"],
+                            "device_name": device.get("name")}
                         return
                     except httpx.HTTPError:
                         await asyncio.sleep(0.5)

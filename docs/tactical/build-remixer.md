@@ -12,8 +12,11 @@ and deployment performed on an infrastructure-equipped machine.
 
 M0 is partial: the core import/result flow, persistence, CLI and desktop shell
 exist. A pinned Comfy 0.35.0 / CUDA profile now generates an authored SDXL test
-recipe through the app. Public SDXL source/model acquisition is now verified;
-the beetle now runs through an imported attempt profile and repeats locally,
+recipe through the app. An Apple Silicon/MPS source-service profile also
+generates an authored SDXL Base image through the CLI and retains it across
+service restart. Mac desktop packaging and imported-source attempts on MPS
+remain open. Public SDXL source/model acquisition is now verified; the beetle
+now runs through an imported attempt profile and repeats locally,
 with a source non-match. Exact imported-source reproduction remains open.
 The original preview's anonymous Civitai request
 returned HTTP 403. The provider now reads embedded page data using the user's

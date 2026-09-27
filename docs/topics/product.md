@@ -1,7 +1,9 @@
 # Product
 
 Status: local import/library, new SDXL generation and initial imported SDXL
-attempts implemented. Exact source reproduction, remixing and animation remain planned.
+attempts implemented. Authored SDXL Base generation also runs on Apple Silicon
+through a source-service MPS profile. Exact source reproduction, remixing and
+animation remain planned.
 
 ## Implemented local preview
 
@@ -68,7 +70,8 @@ for a new authored recipe. This does not substitute a model in an imported sourc
 Real jobs retain the submitted graph, decimal-text graph representation, model
 SHA-256, runtime identity and output bytes. The result view and download work
 even when the recipe has no source preview. These are newly generated images,
-not evidence of matching a Civitai source. See [GPU evidence](../evidence/local-sdxl-generation.md).
+not evidence of matching a Civitai source. See [Windows GPU evidence](../evidence/local-sdxl-generation.md)
+and [Mac GPU evidence](../evidence/mac-sdxl-generation.md).
 
 ## Intended complete experience
 

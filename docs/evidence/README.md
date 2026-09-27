@@ -11,3 +11,5 @@ See [testing](../topics/testing.md).
   user-supplied findings, offline regression coverage and live verification gap.
 - [Local SDXL generation](local-sdxl-generation.md): real GPU output through
   Remixfun's browser and shared service, with pinned runtime/model identities.
+- [Mac SDXL generation](mac-sdxl-generation.md): authored SDXL Base output
+  through the CLI, MPS runtime and source service, reopened after restart.

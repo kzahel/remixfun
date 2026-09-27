@@ -2,6 +2,9 @@
 
 Status: service/domain tests, browser flow tests and process smoke checks exist.
 Local Windows evidence is in [local preview](../evidence/local-preview.md).
+An Apple Silicon source-service CLI run with an MPS GPU is recorded in
+[Mac SDXL generation](../evidence/mac-sdxl-generation.md). This does not establish
+a packaged Mac desktop or imported-source reproduction.
 Hosted CI, installed-artifact acceptance and exact imported-source GPU reproduction
 remain unverified. [Local SDXL generation](../evidence/local-sdxl-generation.md)
 records a real GPU output created through the app, separate from mock tests.

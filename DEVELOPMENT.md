@@ -1,13 +1,14 @@
 # Development
 
 Remixfun has a local import/library application, shared service and CLI, and a
-Windows Tauri developer shell. An optional managed Comfy profile generates new
-SDXL images and supported imported-recipe attempts on the GPU through the source
-service. Exact source reproduction,
-signed installers and publication remain planned. Civitai model acquisition
-with verified downloads and resume is implemented; see [models](docs/topics/models.md).
-See the [local preview evidence](docs/evidence/local-preview.md) and
-[GPU evidence](docs/evidence/local-sdxl-generation.md).
+Windows Tauri developer shell. Optional managed Comfy profiles generate new
+SDXL images on Windows/NVIDIA and Apple Silicon/MPS through the source service.
+Exact source reproduction, signed installers and publication remain planned.
+Civitai model acquisition with verified downloads and resume is implemented;
+see [models](docs/topics/models.md).
+See the [local preview evidence](docs/evidence/local-preview.md),
+[Windows GPU evidence](docs/evidence/local-sdxl-generation.md), and
+[Mac GPU evidence](docs/evidence/mac-sdxl-generation.md).
 
 ## Run the local app
 
@@ -35,11 +36,18 @@ Override it with `--data-dir "path with spaces"` or `REMIXFUN_DATA_DIR`.
 Only one service can open a library. The service binds to loopback; remote
 listening is not exposed in this preview. Optional Civitai credentials use the OS store.
 
-For actual GPU generation, follow the [SDXL runtime setup](runtime-profiles/README.md)
+For actual GPU generation, follow the platform-specific
+[SDXL runtime setup](runtime-profiles/README.md)
 and run the source service with `--comfy-root`. The browser then offers new
 SDXL recipes and **Generate image**. The source import path does not substitute
 SDXL Base for an unresolved imported model. The frozen desktop supports model
 acquisition but does not configure the optional GPU runtime.
+
+On Apple Silicon, the source service and CLI can generate an authored SDXL Base
+image with the pinned MPS profile. The opt-in `scripts/verify_gpu_cli.py` checks
+the real CLI job and saved output across service restart. See
+[Mac GPU evidence](docs/evidence/mac-sdxl-generation.md). macOS desktop
+packaging and imported-source pixel matching remain unverified.
 
 For frontend hot reload, keep the service running and run `npm --prefix web run
 dev` in another terminal. Vite proxies `/api` to the same service.

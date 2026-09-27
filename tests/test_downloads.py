@@ -110,6 +110,18 @@ def test_file_selection_preserves_conflicts_and_ambiguous_variants():
     assert build_plan(source, choices={"0": "7"})["dependencies"][0]["status"] == "blocked"
 
 
+def test_hardlinked_model_stays_available_after_publish(tmp_path):
+    inventory = Inventory(tmp_path)
+    partial = tmp_path / "owned.partial"
+    partial.write_bytes(DATA)
+    published = inventory.publish(partial, FILE)
+    assert inventory.available(DIGEST) == published
+    assert Path(inventory.bind(FILE)["path"]).read_bytes() == DATA
+    assert inventory.available(DIGEST) == published
+    inventory.target(DIGEST).write_bytes(b"changed")
+    assert inventory.available(DIGEST) is None
+
+
 def test_local_http_completion_deduplication_and_changed_file(tmp_path):
     with origin() as (transport, calls):
         async def run():
