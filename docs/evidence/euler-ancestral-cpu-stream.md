@@ -81,6 +81,27 @@ component accounts for each difference.
   A trivial crop displacement or global color scaling does not explain the
   remaining error.
 
+## Upscaling and hardware hypotheses
+
+All four saved source PNGs are 1024 × 1024 and their embedded `parameters`
+contain no `Hires upscale`, `Hires resize`, `Hires upscaler`, `Denoising
+strength`, refiner, or other upscale setting. In the standard v1.5.1
+text-to-image path, [processing.py](https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/v1.5.1/modules/processing.py)
+adds hires size/upscale fields when Hires fix is active, and
+[txt2img.py](https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/v1.5.1/modules/txt2img.py)
+sets denoising strength for that path. A standard, reported Hires fix is
+therefore a weak explanation for these comparisons. Metadata can be removed
+or a later external postprocess can be unreported, so an upscale cannot be
+excluded from these records alone.
+
+The source generation hardware is unknown. Different GPU backends, Torch
+versions, precision choices, conditioning, and VAE behavior could contribute
+to the remaining pixel error. [PyTorch's reproducibility notes](https://docs.pytorch.org/docs/2.14/notes/randomness.html)
+explicitly caution that results may differ across platforms and releases.
+Our MPS fp32 VAE check narrows one factor, but no experiment here isolates
+GPU arithmetic as the cause. The upstream A1111 runtime has not been executed
+as part of this source review.
+
 Ignored raw graphs, logs, images, and JSON metrics are in
 `artifacts/civitai-rng-followup/`. The Comfy checkout and reference clones
 were left clean. This experiment did not change Remixfun's product graph or

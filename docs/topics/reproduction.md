@@ -13,6 +13,48 @@ The later [CPU-stream experiment](../evidence/euler-ancestral-cpu-stream.md)
 strongly improved three saved source comparisons, without reaching pixel equality
 or changing the implemented attempt profile.
 
+## Determinism investigation state (2026-09-28)
+
+The current investigation starts with [image 1785120](https://civitai.com/images/1785120):
+its source embeds A1111 v1.5.1, `RNG: CPU`, Euler a, and SDXL Base checkpoint
+hash `31e35c80fc`. Images [2027882](https://civitai.com/images/2027882)
+and [2124513](https://civitai.com/images/2124513) are additional saved SDXL
+Base fixtures. The [source review](../evidence/determinism-source-review.md)
+records the reference projects and their limitations; the
+[experiment report](../evidence/euler-ancestral-cpu-stream.md) records pinned
+source/runtime revisions, graph and model controls, pixel metrics, and next
+tests. Raw fixture data and the opt-in launcher are local ignored artifacts
+under `artifacts/civitai-rng-followup/`; they are not required to understand
+the checked-in evidence.
+
+The leading *tested* cause of the prior composition mismatch is Euler
+ancestral's per-step noise source. The pinned Comfy/MPS path draws extra noise
+on MPS, while the reviewed A1111 v1.5.1 single-image/no-ENSD CPU-RNG path
+uses a continuing CPU Torch stream. An in-memory Comfy patch made source RGB
+MAE fall from **43.2431 to 3.0322** for 1785120, with large improvements on
+the other two fixtures. A control reproduced the earlier output byte for
+byte. This supports the noise-stream explanation for much of the gap; every
+tested output still differs from its source. This is experimental evidence,
+not an implemented service option or an exact reproduction claim.
+
+An undisclosed upscaler and backend differences remain hypotheses. The four
+source PNGs have no reported hires, denoising, upscaler, or refiner fields;
+the standard A1111 v1.5.1 text-to-image path reports Hires fix settings.
+That makes a reported Hires fix unlikely, but does not establish original
+image provenance or exclude later processing. The original generation GPU is
+unknown. MPS versus another backend may contribute numerical differences,
+but the current experiment has not isolated that factor. For 1785120, forcing
+fp32 VAE lowered MAE only to **2.9718**; one-pixel shift and simple color
+scaling did not fix it.
+
+Next, locate the first remaining divergence in the 1785120 pipeline by
+comparing sigma schedules, conditioning and sampled latents before VAE. Use a
+same-runtime lossless graph replay to measure any platform-only difference,
+then inspect source-image provenance. If a compatible CPU stream becomes a
+service option, make it an explicit versioned profile with recorded noise
+mode and tests; never infer exactness from a close image. Revisit batch and
+seed offsets after the single-image pipeline is aligned.
+
 ## Attempt contract
 
 An import is immutable. `GET /api/imports/{id}/dependencies` includes a
