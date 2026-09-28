@@ -22,6 +22,8 @@ runtimes/
 /tmp/
 /temp/
 /test-evidence/
+# Source-only third-party research clones (never vendor or run them here).
+/references/
 .coverage
 .coverage.*
 htmlcov/

@@ -24,6 +24,11 @@ These roles are supported by code paths and installation/product documentation i
 
 **Do not use “deterministic” as an unconditional source-reproduction promise.** A fixed seed and model name are not sufficient. The source can omit important stages, and numerical results can differ across runtime releases, platforms, devices, and execution settings. PyTorch explicitly limits reproducibility guarantees across such changes.[^6]
 
+A [2026-09-28 source follow-up](../docs/evidence/determinism-source-review.md)
+recloned the closest replay tools on Mac and traced a concrete Euler ancestral
+CPU-noise mismatch candidate. It did not execute competitors or establish a
+pixel-identical Civitai replay.
+
 ## 2. Define the actual user job
 
 The user's request is more precise than “make something inspired by this image.” It is:

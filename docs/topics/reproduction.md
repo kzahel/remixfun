@@ -6,6 +6,9 @@ run twice on Apple Silicon/MPS. Each pair repeated locally but differed from
 its public source. See the [beetle evidence](../evidence/beetle-attempt.md)
 and [Mac ginger evidence](../evidence/ginger-attempt.md). Exact source reproduction,
 batch recovery, remix and animation acceptance remain open.
+The [determinism source review](../evidence/determinism-source-review.md) compares
+open-source Civitai replay claims and identifies per-step ancestral RNG as a
+specific untested cause of the Mac source mismatch.
 
 ## Attempt contract
 
