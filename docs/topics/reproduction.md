@@ -8,7 +8,10 @@ and [Mac ginger evidence](../evidence/ginger-attempt.md). Exact source reproduct
 batch recovery, remix and animation acceptance remain open.
 The [determinism source review](../evidence/determinism-source-review.md) compares
 open-source Civitai replay claims and identifies per-step ancestral RNG as a
-specific untested cause of the Mac source mismatch.
+specific candidate cause of the Mac source mismatch.
+The later [CPU-stream experiment](../evidence/euler-ancestral-cpu-stream.md)
+strongly improved three saved source comparisons, without reaching pixel equality
+or changing the implemented attempt profile.
 
 ## Attempt contract
 

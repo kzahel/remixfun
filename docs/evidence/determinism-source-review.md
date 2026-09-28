@@ -1,9 +1,11 @@
 # Civitai reproduction: source review of RNG and import competitors
 
-Date: 2026-09-28. Source and documentation review only: no reference project
-was installed, imported into Comfy, or run. The existing [Mac CPU-RNG sweep](civitai-cpu-sweep.md)
+Date: 2026-09-28. Source/documentation review plus a model-free Torch probe:
+no reference project was installed, imported into Comfy, or run. The existing [Mac CPU-RNG sweep](civitai-cpu-sweep.md)
 is the measured Remixfun result; claims made in competitor comments and READMEs
 are not independently verified pixel matches.
+The [subsequent experiment](euler-ancestral-cpu-stream.md) used the original
+images' A1111 v1.5.1 version marker and tested per-step CPU noise in Comfy.
 
 ## Local source set and prior research
 
