@@ -47,7 +47,7 @@ run reproduced the previously saved output **byte for byte** (SHA-256
 `a1817a29ba3a580039adb14f904451bc271fdfedd20a4c5e08548ad511d7ec5b`).
 That validates the comparison harness before interpreting the variant.
 
-The same CPU-stream patch was then tested on two more saved SDXL Base graphs.
+The same CPU-stream patch was then tested on three more saved SDXL Base graphs.
 Every number below compares decoded RGB to the saved 1024 × 1024 Civitai PNG,
 without resize or alignment. Lower MAE is closer; neither MAE nor correlation
 is a proof of pixel equality.
@@ -57,11 +57,33 @@ is a proof of pixel equality.
 | [1785120](https://civitai.com/images/1785120) | 43.2431 | **3.0322** | 0.3939 → **0.9895** | 2.31% → **82.66%** |
 | [2027882](https://civitai.com/images/2027882) | 39.8354 | **10.3866** | 0.4830 → **0.9335** | 1.46% → **28.84%** |
 | [2124513](https://civitai.com/images/2124513) | 38.7538 | **8.4644** | 0.4704 → **0.9743** | 1.30% → **35.71%** |
+| [2124515](https://civitai.com/images/2124515) | 46.3346 | **6.5327** | 0.3664 → **0.9699** | 9.53% → **55.31%** |
 
-All three CPU variants still have differing pixels, so **none is an exact
+All four CPU variants still have differing pixels, so **none is an exact
 reproduction**. The repeated, large improvement supports per-step RNG as a
 major cause of the previous failure. It does not establish which remaining
 component accounts for each difference.
+
+## Cohort and distribution limits
+
+The four CPU-stream MAEs are **3.0322, 6.5327, 8.4644, and 10.3866**
+(mean **7.1040**, median **7.4986**, range **3.0322–10.3866**). Thus all four
+were materially closer at their recorded seeds, and zero were pixel-equal.
+All four assume a `normal` scheduler; three also assume an empty negative
+prompt and CLIP layer -2. Low MAE on this selected cohort is
+not a rate of exact or close reproduction for SDXL Base images in general.
+
+To check the sampling boundary, a read-only cursor walk of the first 6,000
+`Oldest` gallery records for Civitai model version `126601`, with metadata,
+found only 12 records simultaneously reporting 1024 × 1024, Euler a, and
+`RNG: CPU`. Four of those lacked apparent extra-model, refiner, hires, or
+denoising fields in gallery metadata: precisely the four page-verified PNG
+fixtures above. This is a bounded, filtered cohort, not a random sample of
+all SDXL Base generations. Two fixtures are from one post. Gallery metadata
+may omit dependencies, so each source still required page-level checking.
+The search does not measure how often unreported batch position changes the
+effective seed; the close recorded-seed results offer no evidence that a
+batch scan is needed for these four.
 
 ## Narrow follow-up controls
 
